@@ -36,11 +36,11 @@ export default function ServicesSection() {
   return (
     <motion.section
       style={{ willChange: 'transform' }}
-      className="bg-bg py-12 lg:py-24 overflow-hidden"
+      className="bg-bg py-10 lg:py-24 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4">
         <motion.div
-          className="text-center mb-8 lg:mb-16"
+          className="text-center mb-6 lg:mb-16"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-40px' }}
@@ -66,23 +66,23 @@ export default function ServicesSection() {
               className="h-px bg-gold"
             ></motion.span>
           </div>
-          <h2 className="font-heading text-2xl lg:text-5xl font-bold text-textPrimary tracking-tight">
+          <h2 className="font-heading text-2xl lg:text-4xl font-bold text-textPrimary tracking-tight">
             Comprehensive Support at Every Step
           </h2>
-          <p className="text-textSecondary mt-4 max-w-lg mx-auto text-sm lg:text-base leading-relaxed">
+          <p className="text-textSecondary mt-4 max-w-lg mx-auto text-sm lg:text-lg leading-relaxed line-clamp-1 lg:line-clamp-none">
             From choosing the right course to landing in your dream country, we provide end-to-end assistance for your study abroad journey.
           </p>
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-40px' }}
           variants={staggerGrid}
           layout={false}
         >
-          {services.slice(0, 3).map((service, index) => (
+          {services.map((service, index) => (
             <motion.div
               key={index}
               variants={scaleUp}
@@ -93,69 +93,38 @@ export default function ServicesSection() {
                 stiffness: 400,
                 damping: 17
               }}
-              className="bg-white rounded-3xl p-6 lg:p-10 border border-gray-100 group cursor-pointer active:brightness-95 card-hover card-hover-royal relative overflow-hidden"
+              className={`bg-white rounded-2xl p-4 lg:p-8 border border-gray-100 group cursor-pointer active:brightness-95 card-hover card-hover-royal relative overflow-hidden ${index >= 3 ? 'hidden sm:block' : ''}`}
             >
               <Link href="/services" className="absolute inset-0 z-10" />
               <div className="w-8 h-0.5 bg-gold rounded mb-4"></div>
               <motion.div
                 layout={false}
-                className="w-14 h-14 rounded-2xl bg-gradient-to-br from-royal/10 to-royal/5 flex items-center justify-center mb-4 group-hover:rotate-6 group-hover:scale-110 transition-transform duration-300 card-icon"
+                className="w-10 h-10 lg:w-14 lg:h-14 rounded-xl lg:rounded-2xl bg-gradient-to-br from-royal/10 to-royal/5 flex items-center justify-center mb-3 lg:mb-6 group-hover:rotate-6 group-hover:scale-110 transition-transform duration-300 card-icon"
               >
-                <service.icon className="text-royal w-7 h-7" />
+                <service.icon className="text-royal w-5 h-5 lg:w-7 lg:h-7" />
               </motion.div>
-              <h3 className="font-heading text-lg lg:text-xl font-bold text-textPrimary mt-4">
+              <h3 className="font-heading text-base lg:text-xl font-bold text-textPrimary mt-1.5 lg:mt-3">
                 {service.title}
               </h3>
-              <p className="text-textSecondary text-sm lg:text-base leading-relaxed mt-3">
+              <p className="text-textSecondary text-xs lg:text-base leading-relaxed mt-3 lg:mt-6 line-clamp-2 lg:line-clamp-none">
                 {service.desc}
               </p>
               <div
-                className="inline-flex items-center gap-1 text-royal text-sm font-semibold mt-6 hover:gap-2 transition-all group-hover:text-royalLight relative z-20"
+                className="inline-flex items-center gap-1 text-royal text-xs lg:text-sm font-semibold mt-6 hover:gap-2 transition-all group-hover:text-royalLight relative z-20"
               >
                 Learn More
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-3 h-3 lg:w-4 lg:h-4 group-hover:translate-x-1 transition-transform" />
               </div>
             </motion.div>
           ))}
-
-          <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:flex justify-center gap-8">
-            {services.slice(3).map((service, index) => (
-              <motion.div
-                key={index + 3}
-                variants={scaleUp}
-                layout={false}
-                whileTap={{ scale: 0.95 }}
-                transition={{
-                  type: 'spring',
-                  stiffness: 400,
-                  damping: 17
-                }}
-                className="w-full lg:max-w-sm bg-white rounded-3xl p-6 lg:p-10 border border-gray-100 group cursor-pointer active:brightness-95 card-hover card-hover-royal relative overflow-hidden"
-              >
-                <Link href="/services" className="absolute inset-0 z-10" />
-                <div className="w-8 h-0.5 bg-gold rounded mb-4"></div>
-                <motion.div
-                  layout={false}
-                  className="w-14 h-14 rounded-2xl bg-gradient-to-br from-royal/10 to-royal/5 flex items-center justify-center mb-4 group-hover:rotate-6 group-hover:scale-110 transition-transform duration-300 card-icon"
-                >
-                  <service.icon className="text-royal w-7 h-7" />
-                </motion.div>
-                <h3 className="font-heading text-lg lg:text-xl font-bold text-textPrimary mt-4">
-                  {service.title}
-                </h3>
-                <p className="text-textSecondary text-sm lg:text-base leading-relaxed mt-3">
-                  {service.desc}
-                </p>
-                <div
-                  className="inline-flex items-center gap-1 text-royal text-sm font-semibold mt-6 hover:gap-2 transition-all group-hover:text-royalLight relative z-20"
-                >
-                  Learn More
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </motion.div>
-            ))}
-          </div>
         </motion.div>
+
+        <div className="sm:hidden text-center mt-4">
+          <Link href="/services"
+            className="text-[#2F6BFF] text-sm font-semibold">
+            View all services →
+          </Link>
+        </div>
       </div>
     </motion.section>
   );

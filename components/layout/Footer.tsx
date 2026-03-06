@@ -41,12 +41,12 @@ export default function Footer() {
       viewport={{ once: true, margin: '-50px' }}
       variants={staggerContainer}
       style={{ willChange: 'transform' }}
-      className="bg-navy border-t-2 border-gold/40 pt-10 pb-8 lg:pt-16 overflow-hidden"
+      className="bg-navy border-t-2 border-gold/40 py-8 lg:py-16 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 pb-8 lg:pb-12">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-12 pb-8 lg:pb-12 text-center lg:text-left">
           {/* Col 1 - Brand */}
-          <motion.div variants={fadeUp} layout={false} className="col-span-2 lg:col-span-1">
+          <motion.div variants={fadeUp} layout={false} className="col-span-2 lg:col-span-1 flex flex-col items-center lg:items-start">
             <Link href="/" className="flex items-center gap-2 mb-4">
               <Globe2 className="w-8 h-8 text-gold" />
               <span className="font-heading font-bold text-xl">
@@ -54,10 +54,10 @@ export default function Footer() {
                 <span className="text-gold">Abroad</span>
               </span>
             </Link>
-            <p className="text-white/50 text-xs lg:text-sm mt-3 leading-relaxed max-w-[280px]">
+            <p className="text-white/50 text-xs lg:text-sm mt-3 leading-relaxed max-w-[280px] line-clamp-1 lg:line-clamp-none">
               Helping students achieve their international education dreams since 2015.
             </p>
-            <div className="flex items-center gap-3 mt-6">
+            <div className="flex items-center gap-2 lg:gap-4 mt-6">
               {socialLinks.map(({ Icon, href }, i) => (
                 <motion.div
                   key={i}
@@ -73,9 +73,9 @@ export default function Footer() {
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-9 h-9 rounded-xl bg-white/8 hover:bg-gold/20 border border-white/10 hover:border-gold/40 flex items-center justify-center text-white/60 hover:text-gold transition-all"
+                    className="w-7 h-7 lg:w-9 lg:h-9 rounded-lg lg:rounded-xl bg-white/8 hover:bg-gold/20 border border-white/10 hover:border-gold/40 flex items-center justify-center text-white/60 hover:text-gold transition-all"
                   >
-                    <Icon className="w-4 h-4" />
+                    <Icon className="w-3.5 h-3.5 lg:w-4 lg:h-4" />
                   </a>
                 </motion.div>
               ))}
@@ -83,9 +83,9 @@ export default function Footer() {
           </motion.div>
 
           {/* Col 2 - Quick Links */}
-          <motion.div variants={fadeUp} layout={false}>
+          <motion.div variants={fadeUp} layout={false} className="flex flex-col items-center lg:items-start text-center lg:text-left">
             <h3 className="text-white font-semibold mb-3 lg:mb-4 text-sm lg:text-base">Quick Links</h3>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col space-y-1.5 lg:space-y-3">
               {[
                 { label: "Home", href: "/" },
                 { label: "Services", href: "/services" },
@@ -110,7 +110,7 @@ export default function Footer() {
           {/* Col 3 - Destinations */}
           <motion.div variants={fadeUp} layout={false} className="hidden lg:block">
             <h3 className="text-white font-semibold mb-4">Study Destinations</h3>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col space-y-3">
               {["USA", "United Kingdom", "Canada", "Australia", "Germany", "Ireland"].map((link) => (
                 <motion.div key={link} whileHover={{ x: 4 }} transition={{ duration: 0.2 }} layout={false}>
                   <Link
@@ -125,9 +125,9 @@ export default function Footer() {
           </motion.div>
 
           {/* Col 4 - Contact */}
-          <motion.div variants={fadeUp} layout={false}>
+          <motion.div variants={fadeUp} layout={false} className="flex flex-col items-center lg:items-start text-center lg:text-left">
             <h3 className="text-white font-semibold mb-3 lg:mb-4 text-sm lg:text-base">Contact Us</h3>
-            <div className="flex flex-col gap-3 mb-6">
+            <div className="flex flex-col space-y-1.5 lg:space-y-3 mb-6">
               <a
                 href="https://maps.google.com"
                 target="_blank"
@@ -188,7 +188,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-white/30 text-[10px] lg:text-xs">
+        <div className="mt-6 lg:mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-2 text-white/30 text-xs text-center lg:text-left">
           <p>© 2024 ElevateAbroad<span className="hidden sm:inline">. All rights reserved.</span></p>
           <div className="hidden sm:flex gap-4">
             <Link href="/contact" className="hover:text-white/60 transition-colors">Privacy Policy</Link>

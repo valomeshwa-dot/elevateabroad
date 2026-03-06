@@ -50,7 +50,7 @@ export default function HeroSection() {
 
   return (
     <motion.section
-      className="relative min-h-screen lg:min-h-screen bg-navy pt-24 pb-12 lg:pt-32 lg:pb-20 flex items-center overflow-hidden hero-section"
+      className="relative min-h-[auto] lg:min-h-screen bg-navy pt-20 pb-8 lg:pt-32 lg:pb-20 flex items-center overflow-hidden hero-section"
       layout={false}
     >
       {/* NEW — Pixel Grid Background */}
@@ -108,12 +108,12 @@ export default function HeroSection() {
             <motion.div
               variants={fadeUp}
               layout={false}
-              className="bg-gold/15 border border-gold/40 text-gold/90 rounded-full px-4 py-1.5 text-xs font-semibold tracking-wide inline-block mb-6 relative z-10"
+              className="bg-gold/15 border border-gold/40 text-gold/90 rounded-full px-3 py-1.5 text-xs font-semibold tracking-wide inline-block mb-6 relative z-10"
             >
               ✦ TRUSTED BY 5,000+ STUDENTS WORLDWIDE
             </motion.div>
 
-            <h1 className="font-heading text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1]">
+            <h1 className="font-heading text-[2rem] lg:text-7xl font-bold tracking-tight text-white leading-[1.1]">
               {h1Lines.map((line, i) => (
                 <span key={i} className="block overflow-hidden">
                   <motion.span
@@ -132,7 +132,7 @@ export default function HeroSection() {
               variants={fadeUp}
               transition={{ delay: 0.35 }}
               layout={false}
-              className="text-white/60 text-base lg:text-xl leading-relaxed mt-5 max-w-md"
+              className="text-white/60 text-sm lg:text-xl leading-relaxed mt-5 max-w-md line-clamp-2 lg:line-clamp-none"
             >
               We help students secure admissions at leading universities across the UK, USA, Canada, Australia, and Europe.
             </motion.p>
@@ -141,17 +141,17 @@ export default function HeroSection() {
               variants={fadeUp}
               transition={{ delay: 0.45 }}
               layout={false}
-              className="flex flex-col sm:flex-row gap-4 mt-8 lg:mt-10"
+              className="flex flex-col sm:flex-row gap-3 mt-8 lg:mt-10"
             >
               <Link
                 href="/contact"
-                className="w-full sm:w-auto bg-gradient-to-br from-[#2F6BFF] to-[#5B8CFF] text-white px-8 py-4 rounded-xl font-semibold text-base hover:shadow-xl hover:shadow-[#2F6BFF]/40 active:scale-95 hover:scale-[1.03] transition-all text-center"
+                className="w-full lg:w-auto bg-gradient-to-br from-[#2F6BFF] to-[#5B8CFF] text-white px-5 py-3 lg:px-8 lg:py-4 rounded-xl font-semibold text-sm lg:text-base hover:shadow-xl hover:shadow-[#2F6BFF]/40 active:scale-95 hover:scale-[1.03] transition-all text-center"
               >
                 Book Free Consultation
               </Link>
               <Link
                 href="/universities"
-                className="w-full sm:w-auto border-2 border-gold/60 text-gold px-8 py-4 rounded-xl font-semibold hover:bg-gold/10 active:scale-95 hover:scale-[1.03] transition-all text-center"
+                className="w-full lg:w-auto border-2 border-gold/60 text-gold px-5 py-3 lg:px-8 lg:py-4 rounded-xl font-semibold text-sm lg:text-base hover:bg-gold/10 active:scale-95 hover:scale-[1.03] transition-all text-center"
               >
                 Explore Universities
               </Link>
@@ -165,31 +165,31 @@ export default function HeroSection() {
             >
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="text-gold w-4 h-4" />
-                <span className="text-white/50 text-sm">Free Consultation</span>
+                <span className="text-white/50 text-xs lg:text-sm">Free Consultation</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="text-gold w-4 h-4" />
-                <span className="text-white/50 text-sm">No Hidden Fees</span>
+                <span className="text-white/50 text-xs lg:text-sm">No Hidden Fees</span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="hidden sm:flex items-center gap-2">
                 <CheckCircle2 className="text-gold w-4 h-4" />
-                <span className="text-white/50 text-sm">Expert Guidance</span>
+                <span className="text-white/50 text-xs lg:text-sm">Expert Guidance</span>
               </div>
             </motion.div>
 
             {/* Mobile-only CTA Box */}
-            <div className="lg:hidden mt-6 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-4 flex items-center justify-between">
+            <div className="lg:hidden mt-4 flex items-center justify-between bg-white/10 rounded-2xl p-3 border border-white/20">
               <div>
-                <p className="text-white font-semibold text-sm">
+                <p className="text-white text-xs font-semibold">
                   Free Consultation
                 </p>
-                <p className="text-white/60 text-xs">
-                  Get expert guidance today
+                <p className="text-white/60 text-[10px]">
+                  Expert guidance today
                 </p>
               </div>
               <Link href="/contact"
-                className="bg-[#2F6BFF] text-white px-4 py-2 rounded-xl text-sm font-semibold whitespace-nowrap flex-shrink-0">
-                Book Now
+                className="bg-[#2F6BFF] text-white px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap">
+                Book Now →
               </Link>
             </div>
           </div>

@@ -18,10 +18,10 @@ export default function StatsSection() {
       viewport={{ once: true, margin: '-40px' }}
       variants={staggerContainer}
       layout={false}
-      className="bg-white py-10 lg:py-16 border-t-4 border-t-gold"
+      className="bg-white py-8 lg:py-16 border-t-4 border-t-gold"
     >
       <div className="max-w-7xl mx-auto px-4">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-6">
           {stats.map((stat, index) => (
             <motion.div
               key={index}
@@ -33,13 +33,13 @@ export default function StatsSection() {
                 stiffness: 500,
                 damping: 15
               }}
-              className="bg-bg rounded-2xl p-4 lg:p-8 text-center border border-gray-100 group cursor-pointer active:brightness-95 card-hover-stat"
+              className="bg-bg rounded-2xl p-4 lg:p-6 text-center border border-gray-100 group cursor-pointer active:brightness-95 card-hover-stat"
             >
-              <div className="text-3xl lg:text-5xl font-bold text-royal font-heading tracking-tight card-icon">
+              <div className="text-2xl lg:text-4xl font-bold text-royal font-heading tracking-tight card-icon">
                 <AnimatedCounter target={stat.target} suffix={stat.suffix} />
               </div>
               <motion.div
-                className="w-10 h-1 bg-gold mx-auto mt-3 rounded-full"
+                className="w-6 lg:w-10 h-1 bg-gold mx-auto mt-3 rounded-full"
                 initial={{ width: 0 }}
                 whileInView={{ width: 40 }}
                 viewport={{ once: true }}

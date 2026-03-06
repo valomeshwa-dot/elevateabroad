@@ -39,7 +39,7 @@ export default function LeadCaptureSection() {
 
   return (
     <motion.section
-      className="relative bg-gradient-to-br from-navy via-[#1a3a6e] to-navy py-12 lg:py-24 overflow-hidden"
+      className="relative bg-gradient-to-br from-navy via-[#1a3a6e] to-navy py-10 lg:py-24 overflow-hidden"
       layout={false}
     >
       {/* Glow orb */}
@@ -58,7 +58,7 @@ export default function LeadCaptureSection() {
       ></motion.div>
 
       <div className="relative max-w-7xl mx-auto px-4 z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-16 items-center">
           {/* LEFT SIDE */}
           <motion.div
             variants={slideInLeft}
@@ -68,7 +68,7 @@ export default function LeadCaptureSection() {
             layout={false}
           >
             <motion.div variants={staggerContainer} initial="hidden" animate="visible" layout={false}>
-              <h2 className="font-heading text-2xl lg:text-5xl font-bold text-white tracking-tight leading-tight">
+              <h2 className="font-heading text-2xl lg:text-4xl font-bold text-white tracking-tight leading-tight">
                 <motion.span variants={fadeUp} className="block" transition={{ delay: 0.1 }} layout={false}>Start Your Study Abroad</motion.span>
                 <motion.span variants={fadeUp} className="text-gold block" transition={{ delay: 0.2 }} layout={false}>Journey Today</motion.span>
               </h2>
@@ -86,7 +86,7 @@ export default function LeadCaptureSection() {
                   viewport={{ once: true, margin: '-40px' }}
                   transition={{ delay: index * 0.1 }}
                   layout={false}
-                  className={`flex items-center gap-3 ${index >= 3 ? 'hidden lg:flex' : 'flex'}`}
+                  className={`items-center gap-3 ${index >= 3 ? 'hidden lg:flex' : 'flex'}`}
                 >
                   <CheckCircle2 className="w-5 h-5 text-gold flex-shrink-0" />
                   <span className="text-white/80 text-sm">{point}</span>
@@ -104,100 +104,33 @@ export default function LeadCaptureSection() {
             layout={false}
             transition={{ delay: 0.2 }}
           >
-            <div className="bg-white rounded-3xl p-6 lg:p-10 shadow-2xl border border-white/20">
-              <h3 className="text-xl lg:text-2xl font-bold text-textPrimary font-heading mb-4 lg:mb-6">
+            <div className="bg-white rounded-3xl p-5 lg:p-8 shadow-2xl border border-white/20">
+              <h3 className="text-lg lg:text-2xl font-bold text-textPrimary font-heading mb-4 lg:mb-6">
                 Book Your Free Consultation
               </h3>
               <div className="w-12 h-1 bg-gold rounded-full mb-6 lg:mb-8"></div>
 
-              {isSuccess ? (
-                <div className="bg-green-50 border border-green-200 rounded-2xl p-8 text-center">
-                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <CheckCircle2 className="w-8 h-8 text-green-600" />
-                  </div>
-                  <h4 className="text-xl font-bold text-green-800 mb-2">Request Received!</h4>
-                  <p className="text-green-600 text-sm">
-                    Thank you for reaching out. One of our expert counselors will contact you shortly.
-                  </p>
-                </div>
-              ) : (
-                <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
-                  {[
-                    { label: "Full Name", type: "text", placeholder: "Your full name" },
-                    { label: "Email Address", type: "email", placeholder: "your@email.com" },
-                    { label: "Phone Number", type: "tel", placeholder: "+91 XXXXX XXXXX" },
-                    { label: "Preferred Country", type: "select" },
-                    { label: "Preferred Course", type: "text", placeholder: "e.g. Computer Science, MBA" }
-                  ].map((field, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: '-40px' }}
-                      transition={{ delay: index * 0.08 }}
-                      layout={false}
-                    >
-                      <label className="block text-xs font-semibold text-textSecondary uppercase tracking-wide mb-1.5">
-                        {field.label}
-                      </label>
-                      {field.type === "select" ? (
-                        <select
-                          className="w-full border border-gray-200 rounded-xl px-4 py-3.5 text-sm focus:outline-none focus:border-royal focus:ring-2 focus:ring-royal/20 transition-all bg-white text-gray-700"
-                          required
-                          defaultValue=""
-                        >
-                          <option value="" disabled>Select a country</option>
-                          <option value="usa">USA</option>
-                          <option value="uk">UK</option>
-                          <option value="canada">Canada</option>
-                          <option value="australia">Australia</option>
-                          <option value="germany">Germany</option>
-                          <option value="ireland">Ireland</option>
-                          <option value="other">Other</option>
-                        </select>
-                      ) : (
-                        <input
-                          type={field.type}
-                          placeholder={field.placeholder}
-                          className="w-full border border-gray-200 rounded-xl px-4 py-3.5 text-sm focus:outline-none focus:border-royal focus:ring-2 focus:ring-royal/20 transition-all"
-                          required
-                        />
-                      )}
-                    </motion.div>
-                  ))}
+              {/* Tally Iframe optimized for mobile */}
+              <iframe
+                data-tally-src="https://tally.so/embed/D41K0q?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+                loading="lazy"
+                width="100%"
+                height="520"
+                frameBorder={0}
+                marginHeight={0}
+                marginWidth={0}
+                title="Consultation Booking Form"
+                className="w-full lg:h-[520px]"
+                style={{
+                  minHeight: '420px',
+                  height: '450px'
+                }}
+              />
+              <script async src="https://tally.so/widgets/embed.js"></script>
 
-                  <motion.button
-                    type="submit"
-                    disabled={isSubmitting}
-                    whileTap={{ scale: 0.98 }}
-                    layout={false}
-                    className="relative overflow-hidden w-full py-4 rounded-xl font-semibold text-base text-white bg-gradient-to-r from-royal to-royalLight transition-all mt-4 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center hover:scale-[1.02] hover:shadow-[0_10px_40px_rgba(47,107,255,0.4)] transition-all duration-300 group"
-                  >
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -skew-x-12"
-                      animate={{ x: ['-100%', '200%'] }}
-                      transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        repeatDelay: 3,
-                        ease: 'easeInOut'
-                      }}
-                      layout={false}
-                    />
-                    <span className="relative z-10">
-                      {isSubmitting ? (
-                        <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                      ) : (
-                        "Book Free Consultation →"
-                      )}
-                    </span>
-                  </motion.button>
-
-                  <p className="text-gray-400 text-xs text-center mt-4">
-                    🔒 Your information is secure and never shared.
-                  </p>
-                </form>
-              )}
+              <p className="text-gray-400 text-[10px] lg:text-xs text-center mt-4">
+                🔒 Your information is secure and never shared.
+              </p>
             </div>
           </motion.div>
         </div>

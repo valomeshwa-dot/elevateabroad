@@ -30,12 +30,12 @@ export default function TestimonialsSection() {
 
   return (
     <motion.section
-      className="bg-bg py-12 lg:py-24 overflow-hidden"
+      className="bg-bg py-10 lg:py-24 overflow-hidden"
       layout={false}
     >
       <div className="max-w-7xl mx-auto px-4">
         <motion.div
-          className="text-center mb-8 lg:mb-16"
+          className="text-center mb-6 lg:mb-16"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-40px' }}
@@ -47,16 +47,16 @@ export default function TestimonialsSection() {
             SUCCESS STORIES
             <span className="w-8 h-px bg-gold"></span>
           </div>
-          <h2 className="font-heading text-2xl lg:text-5xl font-bold text-textPrimary tracking-tight">
+          <h2 className="font-heading text-2xl lg:text-4xl font-bold text-textPrimary tracking-tight">
             Hear From Our Students
           </h2>
-          <p className="text-textSecondary mt-4 max-w-lg mx-auto text-sm lg:text-base leading-relaxed">
+          <p className="hidden lg:block text-textSecondary mt-4 max-w-lg mx-auto text-base leading-relaxed">
             Join thousands of successful students who have achieved their dreams with ElevateAbroad.
           </p>
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-8"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-40px' }}
@@ -74,7 +74,7 @@ export default function TestimonialsSection() {
                 stiffness: 400,
                 damping: 17
               }}
-              className={`bg-white rounded-3xl p-6 lg:p-10 border border-gray-100 flex flex-col group cursor-pointer active:brightness-95 card-hover card-hover-soft relative overflow-hidden ${index > 0 ? 'hidden lg:block' : ''}`}
+              className={`bg-white rounded-2xl p-5 lg:p-8 border border-gray-100 flex flex-col group cursor-pointer active:brightness-95 card-hover card-hover-soft relative overflow-hidden ${index > 0 ? 'hidden lg:block' : ''}`}
             >
               <Link href="/success-stories" className="absolute inset-0 z-10" />
               <motion.div
@@ -88,7 +88,7 @@ export default function TestimonialsSection() {
                 &quot;
               </motion.div>
 
-              <p className="text-textPrimary text-sm lg:text-base leading-relaxed italic font-medium flex-grow relative z-20">
+              <p className="text-textPrimary text-sm lg:text-base leading-relaxed italic font-medium flex-grow relative z-20 line-clamp-3 lg:line-clamp-none">
                 {testimonial.quote}
               </p>
 
@@ -99,7 +99,7 @@ export default function TestimonialsSection() {
                   {testimonial.initials}
                 </div>
                 <div>
-                  <h3 className="font-bold text-textPrimary text-sm">{testimonial.name}</h3>
+                  <h3 className="font-bold text-textPrimary text-xs lg:text-sm">{testimonial.name}</h3>
                   <p className="text-royal text-xs mt-0.5">{testimonial.university}</p>
                   <p className="text-textSecondary text-xs">{testimonial.course}</p>
                 </div>
@@ -123,11 +123,11 @@ export default function TestimonialsSection() {
           ))}
         </motion.div>
 
-        {/* Mobile Read More */}
-        <div className="lg:hidden text-center mt-6">
+        {/* Mobile Link */}
+        <div className="lg:hidden text-center mt-3">
           <Link href="/success-stories"
-            className="text-[#2F6BFF] font-semibold text-sm underline">
-            Read all success stories →
+            className="text-[#2F6BFF] text-sm font-semibold">
+            Read all stories →
           </Link>
         </div>
 
@@ -146,7 +146,7 @@ export default function TestimonialsSection() {
           </Link>
           <Link
             href="/contact"
-            className="bg-gradient-to-r from-royal to-royalLight text-white px-8 py-4 rounded-xl font-semibold hover:shadow-lg hover:shadow-royal/30 active:scale-95 hover:scale-[1.02] transition-all text-center"
+            className="w-full sm:w-auto bg-gradient-to-r from-royal to-royalLight text-white px-8 py-4 rounded-xl font-semibold hover:shadow-lg hover:shadow-royal/30 active:scale-95 hover:scale-[1.02] transition-all text-center"
           >
             Book Free Consultation
           </Link>

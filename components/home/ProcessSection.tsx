@@ -35,12 +35,12 @@ export default function ProcessSection() {
 
   return (
     <motion.section
-      className="bg-white py-12 lg:py-24 overflow-hidden"
+      className="bg-white py-10 lg:py-24 overflow-hidden"
       layout={false}
     >
       <div className="max-w-7xl mx-auto px-4">
         <motion.div
-          className="text-center mb-8 lg:mb-16"
+          className="text-center mb-6 lg:mb-16"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-40px' }}
@@ -52,10 +52,10 @@ export default function ProcessSection() {
             HOW IT WORKS
             <span className="w-8 h-px bg-gold"></span>
           </div>
-          <h2 className="font-heading text-2xl lg:text-5xl font-bold text-textPrimary tracking-tight">
+          <h2 className="font-heading text-2xl lg:text-4xl font-bold text-textPrimary tracking-tight">
             Your Journey With Us
           </h2>
-          <p className="text-textSecondary mt-4 max-w-lg mx-auto text-sm lg:text-base leading-relaxed">
+          <p className="text-textSecondary mt-4 max-w-lg mx-auto text-sm lg:text-base leading-relaxed line-clamp-2 lg:line-clamp-none">
             A streamlined, transparent process designed to maximize your chances of success.
           </p>
         </motion.div>
@@ -71,7 +71,7 @@ export default function ProcessSection() {
             layout={false}
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 lg:gap-6">
             {steps.map((step, index) => (
               <motion.div
                 key={index}
@@ -85,19 +85,19 @@ export default function ProcessSection() {
                   opacity: { duration: 0.6, delay: 0.1 + index * 0.2 },
                   y: { duration: 0.6, delay: 0.1 + index * 0.2 },
                 }}
-                className="text-center relative z-10 group cursor-pointer active:brightness-95 card-hover-step"
+                className={`text-center relative z-10 group cursor-pointer active:brightness-95 card-hover-step p-3 lg:p-6 rounded-2xl ${index >= 3 ? 'hidden sm:block' : ''}`}
               >
                 <Link href="/contact" className="absolute inset-0 z-10" />
                 <div
-                  className="w-16 h-16 rounded-full border-2 border-gold bg-white mx-auto flex items-center justify-center shadow-lg shadow-gold/20 step-number relative z-20"
+                  className="w-10 h-10 lg:w-12 lg:h-12 rounded-full border-2 border-gold bg-white mx-auto flex items-center justify-center shadow-lg shadow-gold/20 step-number relative z-20 mb-2 lg:mb-4"
                 >
-                  <span className="text-gold font-bold text-xl font-heading">{index + 1}</span>
+                  <span className="text-gold font-bold text-base lg:text-xl font-heading">{index + 1}</span>
                 </div>
                 <step.icon className="w-5 h-5 text-textSecondary mx-auto mt-4 card-icon relative z-20" />
                 <h3 className="font-heading font-bold text-textPrimary mt-3 text-sm lg:text-base group-hover:text-royal transition-colors duration-300 relative z-20">
                   {step.title}
                 </h3>
-                <p className="text-textSecondary text-xs lg:text-sm mt-2 max-w-[120px] lg:max-w-none mx-auto leading-relaxed relative z-20">
+                <p className="hidden lg:block text-textSecondary text-sm mt-2 max-w-[120px] lg:max-w-none mx-auto leading-relaxed relative z-20">
                   {step.desc || ('prepare' in step ? (step as { prepare: string }).prepare : '')}
                 </p>
               </motion.div>
@@ -114,7 +114,7 @@ export default function ProcessSection() {
         >
           <Link
             href="/contact"
-            className="bg-gradient-to-r from-royal to-royalLight text-white px-8 py-4 rounded-xl font-semibold hover:shadow-lg hover:shadow-royal/30 active:scale-95 hover:scale-[1.02] transition-all"
+            className="w-full lg:w-auto bg-gradient-to-r from-royal to-royalLight text-white px-8 py-4 rounded-xl font-semibold hover:shadow-lg hover:shadow-royal/30 active:scale-95 hover:scale-[1.02] transition-all text-center"
           >
             Start Your Journey
           </Link>
