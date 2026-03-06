@@ -39,7 +39,7 @@ export default function LeadCaptureSection() {
 
   return (
     <motion.section
-      className="relative bg-gradient-to-br from-navy via-[#1a3a6e] to-navy py-24 overflow-hidden"
+      className="relative bg-gradient-to-br from-navy via-[#1a3a6e] to-navy py-12 lg:py-24 overflow-hidden"
       layout={false}
     >
       {/* Glow orb */}
@@ -58,7 +58,7 @@ export default function LeadCaptureSection() {
       ></motion.div>
 
       <div className="relative max-w-7xl mx-auto px-4 z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* LEFT SIDE */}
           <motion.div
             variants={slideInLeft}
@@ -68,12 +68,12 @@ export default function LeadCaptureSection() {
             layout={false}
           >
             <motion.div variants={staggerContainer} initial="hidden" animate="visible" layout={false}>
-              <h2 className="font-heading text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight">
+              <h2 className="font-heading text-2xl lg:text-5xl font-bold text-white tracking-tight leading-tight">
                 <motion.span variants={fadeUp} className="block" transition={{ delay: 0.1 }} layout={false}>Start Your Study Abroad</motion.span>
                 <motion.span variants={fadeUp} className="text-gold block" transition={{ delay: 0.2 }} layout={false}>Journey Today</motion.span>
               </h2>
             </motion.div>
-            <p className="text-white/60 text-base mt-4 leading-relaxed">
+            <p className="text-white/60 text-sm lg:text-base mt-4 leading-relaxed">
               Take the first step towards your international education. Our experts are ready to guide you.
             </p>
 
@@ -86,7 +86,7 @@ export default function LeadCaptureSection() {
                   viewport={{ once: true, margin: '-40px' }}
                   transition={{ delay: index * 0.1 }}
                   layout={false}
-                  className="flex items-center gap-3"
+                  className={`flex items-center gap-3 ${index >= 3 ? 'hidden lg:flex' : 'flex'}`}
                 >
                   <CheckCircle2 className="w-5 h-5 text-gold flex-shrink-0" />
                   <span className="text-white/80 text-sm">{point}</span>
@@ -104,11 +104,11 @@ export default function LeadCaptureSection() {
             layout={false}
             transition={{ delay: 0.2 }}
           >
-            <div className="bg-white rounded-3xl p-10 shadow-2xl border border-white/20">
-              <h3 className="text-2xl font-bold text-textPrimary font-heading mb-6">
+            <div className="bg-white rounded-3xl p-6 lg:p-10 shadow-2xl border border-white/20">
+              <h3 className="text-xl lg:text-2xl font-bold text-textPrimary font-heading mb-4 lg:mb-6">
                 Book Your Free Consultation
               </h3>
-              <div className="w-12 h-1 bg-gold rounded-full mb-8"></div>
+              <div className="w-12 h-1 bg-gold rounded-full mb-6 lg:mb-8"></div>
 
               {isSuccess ? (
                 <div className="bg-green-50 border border-green-200 rounded-2xl p-8 text-center">

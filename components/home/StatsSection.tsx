@@ -18,10 +18,10 @@ export default function StatsSection() {
       viewport={{ once: true, margin: '-40px' }}
       variants={staggerContainer}
       layout={false}
-      className="bg-white py-24 border-t-4 border-t-gold"
+      className="bg-white py-10 lg:py-16 border-t-4 border-t-gold"
     >
       <div className="max-w-7xl mx-auto px-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((stat, index) => (
             <motion.div
               key={index}
@@ -33,9 +33,9 @@ export default function StatsSection() {
                 stiffness: 500,
                 damping: 15
               }}
-              className="bg-bg rounded-2xl p-10 text-center border border-gray-100 group cursor-pointer active:brightness-95 card-hover-stat"
+              className="bg-bg rounded-2xl p-4 lg:p-8 text-center border border-gray-100 group cursor-pointer active:brightness-95 card-hover-stat"
             >
-              <div className="text-6xl font-bold text-royal font-heading tracking-tight card-icon">
+              <div className="text-3xl lg:text-5xl font-bold text-royal font-heading tracking-tight card-icon">
                 <AnimatedCounter target={stat.target} suffix={stat.suffix} />
               </div>
               <motion.div
@@ -46,7 +46,7 @@ export default function StatsSection() {
                 transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
                 layout={false}
               />
-              <div className="text-textSecondary text-sm uppercase tracking-[0.15em] mt-3 font-medium">{stat.label}</div>
+              <div className="text-textSecondary text-xs lg:text-sm uppercase tracking-[0.15em] mt-3 font-medium">{stat.label}</div>
             </motion.div>
           ))}
         </div>

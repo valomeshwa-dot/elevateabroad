@@ -2,6 +2,7 @@
 import { CheckCircle2, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from 'next/link';
+import Image from 'next/image';
 import { fadeUp, fadeUpSubtle, slideInRight, staggerContainer, scaleUp } from "@/lib/animations";
 import PixelGrid from '@/components/ui/PixelGrid'
 
@@ -16,52 +17,40 @@ export default function HeroSection() {
 
   const countries = [
     {
-      code: 'US',
+      code: 'us',
       name: 'United States',
       count: '4,000+ Universities',
-      from: '#6366F1',
-      to: '#8B5CF6'
     },
     {
-      code: 'UK',
+      code: 'gb',
       name: 'United Kingdom',
       count: '150+ Universities',
-      from: '#3B82F6',
-      to: '#1D4ED8'
     },
     {
-      code: 'CA',
+      code: 'ca',
       name: 'Canada',
       count: '100+ Universities',
-      from: '#EF4444',
-      to: '#DC2626'
     },
     {
-      code: 'AU',
+      code: 'au',
       name: 'Australia',
       count: '43+ Universities',
-      from: '#F97316',
-      to: '#EA580C'
     },
     {
-      code: 'DE',
+      code: 'de',
       name: 'Germany',
       count: '400+ Universities',
-      from: '#6B7280',
-      to: '#4B5563'
     },
     {
-      code: 'IE',
+      code: 'ie',
       name: 'Ireland',
       count: '30+ Universities',
-      from: '#22C55E',
-      to: '#16A34A'
     },
   ];
 
   return (
     <motion.section
-      className="relative min-h-screen bg-navy pt-32 pb-24 flex items-center overflow-hidden"
+      className="relative min-h-screen lg:min-h-screen bg-navy pt-24 pb-12 lg:pt-32 lg:pb-20 flex items-center overflow-hidden hero-section"
       layout={false}
     >
       {/* NEW — Pixel Grid Background */}
@@ -124,7 +113,7 @@ export default function HeroSection() {
               ✦ TRUSTED BY 5,000+ STUDENTS WORLDWIDE
             </motion.div>
 
-            <h1 className="font-heading text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1]">
+            <h1 className="font-heading text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1]">
               {h1Lines.map((line, i) => (
                 <span key={i} className="block overflow-hidden">
                   <motion.span
@@ -143,7 +132,7 @@ export default function HeroSection() {
               variants={fadeUp}
               transition={{ delay: 0.35 }}
               layout={false}
-              className="text-white/60 text-lg leading-relaxed mt-5 max-w-md"
+              className="text-white/60 text-base lg:text-xl leading-relaxed mt-5 max-w-md"
             >
               We help students secure admissions at leading universities across the UK, USA, Canada, Australia, and Europe.
             </motion.p>
@@ -152,17 +141,17 @@ export default function HeroSection() {
               variants={fadeUp}
               transition={{ delay: 0.45 }}
               layout={false}
-              className="flex flex-col sm:flex-row gap-4 mt-10"
+              className="flex flex-col sm:flex-row gap-4 mt-8 lg:mt-10"
             >
               <Link
                 href="/contact"
-                className="bg-gradient-to-br from-royal to-royalLight text-white px-8 py-4 rounded-xl font-semibold text-base hover:shadow-xl hover:shadow-royal/40 active:scale-95 hover:scale-[1.03] transition-all text-center"
+                className="w-full sm:w-auto bg-gradient-to-br from-[#2F6BFF] to-[#5B8CFF] text-white px-8 py-4 rounded-xl font-semibold text-base hover:shadow-xl hover:shadow-[#2F6BFF]/40 active:scale-95 hover:scale-[1.03] transition-all text-center"
               >
                 Book Free Consultation
               </Link>
               <Link
                 href="/universities"
-                className="border-2 border-gold/60 text-gold px-8 py-4 rounded-xl font-semibold hover:bg-gold/10 active:scale-95 hover:scale-[1.03] transition-all text-center"
+                className="w-full sm:w-auto border-2 border-gold/60 text-gold px-8 py-4 rounded-xl font-semibold hover:bg-gold/10 active:scale-95 hover:scale-[1.03] transition-all text-center"
               >
                 Explore Universities
               </Link>
@@ -172,7 +161,7 @@ export default function HeroSection() {
               variants={fadeUpSubtle}
               transition={{ delay: 0.55 }}
               layout={false}
-              className="mt-8 flex flex-wrap gap-6"
+              className="mt-8 flex flex-wrap gap-2 lg:gap-6"
             >
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="text-gold w-4 h-4" />
@@ -187,6 +176,22 @@ export default function HeroSection() {
                 <span className="text-white/50 text-sm">Expert Guidance</span>
               </div>
             </motion.div>
+
+            {/* Mobile-only CTA Box */}
+            <div className="lg:hidden mt-6 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-4 flex items-center justify-between">
+              <div>
+                <p className="text-white font-semibold text-sm">
+                  Free Consultation
+                </p>
+                <p className="text-white/60 text-xs">
+                  Get expert guidance today
+                </p>
+              </div>
+              <Link href="/contact"
+                className="bg-[#2F6BFF] text-white px-4 py-2 rounded-xl text-sm font-semibold whitespace-nowrap flex-shrink-0">
+                Book Now
+              </Link>
+            </div>
           </div>
 
           {/* RIGHT COLUMN */}
@@ -207,13 +212,14 @@ export default function HeroSection() {
                     className="flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-4 cursor-pointer hover:-translate-y-1 hover:bg-white/15 hover:border-white/30 transition-all duration-250"
                   >
                     {/* Flag */}
-                    <div
-                      className="w-12 h-12 rounded-xl flex items-center justify-center text-white font-bold text-base flex-shrink-0"
-                      style={{
-                        background: `linear-gradient(135deg, ${country.from}, ${country.to})`
-                      }}
-                    >
-                      {country.code}
+                    <div className="w-12 h-12 rounded-xl overflow-hidden flex-shrink-0 shadow-md">
+                      <Image
+                        src={`https://flagcdn.com/w80/${country.code}.png`}
+                        alt={`${country.name} flag`}
+                        width={80}
+                        height={60}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
 
                     {/* Text */}

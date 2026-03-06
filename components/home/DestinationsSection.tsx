@@ -1,5 +1,6 @@
 "use client"
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from "framer-motion";
 import { fadeUp, staggerGrid, scaleUp } from "@/lib/animations";
 
@@ -7,39 +8,39 @@ export default function DestinationsSection() {
   const destinations = [
     {
       country: "USA",
-      code: "US",
-      gradient: "from-blue-600 to-red-600",
+      code: "us",
       universities: ["MIT", "Harvard", "Stanford"],
     },
     {
       country: "UK",
-      code: "UK",
-      gradient: "from-blue-800 to-blue-500",
+      code: "gb",
       universities: ["Oxford", "Cambridge", "Imperial"],
     },
     {
       country: "Canada",
-      code: "CA",
-      gradient: "from-red-700 to-red-400",
+      code: "ca",
       universities: ["Toronto", "UBC", "McGill"],
     },
     {
       country: "Australia",
-      code: "AU",
-      gradient: "from-yellow-500 to-orange-500",
+      code: "au",
       universities: ["Melbourne", "ANU", "UNSW"],
     },
     {
       country: "Germany",
-      code: "DE",
-      gradient: "from-gray-700 to-gray-500",
+      code: "de",
       universities: ["TU Munich", "Heidelberg", "LMU"],
+    },
+    {
+      country: "Ireland",
+      code: "ie",
+      universities: ["Trinity College", "UCD", "GMIT"],
     },
   ];
 
   return (
     <motion.section
-      className="relative bg-navy py-24 overflow-hidden"
+      className="relative bg-navy py-12 lg:py-24 overflow-hidden"
       layout={false}
     >
       {/* Background texture */}
@@ -47,28 +48,28 @@ export default function DestinationsSection() {
 
       <div className="relative max-w-7xl mx-auto px-4 z-10">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-8 lg:mb-16"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-40px' }}
           variants={fadeUp}
           layout={false}
         >
-          <div className="flex items-center gap-3 justify-center text-gold text-xs font-bold uppercase tracking-[0.2em] mb-3">
+          <div className="flex items-center gap-3 justify-center text-gold text-[10px] lg:text-xs font-bold uppercase tracking-[0.2em] mb-3">
             <span className="w-8 h-px bg-gold/50"></span>
             WHERE TO STUDY
             <span className="w-8 h-px bg-gold/50"></span>
           </div>
-          <h2 className="font-heading text-4xl lg:text-5xl font-bold text-white tracking-tight">
+          <h2 className="font-heading text-2xl lg:text-5xl font-bold text-white tracking-tight">
             Top Study Destinations
           </h2>
-          <p className="text-white/70 mt-4 max-w-lg mx-auto text-base leading-relaxed">
+          <p className="text-white/70 mt-4 max-w-lg mx-auto text-sm lg:text-base leading-relaxed">
             Explore world-class education opportunities in the most sought-after countries for international students.
           </p>
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-40px' }}
@@ -86,18 +87,20 @@ export default function DestinationsSection() {
                 stiffness: 400,
                 damping: 17
               }}
-              className="bg-white/6 border border-white/10 rounded-3xl p-8 cursor-pointer active:brightness-95 group flex flex-col h-full card-hover card-hover-navy relative overflow-hidden"
+              className={`bg-white/6 border border-white/10 rounded-3xl p-8 cursor-pointer active:brightness-95 group flex flex-col h-full card-hover card-hover-navy relative overflow-hidden ${index >= 3 ? 'hidden sm:block' : ''}`}
             >
               <Link href="/destinations" className="absolute inset-0 z-10" />
               <div
-                className={`w-16 h-16 rounded-2xl 
-                mx-auto mb-5 flex items-center 
-                justify-center font-heading font-bold 
-                text-white text-xl bg-gradient-to-br
-                group-hover:scale-110 transition-transform duration-300
-                ${dest.gradient} country-badge`}
+                className="w-16 h-16 rounded-2xl overflow-hidden flex-shrink-0 shadow-lg mx-auto mb-5 group-hover:scale-110 transition-transform duration-300 country-badge"
               >
-                {dest.code}
+                <Image
+                  src={`https://flagcdn.com/w80/${dest.code}.png`}
+                  alt={`${dest.country} flag`}
+                  width={80}
+                  height={60}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
               </div>
               <h3 className="text-white font-heading font-bold text-lg text-center group-hover:text-gold transition-colors relative z-20">
                 {dest.country}
@@ -119,12 +122,20 @@ export default function DestinationsSection() {
           ))}
         </motion.div>
 
+        {/* View All on Mobile */}
+        <div className="sm:hidden text-center mt-6">
+          <Link href="/destinations"
+            className="text-[#2F6BFF] font-semibold text-sm underline">
+            View all destinations →
+          </Link>
+        </div>
+
         <motion.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="flex justify-center mt-12"
+          className="hidden sm:flex justify-center mt-12"
         >
           <Link
             href="/destinations"

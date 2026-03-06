@@ -30,27 +30,27 @@ export default function TestimonialsSection() {
 
   return (
     <motion.section
-      className="bg-bg py-24 overflow-hidden"
+      className="bg-bg py-12 lg:py-24 overflow-hidden"
       layout={false}
     >
       <div className="max-w-7xl mx-auto px-4">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-8 lg:mb-16"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-40px' }}
           variants={fadeUp}
           layout={false}
         >
-          <div className="flex items-center gap-3 justify-center text-royal text-xs font-bold uppercase tracking-[0.2em] mb-3">
+          <div className="flex items-center gap-3 justify-center text-royal text-[10px] lg:text-xs font-bold uppercase tracking-[0.2em] mb-3">
             <span className="w-8 h-px bg-gold"></span>
             SUCCESS STORIES
             <span className="w-8 h-px bg-gold"></span>
           </div>
-          <h2 className="font-heading text-4xl lg:text-5xl font-bold text-textPrimary tracking-tight">
+          <h2 className="font-heading text-2xl lg:text-5xl font-bold text-textPrimary tracking-tight">
             Hear From Our Students
           </h2>
-          <p className="text-textSecondary mt-4 max-w-lg mx-auto text-base leading-relaxed">
+          <p className="text-textSecondary mt-4 max-w-lg mx-auto text-sm lg:text-base leading-relaxed">
             Join thousands of successful students who have achieved their dreams with ElevateAbroad.
           </p>
         </motion.div>
@@ -74,7 +74,7 @@ export default function TestimonialsSection() {
                 stiffness: 400,
                 damping: 17
               }}
-              className="bg-white rounded-3xl p-10 border border-gray-100 flex flex-col group cursor-pointer active:brightness-95 card-hover card-hover-soft relative overflow-hidden"
+              className={`bg-white rounded-3xl p-6 lg:p-10 border border-gray-100 flex flex-col group cursor-pointer active:brightness-95 card-hover card-hover-soft relative overflow-hidden ${index > 0 ? 'hidden lg:block' : ''}`}
             >
               <Link href="/success-stories" className="absolute inset-0 z-10" />
               <motion.div
@@ -83,12 +83,12 @@ export default function TestimonialsSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.2 }}
                 layout={false}
-                className="text-gold/20 text-8xl font-serif leading-none mb-2 select-none card-icon relative z-20"
+                className="text-gold/20 text-6xl lg:text-8xl font-serif leading-none mb-2 select-none card-icon relative z-20"
               >
                 &quot;
               </motion.div>
 
-              <p className="text-textPrimary text-base leading-relaxed italic font-medium flex-grow relative z-20">
+              <p className="text-textPrimary text-sm lg:text-base leading-relaxed italic font-medium flex-grow relative z-20">
                 {testimonial.quote}
               </p>
 
@@ -123,16 +123,24 @@ export default function TestimonialsSection() {
           ))}
         </motion.div>
 
+        {/* Mobile Read More */}
+        <div className="lg:hidden text-center mt-6">
+          <Link href="/success-stories"
+            className="text-[#2F6BFF] font-semibold text-sm underline">
+            Read all success stories →
+          </Link>
+        </div>
+
         <motion.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="flex flex-col sm:flex-row justify-center gap-4 mt-16"
+          className="flex flex-col sm:flex-row justify-center gap-4 mt-12 lg:mt-16"
         >
           <Link
             href="/success-stories"
-            className="border-2 border-royal text-royal px-8 py-4 rounded-xl font-semibold hover:border-royalLight hover:text-royalLight active:scale-95 hover:scale-[1.02] transition-all text-center"
+            className="hidden sm:block border-2 border-royal text-royal px-8 py-4 rounded-xl font-semibold hover:border-royalLight hover:text-royalLight active:scale-95 hover:scale-[1.02] transition-all text-center"
           >
             Read More Stories
           </Link>

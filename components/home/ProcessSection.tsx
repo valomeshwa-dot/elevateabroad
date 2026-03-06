@@ -35,27 +35,27 @@ export default function ProcessSection() {
 
   return (
     <motion.section
-      className="bg-white py-24 overflow-hidden"
+      className="bg-white py-12 lg:py-24 overflow-hidden"
       layout={false}
     >
       <div className="max-w-7xl mx-auto px-4">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-8 lg:mb-16"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-40px' }}
           variants={fadeUp}
           layout={false}
         >
-          <div className="flex items-center gap-3 justify-center text-royal text-xs font-bold uppercase tracking-[0.2em] mb-3">
+          <div className="flex items-center gap-3 justify-center text-royal text-[10px] lg:text-xs font-bold uppercase tracking-[0.2em] mb-3">
             <span className="w-8 h-px bg-gold"></span>
             HOW IT WORKS
             <span className="w-8 h-px bg-gold"></span>
           </div>
-          <h2 className="font-heading text-4xl lg:text-5xl font-bold text-textPrimary tracking-tight">
+          <h2 className="font-heading text-2xl lg:text-5xl font-bold text-textPrimary tracking-tight">
             Your Journey With Us
           </h2>
-          <p className="text-textSecondary mt-4 max-w-lg mx-auto text-base leading-relaxed">
+          <p className="text-textSecondary mt-4 max-w-lg mx-auto text-sm lg:text-base leading-relaxed">
             A streamlined, transparent process designed to maximize your chances of success.
           </p>
         </motion.div>
@@ -63,7 +63,7 @@ export default function ProcessSection() {
         <div className="relative">
           {/* Connecting line BEHIND the steps */}
           <motion.div
-            className="absolute top-[2rem] left-[12%] right-[12%] h-px border-t-2 border-dashed border-gold/30 hidden md:block"
+            className="absolute top-[2rem] left-[12%] right-[12%] h-px border-t-2 border-dashed border-gold/30 hidden lg:block"
             initial={{ scaleX: 0, originX: 0 }}
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true, margin: '-40px' }}
@@ -71,7 +71,7 @@ export default function ProcessSection() {
             layout={false}
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
             {steps.map((step, index) => (
               <motion.div
                 key={index}
@@ -94,10 +94,10 @@ export default function ProcessSection() {
                   <span className="text-gold font-bold text-xl font-heading">{index + 1}</span>
                 </div>
                 <step.icon className="w-5 h-5 text-textSecondary mx-auto mt-4 card-icon relative z-20" />
-                <h3 className="font-heading font-bold text-textPrimary mt-3 text-sm group-hover:text-royal transition-colors duration-300 relative z-20">
+                <h3 className="font-heading font-bold text-textPrimary mt-3 text-sm lg:text-base group-hover:text-royal transition-colors duration-300 relative z-20">
                   {step.title}
                 </h3>
-                <p className="text-textSecondary text-xs mt-2 max-w-[120px] mx-auto leading-relaxed relative z-20">
+                <p className="text-textSecondary text-xs lg:text-sm mt-2 max-w-[120px] lg:max-w-none mx-auto leading-relaxed relative z-20">
                   {step.desc || ('prepare' in step ? (step as { prepare: string }).prepare : '')}
                 </p>
               </motion.div>
@@ -110,7 +110,7 @@ export default function ProcessSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="flex justify-center mt-16"
+          className="flex justify-center mt-12 lg:mt-16"
         >
           <Link
             href="/contact"

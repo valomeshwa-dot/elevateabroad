@@ -13,6 +13,12 @@ const nextConfig = {
         port: '',
         pathname: '/**', // This allows any path under the hostname
       },
+      {
+        protocol: 'https',
+        hostname: 'flagcdn.com',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
   output: 'standalone',

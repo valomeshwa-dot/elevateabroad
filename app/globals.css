@@ -182,3 +182,38 @@ h6 {
               border-color 0.2s ease,
               box-shadow 0.2s ease;
 }
+
+/* ══════════════════════════════════
+   MOBILE OPTIMIZATIONS
+   ══════════════════════════════════ */
+
+/* Reduce section padding on mobile */
+@media (max-width: 1023px) {
+  section {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  /* Reduce hero padding */
+  .hero-section {
+    padding-top: 6rem !important;
+    padding-bottom: 3rem !important;
+    min-height: auto !important;
+  }
+
+  /* Reduce heading sizes */
+  h1 {
+    font-size: 2.25rem !important;
+    line-height: 1.1 !important;
+  }
+
+  h2 {
+    font-size: 1.75rem !important;
+    line-height: 1.15 !important;
+  }
+
+  /* Reduce gap between sections */
+  .section-gap {
+    gap: 1.5rem !important;
+  }
+}
