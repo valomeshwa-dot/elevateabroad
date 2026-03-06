@@ -161,130 +161,39 @@ export default function ContactForm() {
 
   return (
     <section className="bg-white py-24 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-5 gap-12">
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-8">
 
-        {/* LEFT COLUMN — Form */}
-        <motion.div
-          variants={slideInLeft}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewport}
-          layout={false}
-          className="lg:col-span-3"
-        >
-          <motion.div variants={fadeUp} transition={{ delay: 0.05 }} layout={false}>
-            <h2 className="font-heading text-3xl font-bold text-[#0F172A]">
-              Book Your Free Consultation
-            </h2>
-          </motion.div>
-          <motion.div
-            initial={{ width: 0 }}
-            whileInView={{ width: 48 }}
-            viewport={viewport}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            layout={false}
-            className="h-1 bg-[#D4AF37] rounded-full mt-3 mb-3"
+        <div className="bg-white rounded-3xl p-6 lg:p-8 border border-gray-100 shadow-sm">
+          {/* Header */}
+          <h2 className="font-heading font-bold text-2xl text-[#0F172A] mb-2">
+            Book Your Free Consultation
+          </h2>
+
+          {/* Gold bar */}
+          <div className="h-1 w-12 bg-[#D4AF37] rounded-full mb-4" />
+
+          {/* Subtitle */}
+          <p className="text-[#64748B] text-sm mb-6">
+            Fill in your details and our expert counsellors will get back to you within 24 hours.
+          </p>
+
+          {/* Direct Tally Iframe */}
+          <iframe
+            src="https://tally.so/embed/D41K0q?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+            width="100%"
+            height="800"
+            frameBorder={0}
+            marginHeight={0}
+            marginWidth={0}
+            title="Consultation Booking Form"
+            style={{
+              minHeight: '700px',
+              height: '800px',
+              border: 'none',
+              width: '100%',
+            }}
           />
-          <motion.p variants={fadeUp} transition={{ delay: 0.15 }} layout={false} className="text-[#64748B] text-sm mb-8 leading-relaxed">
-            Fill in your details and our expert counselors will contact you within 24 hours to schedule your personalized consultation session.
-          </motion.p>
-
-          <AnimatePresence mode="wait">
-            {submitted ? (
-              <motion.div
-                key="success"
-                initial={{ opacity: 0, scale: 0.8, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.8 }}
-                transition={{
-                  type: 'spring',
-                  stiffness: 300,
-                  damping: 20
-                }}
-                layout={false}
-                className="text-center py-16"
-              >
-                <motion.div
-                  initial={{ scale: 0, rotate: -180 }}
-                  animate={{ scale: 1, rotate: 0 }}
-                  transition={{
-                    delay: 0.2,
-                    type: 'spring',
-                    stiffness: 300
-                  }}
-                  layout={false}
-                >
-                  <CheckCircle2 className="w-20 h-20 text-emerald-500 mx-auto" />
-                </motion.div>
-                <motion.h3
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                  layout={false}
-                  className="font-heading font-bold text-3xl text-[#0F172A] mt-6"
-                >Thank You!</motion.h3>
-                <motion.p
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.4 }}
-                  layout={false}
-                  className="text-[#64748B] mt-3"
-                >
-                  We have received your request. Our team will contact you within 24 hours.
-                </motion.p>
-                <motion.button
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5 }}
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
-                  onClick={() => setSubmitted(false)}
-                  className="mt-8 bg-[#F6F8FC] text-[#64748B] px-6 py-3 rounded-xl font-semibold text-sm hover:bg-gray-100 transition-all border border-gray-100"
-                >
-                  Book Another
-                </motion.button>
-              </motion.div>
-            ) : (
-              <motion.div
-                key="form"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.2 }}
-                layout={false}
-                className="flex flex-col gap-5"
-              >
-                {formFields.map((field, idx) => (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, y: 12 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={viewport}
-                    transition={{
-                      delay: 0.1 + idx * 0.07,
-                      duration: 0.4,
-                      ease: 'easeOut'
-                    }}
-                    layout={false}
-                  >
-                    {field}
-                  </motion.div>
-                ))}
-
-                <motion.p
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={viewport}
-                  transition={{ delay: 0.6, duration: 0.4 }}
-                  layout={false}
-                  className="text-center text-[#64748B] text-xs mt-4"
-                >
-                  🔒 100% confidential. We never share your information with third parties.
-                </motion.p>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </motion.div>
+        </div>
 
         {/* RIGHT COLUMN */}
         <motion.div
@@ -293,7 +202,7 @@ export default function ContactForm() {
           whileInView="visible"
           viewport={viewport}
           layout={false}
-          className="lg:col-span-2"
+          className=""
         >
           {/* CARD 1 — Quick Contact */}
           <motion.div
