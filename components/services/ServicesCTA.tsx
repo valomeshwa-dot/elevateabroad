@@ -11,7 +11,7 @@ export default function ServicesCTA() {
       whileInView="visible"
       viewport={{ once: true, margin: '-60px' }}
       variants={staggerContainer}
-      className="bg-gradient-to-br from-navy via-[#0d2a5e] to-navy py-24 relative overflow-hidden"
+      className="bg-gradient-to-br from-navy via-[#0d2a5e] to-navy py-10 lg:py-24 relative overflow-hidden"
     >
       {/* Glow Orbs - Pulse animate infinitely */}
       <motion.div
@@ -56,12 +56,12 @@ export default function ServicesCTA() {
         }}
       />
 
-      <div className="relative z-10 text-center max-w-3xl mx-auto px-6">
+      <div className="relative z-10 text-center max-w-3xl mx-auto px-4 lg:px-6">
         {/* Label row */}
         <motion.div
           variants={fadeUp}
           layout={false}
-          className="flex items-center justify-center gap-3 mb-4"
+          className="flex items-center justify-center gap-3 mb-3 lg:mb-4"
         >
           <motion.span
             initial={{ width: 0 }}
@@ -71,7 +71,7 @@ export default function ServicesCTA() {
             layout={false}
             className="h-px bg-gold block"
           />
-          <span className="text-gold text-xs font-bold uppercase tracking-[0.2em]">READY TO START</span>
+          <span className="text-gold text-[10px] lg:text-xs font-bold uppercase tracking-[0.2em]">READY TO START</span>
           <motion.span
             initial={{ width: 0 }}
             whileInView={{ width: 32 }}
@@ -83,7 +83,7 @@ export default function ServicesCTA() {
         </motion.div>
 
         {/* Header */}
-        <h2 className="font-heading text-5xl lg:text-6xl font-bold tracking-tight mt-4">
+        <h2 className="font-heading text-2xl lg:text-6xl font-bold tracking-tight mt-4">
           <motion.span
             variants={fadeUp}
             transition={{ delay: 0.1, duration: 0.6 }}
@@ -109,7 +109,7 @@ export default function ServicesCTA() {
           variants={fadeUp}
           transition={{ delay: 0.2, duration: 0.6 }}
           layout={false}
-          className="text-white/60 text-lg mt-5 max-w-xl mx-auto leading-relaxed"
+          className="hidden lg:block text-white/60 text-lg mt-5 max-w-xl mx-auto leading-relaxed"
         >
           Book a free consultation and let our experts build a personalized roadmap for your study abroad success.
         </motion.p>
@@ -119,14 +119,14 @@ export default function ServicesCTA() {
           variants={fadeUp}
           transition={{ delay: 0.3 }}
           layout={false}
-          className="flex justify-center gap-4 mt-10 flex-wrap"
+          className="flex flex-col sm:flex-row justify-center gap-3 lg:gap-4 mt-8 lg:mt-10"
         >
           <Link href="/contact" passHref legacyBehavior>
             <motion.a
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.96 }}
               transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-              className="bg-gradient-to-r from-royal to-royalLight text-white px-10 py-4 rounded-xl font-semibold hover:shadow-2xl hover:shadow-royal/40 relative overflow-hidden transition-shadow inline-block cursor-pointer"
+              className="w-full sm:w-auto bg-gradient-to-r from-royal to-royalLight text-white px-8 py-3.5 lg:px-10 lg:py-4 rounded-xl font-semibold text-sm lg:text-base hover:shadow-2xl hover:shadow-royal/40 relative overflow-hidden transition-shadow inline-block cursor-pointer text-center"
             >
               {/* Shimmer Effect */}
               <motion.div
@@ -140,25 +140,25 @@ export default function ServicesCTA() {
                 }}
                 layout={false}
               />
-              Book Free Consultation
+              Book Consultation
             </motion.a>
           </Link>
           <Link href="/destinations" passHref legacyBehavior>
             <motion.a
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.96 }}
-              className="border-2 border-gold/60 text-gold px-10 py-4 rounded-xl font-semibold hover:bg-gold/10 transition-all inline-block cursor-pointer"
+              className="w-full sm:w-auto border-2 border-gold/60 text-gold px-8 py-3.5 lg:px-10 lg:py-4 rounded-xl font-semibold text-sm lg:text-base hover:bg-gold/10 transition-all inline-block cursor-pointer text-center"
             >
               View Destinations
             </motion.a>
           </Link>
         </motion.div>
 
-        <div className="w-24 h-px bg-white/20 mx-auto mt-10 mb-8"></div>
+        <div className="w-24 h-px bg-white/20 mx-auto mt-8 mb-6 lg:mt-10 lg:mb-8"></div>
 
         {/* Trust Cards */}
         <motion.div
-          className="flex justify-center gap-4 flex-wrap"
+          className="flex flex-row justify-center gap-2 lg:gap-4 lg:flex-wrap"
           variants={staggerContainer}
           transition={{ delay: 0.4 }}
         >
@@ -171,10 +171,10 @@ export default function ServicesCTA() {
               key={i}
               variants={scaleUp}
               layout={false}
-              className="bg-white/8 border border-white/15 rounded-2xl px-6 py-4 flex items-center gap-2.5 card-hover"
+              className="bg-white/8 border border-white/15 rounded-xl lg:rounded-2xl px-3 py-2 lg:px-6 lg:py-4 flex items-center gap-2 lg:gap-2.5 card-hover"
             >
-              <CheckCircle2 className="w-5 h-5 text-gold" />
-              <span className="text-white/70 text-sm font-medium">{text}</span>
+              <CheckCircle2 className="w-4 h-4 lg:w-5 lg:h-5 text-gold" />
+              <span className="text-white/70 text-[10px] lg:text-sm font-medium">{text}</span>
             </motion.div>
           ))}
         </motion.div>

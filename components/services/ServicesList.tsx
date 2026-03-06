@@ -127,15 +127,15 @@ export default function ServicesList() {
         return (
           <motion.section
             key={index}
-            className={`${sectionBg} py-24 relative overflow-hidden`}
+            className={`${sectionBg} py-10 lg:py-24 relative overflow-hidden`}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-80px' }}
             variants={staggerContainer}
             layout={false}
           >
-            <div className="max-w-7xl mx-auto px-6">
-              <div className={`grid grid-cols-1 lg:grid-cols-2 gap-20 items-center ${isOdd ? 'lg:flex lg:flex-row-reverse' : ''}`}>
+            <div className="max-w-7xl mx-auto px-4 lg:px-6">
+              <div className={`grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-16 items-center ${isOdd ? 'lg:flex lg:flex-row-reverse' : ''}`}>
 
                 {/* CONTENT SIDE */}
                 <motion.div
@@ -146,7 +146,7 @@ export default function ServicesList() {
                   <motion.div
                     variants={fadeUp}
                     layout={false}
-                    className="w-14 h-14 rounded-2xl bg-gradient-to-br from-royal/15 to-royal/5 border-2 border-royal/30 flex items-center justify-center text-royal font-bold font-heading text-base card-hover-step"
+                    className="w-10 h-10 lg:w-16 lg:h-16 rounded-xl lg:rounded-2xl bg-gradient-to-br from-royal/15 to-royal/5 border-2 border-royal/30 flex items-center justify-center text-royal font-bold font-heading text-sm lg:text-2xl mb-4 lg:mb-8 card-hover-step"
                   >
                     {service.number}
                   </motion.div>
@@ -155,7 +155,7 @@ export default function ServicesList() {
                     variants={fadeUp}
                     transition={{ delay: 0.05 }}
                     layout={false}
-                    className="text-gold text-xs font-bold uppercase tracking-[0.2em] mt-6 block flex items-center"
+                    className="text-gold text-[10px] lg:text-sm font-bold uppercase tracking-[0.2em] mb-2 lg:mb-4 block flex items-center"
                   >
                     <span className="w-2 h-2 rounded-full bg-gold inline-block mr-2" />
                     {service.label}
@@ -165,7 +165,7 @@ export default function ServicesList() {
                     variants={fadeUp}
                     transition={{ delay: 0.1 }}
                     layout={false}
-                    className="font-heading text-4xl font-bold text-textPrimary tracking-tight mt-3"
+                    className="font-heading text-2xl lg:text-4xl font-bold text-textPrimary tracking-tight mb-3 lg:mb-6"
                   >
                     {service.h2}
                   </motion.h2>
@@ -174,7 +174,7 @@ export default function ServicesList() {
                     variants={fadeUp}
                     transition={{ delay: 0.15 }}
                     layout={false}
-                    className="text-textSecondary text-base leading-relaxed mt-4 max-w-lg"
+                    className="text-textSecondary text-sm lg:text-lg leading-relaxed mb-4 lg:mb-8 max-w-lg line-clamp-3 lg:line-clamp-none"
                   >
                     {service.desc}
                   </motion.p>
@@ -194,7 +194,7 @@ export default function ServicesList() {
                       }
                     }}
                     layout={false}
-                    className="mt-8 space-y-3"
+                    className="mt-6 lg:mt-8 space-y-2 lg:space-y-4"
                   >
                     {service.benefits.map((benefit, i) => (
                       <motion.div
@@ -211,16 +211,16 @@ export default function ServicesList() {
                           }
                         }}
                         layout={false}
-                        className={`flex items-start gap-3 rounded-xl px-4 py-3 ${!isOdd ? 'bg-softBg' : ''}`}
+                        className={`items-start gap-2 lg:gap-3 rounded-xl px-4 py-3 ${!isOdd ? 'bg-softBg' : ''} ${i >= 3 ? 'hidden lg:flex' : 'flex'}`}
                       >
-                        <CheckCircle2 className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
-                        <span className="text-textPrimary text-sm leading-relaxed">{benefit}</span>
+                        <CheckCircle2 className="w-4 h-4 lg:w-5 lg:h-5 text-gold flex-shrink-0 mt-0.5" />
+                        <span className="text-textPrimary text-sm lg:text-base leading-relaxed">{benefit}</span>
                       </motion.div>
                     ))}
                   </motion.div>
 
                   <motion.div
-                    className="mt-10"
+                    className="mt-6 lg:mt-10"
                     variants={fadeUp}
                     transition={{ delay: 0.5 }}
                     layout={false}
@@ -234,7 +234,7 @@ export default function ServicesList() {
                           stiffness: 400,
                           damping: 17
                         }}
-                        className="inline-flex items-center gap-2 bg-gradient-to-r from-royal to-royalLight text-white px-8 py-3.5 rounded-xl font-semibold text-sm hover:shadow-xl hover:shadow-royal/30 hover:gap-3 transition-all duration-200 cursor-pointer"
+                        className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-royal to-royalLight text-white px-6 py-3 lg:px-8 lg:py-4 rounded-xl font-semibold text-sm lg:text-base hover:shadow-xl hover:shadow-royal/30 hover:gap-3 transition-all duration-200 cursor-pointer text-center"
                       >
                         Get Started
                         <ArrowRight className="w-4 h-4" />
@@ -247,7 +247,7 @@ export default function ServicesList() {
                 <motion.div
                   variants={isOdd ? slideInLeft : slideInRight}
                   layout={false}
-                  className={`${visualBg} rounded-3xl overflow-hidden relative min-h-[420px] flex flex-col justify-between p-8 ${isOdd ? 'lg:w-1/2' : ''} card-hover shadow-sm`}
+                  className={`${visualBg} hidden lg:flex rounded-3xl overflow-hidden relative min-h-[420px] flex-col justify-between p-8 ${isOdd ? 'lg:w-1/2' : ''} lg:sticky lg:top-24 card-hover shadow-sm`}
                 >
                   {/* Floating background icon */}
                   <motion.div
@@ -330,6 +330,7 @@ export default function ServicesList() {
               />
             )}
           </motion.section>
+
         );
       })}
     </div>
