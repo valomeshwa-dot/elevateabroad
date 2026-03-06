@@ -1,0 +1,184 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy: #0A1F44;
+  --royal: #2F6BFF;
+  --royal-light: #5B8CFF;
+  --gold: #D4AF37;
+  --soft-bg: #F6F8FC;
+  --text-primary: #0F172A;
+  --text-secondary: #64748B;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: var(--font-body), sans-serif;
+  color: #0F172A;
+  background: #ffffff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading), sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ══════════════════════════════════
+   PREMIUM CARD HOVER MICRO-INTERACTION
+   ══════════════════════════════════ */
+
+/* Base card class — apply to all cards */
+.card-hover {
+  transform: translateY(0) scale(1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: all 250ms ease-out;
+  will-change: transform, box-shadow;
+  cursor: pointer;
+  position: relative;
+  /* Needed for pseudo-element overlay */
+}
+
+.card-hover:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Active/click state */
+.card-hover:active {
+  transform: translateY(-4px) scale(0.98);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: all 100ms ease-out;
+}
+
+/* Icon color transition inside cards */
+.card-hover .card-icon {
+  transition: color 250ms ease-out,
+    background-color 250ms ease-out;
+}
+
+.card-hover:hover .card-icon {
+  color: #2F6BFF !important;
+}
+
+/* Gold accent variant for special cards */
+.card-hover-gold:hover .card-icon {
+  color: #D4AF37 !important;
+}
+
+/* Services card specific shadow color */
+.card-hover-royal:hover {
+  box-shadow: 0 20px 40px rgba(47, 107, 255, 0.15);
+}
+
+/* Destinations card specific shadow */
+.card-hover-navy:hover {
+  box-shadow: 0 20px 40px rgba(10, 31, 68, 0.2);
+}
+
+/* Testimonial card specific shadow */
+.card-hover-soft:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Stat card — smaller elevation */
+.card-hover-stat {
+  transform: translateY(0) scale(1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  transition: all 250ms ease-out;
+  will-change: transform, box-shadow;
+  cursor: default;
+}
+
+.card-hover-stat:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+}
+
+/* Process step card */
+.card-hover-step {
+  transform: translateY(0) scale(1);
+  transition: all 250ms ease-out;
+  will-change: transform;
+}
+
+.card-hover-step:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.1);
+}
+
+/* Number circle in process steps */
+.card-hover-step:hover .step-number {
+  background: linear-gradient(135deg, #2F6BFF, #5B8CFF) !important;
+  color: white !important;
+  box-shadow: 0 8px 20px rgba(47, 107, 255, 0.4);
+  transition: all 250ms ease-out;
+}
+
+.step-number {
+  transition: all 250ms ease-out;
+}
+
+/* Destination card country badge lift */
+.card-hover:hover .country-badge {
+  transform: scale(1.08);
+  transition: transform 250ms ease-out;
+}
+
+.country-badge {
+  transition: transform 250ms ease-out;
+}
+
+/* Card inner border glow on hover */
+.card-hover::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1px solid transparent;
+  transition: border-color 250ms ease-out;
+  pointer-events: none;
+}
+
+.card-hover:hover::after {
+  border-color: rgba(47, 107, 255, 0.2);
+}
+
+.card-hover-gold:hover::after {
+  border-color: rgba(212, 175, 55, 0.3);
+}
+
+/* Form input focus animation */
+.form-input:focus {
+  transform: scale(1.01);
+  transition: transform 0.2s ease,
+              border-color 0.2s ease,
+              box-shadow 0.2s ease;
+}
