@@ -33,7 +33,7 @@ export default function StatsSection() {
                 stiffness: 500,
                 damping: 15
               }}
-              className="bg-bg rounded-2xl p-4 lg:p-6 text-center border border-gray-100 group cursor-pointer active:brightness-95 card-hover-stat"
+              className="bg-bg rounded-2xl p-3 lg:p-6 min-h-[auto] text-center border border-gray-100 group cursor-pointer active:brightness-95 card-hover-stat"
             >
               <div className="text-2xl lg:text-4xl font-bold text-royal font-heading tracking-tight card-icon">
                 <AnimatedCounter target={stat.target} suffix={stat.suffix} />
@@ -46,7 +46,7 @@ export default function StatsSection() {
                 transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
                 layout={false}
               />
-              <div className="text-textSecondary text-xs lg:text-sm uppercase tracking-[0.15em] mt-3 font-medium">{stat.label}</div>
+              <div className="text-textSecondary text-[9px] lg:text-sm uppercase tracking-wide lg:tracking-[0.15em] mt-3 font-medium whitespace-nowrap">{stat.label}</div>
             </motion.div>
           ))}
         </div>

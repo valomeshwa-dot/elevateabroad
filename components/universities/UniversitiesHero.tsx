@@ -16,7 +16,7 @@ export default function UniversitiesHero() {
   ];
 
   return (
-    <section className="bg-[#0A1F44] min-h-[65vh] flex items-center relative overflow-hidden">
+    <section className="bg-[#0A1F44] min-h-[auto] lg:min-h-screen flex items-center relative overflow-hidden">
       {/* Pixel Grid Background */}
       <PixelGrid
         dotColor="rgba(47, 107, 255, 0.1)"
@@ -67,7 +67,7 @@ export default function UniversitiesHero() {
         variants={staggerContainer}
         initial="hidden"
         animate="visible"
-        className="relative z-10 max-w-7xl mx-auto px-6 pt-20 pb-8 lg:pt-32 lg:pb-20 w-full"
+        className="relative z-10 max-w-7xl mx-auto px-6 pt-20 pb-6 lg:pt-32 lg:pb-20 w-full mb-0 lg:mb-16"
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
@@ -159,7 +159,7 @@ export default function UniversitiesHero() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.55 }}
               layout={false}
-              className="flex flex-wrap gap-2 mt-8"
+              className="flex flex-wrap gap-2 mt-3 lg:mt-8"
             >
               <span className="text-white/40 text-xs mr-2 self-center">Quick filter:</span>
               {['USA', 'UK', 'Canada', 'Australia', 'Germany'].map((country, idx) => (
@@ -176,7 +176,7 @@ export default function UniversitiesHero() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     layout={false}
-                    className="bg-white/8 border border-white/15 text-white/60 text-xs px-3 py-1 rounded-full hover:bg-white/15 hover:text-white hover:border-[#D4AF37]/40 transition-all cursor-pointer inline-block"
+                    className="bg-white/8 border border-white/15 text-white/60 text-xs px-3 py-1 rounded-full hover:bg-white/15 hover:text-white hover:border-[#D4AF37]/40 transition-all cursor-pointer inline-block whitespace-nowrap"
                   >
                     {country}
                   </motion.a>

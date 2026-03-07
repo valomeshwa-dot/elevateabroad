@@ -31,7 +31,7 @@ export default function ContactHero() {
   ];
 
   return (
-    <section className="bg-[#0A1F44] min-h-[55vh] flex items-center relative overflow-hidden">
+    <section className="bg-[#0A1F44] min-h-[auto] lg:min-h-screen flex items-center relative overflow-hidden">
       {/* Pixel Grid Background */}
       <PixelGrid
         dotColor="rgba(47, 107, 255, 0.1)"
@@ -82,7 +82,7 @@ export default function ContactHero() {
         variants={staggerContainer}
         initial="hidden"
         animate="visible"
-        className="relative z-10 max-w-7xl mx-auto px-6 pt-20 pb-8 lg:pt-32 lg:pb-20 w-full"
+        className="relative z-10 max-w-7xl mx-auto px-6 pt-20 pb-6 lg:pt-32 lg:pb-20 w-full"
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-16 items-center">
 
@@ -151,7 +151,7 @@ export default function ContactHero() {
               initial="hidden"
               animate="visible"
               variants={staggerContainer}
-              className="flex flex-col lg:flex-row gap-2 lg:gap-4 mt-6 lg:mt-10"
+              className="flex flex-col lg:flex-row gap-2 lg:gap-4 mt-4 lg:mt-8"
             >
               {contactPills.map((pill, idx) => (
                 <motion.div

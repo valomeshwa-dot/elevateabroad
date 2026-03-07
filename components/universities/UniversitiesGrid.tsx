@@ -404,7 +404,7 @@ export default function UniversitiesGrid() {
   }
 
   return (
-    <section id="universities-grid" className="bg-[#F6F8FC] py-8 lg:py-24">
+    <section id="universities-grid" className="bg-[#F6F8FC] pt-4 pb-12 lg:py-24">
 
       {/* TOP BAR */}
       <motion.div
@@ -412,7 +412,7 @@ export default function UniversitiesGrid() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.5 }}
         layout={false}
-        className="bg-white border-b border-gray-200 py-2 lg:py-4 sticky top-[72px] z-40"
+        className="bg-white border-b border-gray-200 py-2 lg:py-4 relative lg:sticky lg:top-[72px] z-20"
       >
         <div className="max-w-7xl mx-auto px-4 lg:px-6 flex flex-col lg:flex-row gap-4 items-center justify-between">
 
@@ -453,17 +453,17 @@ export default function UniversitiesGrid() {
           {/* LEFT SIDEBAR */}
           <div className="w-full lg:w-64 lg:flex-shrink-0">
             {/* Mobile Filter Toggle Button */}
-            <div className="lg:hidden mb-4">
+            <div className="lg:hidden">
               <button
                 onClick={() => setShowFilters(!showFilters)}
-                className="w-full flex items-center justify-between bg-[#0F2554] border border-white/10 rounded-xl px-4 py-3 text-white text-sm font-semibold"
+                className="w-full flex items-center justify-between bg-[#0F2554] border border-white/10 rounded-xl px-4 py-2.5 text-white text-sm font-semibold mb-3 lg:hidden"
               >
                 <span className="flex items-center gap-2">
                   <SlidersHorizontal className="w-4 h-4" />
                   Filter Universities
                 </span>
                 <span className="text-white/50 text-xs">
-                  {showFilters ? '▲ Hide' : '▼ Show'}
+                  {showFilters ? '▲' : '▼'}
                 </span>
               </button>
             </div>
@@ -646,7 +646,7 @@ export default function UniversitiesGrid() {
                       className="bg-white rounded-2xl lg:rounded-3xl border border-gray-100 shadow-sm overflow-hidden card-hover flex flex-col"
                     >
                       {/* CARD TOP */}
-                      <div className={`h-20 lg:h-32 relative bg-gradient-to-br ${university.gradient}`}>
+                      <div className={`h-20 lg:h-32 relative bg-gradient-to-br ${university.gradient} overflow-hidden`}>
                         <motion.span
                           initial={{ opacity: 0 }}
                           whileInView={{ opacity: 1 }}
@@ -681,7 +681,7 @@ export default function UniversitiesGrid() {
                           </div>
                         </div>
 
-                        <div className="absolute bottom-2 lg:bottom-4 left-3 lg:left-5 font-heading font-bold text-white text-base lg:text-2xl leading-tight max-w-[85%]">
+                        <div className="absolute bottom-2 lg:bottom-4 left-3 lg:left-5 font-heading font-bold text-white text-base lg:text-2xl leading-tight line-clamp-1 max-w-[85%]">
                           {university.name}
                         </div>
                       </div>
@@ -785,7 +785,7 @@ export default function UniversitiesGrid() {
               viewport={{ once: true, margin: '-60px' }}
               variants={staggerContainer}
               layout={false}
-              className="bg-[#0A1F44] rounded-3xl p-6 lg:p-12 mt-12 relative overflow-hidden"
+              className="bg-[#0A1F44] rounded-2xl lg:rounded-3xl p-6 lg:p-12 mt-6 lg:mt-16 mb-0 lg:mb-16 relative overflow-hidden"
             >
               <motion.div
                 animate={{
@@ -802,12 +802,12 @@ export default function UniversitiesGrid() {
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-12 items-center relative z-10">
                 <motion.div variants={slideInLeft} layout={false}>
-                  <motion.h2 variants={fadeUp} transition={{ delay: 0.1 }} layout={false} className="font-heading text-xl lg:text-3xl font-bold text-white">Can&apos;t Find Your University?</motion.h2>
+                  <motion.h2 variants={fadeUp} transition={{ delay: 0.1 }} layout={false} className="font-heading text-xl lg:text-3xl font-bold text-white mb-2 lg:mb-4">Can&apos;t Find Your University?</motion.h2>
                   <motion.p variants={fadeUp} transition={{ delay: 0.2 }} layout={false} className="hidden lg:block text-white/60 text-base mt-3">
                     We work with 250+ universities worldwide. Contact our counselors and we will find the perfect match for your profile.
                   </motion.p>
 
-                  <div className="flex gap-4 lg:gap-8 mt-6">
+                  <div className="flex gap-4 lg:gap-8 mt-6 mb-4 lg:mb-8">
                     <motion.div
                       initial={{ opacity: 0, y: 10 }}
                       whileInView={{ opacity: 1, y: 0 }}
@@ -819,10 +819,10 @@ export default function UniversitiesGrid() {
                         <Building2 className="text-[#D4AF37] w-4 h-4" />
                       </div>
                       <div>
-                        <div className="text-white font-bold text-base lg:text-lg">
+                        <div className="text-white font-bold text-xl lg:text-3xl">
                           <AnimatedCounter target={250} suffix="+" />
                         </div>
-                        <div className="text-white/50 text-[10px] lg:text-xs">Partners</div>
+                        <div className="text-white/50 text-xs lg:text-sm">Partners</div>
                       </div>
                     </motion.div>
                     <motion.div
@@ -836,22 +836,22 @@ export default function UniversitiesGrid() {
                         <Globe2 className="text-[#D4AF37] w-4 h-4" />
                       </div>
                       <div>
-                        <div className="text-white font-bold text-base lg:text-lg">
+                        <div className="text-white font-bold text-xl lg:text-3xl">
                           <AnimatedCounter target={15} suffix="+" />
                         </div>
-                        <div className="text-white/50 text-[10px] lg:text-xs">Countries</div>
+                        <div className="text-white/50 text-xs lg:text-sm">Countries</div>
                       </div>
                     </motion.div>
                   </div>
                 </motion.div>
 
-                <motion.div variants={slideInRight} layout={false} className="flex flex-col sm:flex-row gap-3 lg:gap-4 justify-center lg:justify-end mt-4 lg:mt-0">
+                <motion.div variants={slideInRight} layout={false} className="flex flex-col gap-3 lg:flex-row lg:gap-4 justify-center lg:justify-end mt-4 lg:mt-0">
                   <Link href="/contact" passHref legacyBehavior>
                     <motion.a
                       whileHover={{ scale: 1.04 }}
                       whileTap={{ scale: 0.96 }}
                       transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-                      className="bg-gradient-to-r from-[#2F6BFF] to-[#5B8CFF] text-white px-8 py-3 lg:py-4 rounded-xl font-semibold hover:shadow-xl hover:shadow-[#2F6BFF]/40 transition-all inline-block text-center cursor-pointer w-full sm:w-auto"
+                      className="bg-gradient-to-r from-[#2F6BFF] to-[#5B8CFF] text-white px-8 py-3 lg:py-4 rounded-xl font-semibold hover:shadow-xl hover:shadow-[#2F6BFF]/40 transition-all inline-block text-center cursor-pointer w-full"
                     >
                       Talk to a Counselor
                     </motion.a>
@@ -861,7 +861,7 @@ export default function UniversitiesGrid() {
                       whileHover={{ scale: 1.04 }}
                       whileTap={{ scale: 0.96 }}
                       transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-                      className="border-2 border-[#D4AF37]/50 text-[#D4AF37] px-8 py-3 lg:py-4 rounded-xl font-semibold hover:bg-[#D4AF37]/10 transition-all inline-block text-center cursor-pointer w-full sm:w-auto"
+                      className="border-2 border-[#D4AF37]/50 text-[#D4AF37] px-8 py-3 lg:py-4 rounded-xl font-semibold hover:bg-[#D4AF37]/10 transition-all inline-block text-center cursor-pointer w-full"
                     >
                       View Destinations
                     </motion.a>
@@ -874,6 +874,7 @@ export default function UniversitiesGrid() {
 
         </div>
       </div>
+      <div className="pb-6 lg:pb-16"></div>
     </section>
   )
 }

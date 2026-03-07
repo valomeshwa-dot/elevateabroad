@@ -127,7 +127,7 @@ export default function ServicesList() {
         return (
           <motion.section
             key={index}
-            className={`${sectionBg} py-10 lg:py-24 relative overflow-hidden`}
+            className={`${sectionBg} py-8 lg:py-24 relative overflow-hidden`}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-80px' }}
@@ -139,14 +139,14 @@ export default function ServicesList() {
 
                 {/* CONTENT SIDE */}
                 <motion.div
-                  className={isOdd ? 'lg:w-1/2' : ''}
+                  className="w-full lg:w-1/2"
                   variants={isOdd ? slideInRight : slideInLeft}
                   layout={false}
                 >
                   <motion.div
                     variants={fadeUp}
                     layout={false}
-                    className="w-10 h-10 lg:w-16 lg:h-16 rounded-xl lg:rounded-2xl bg-gradient-to-br from-royal/15 to-royal/5 border-2 border-royal/30 flex items-center justify-center text-royal font-bold font-heading text-sm lg:text-2xl mb-4 lg:mb-8 card-hover-step"
+                    className="w-10 h-10 lg:w-16 lg:h-16 rounded-xl lg:rounded-2xl bg-gradient-to-br from-royal/15 to-royal/5 border-2 border-royal/30 flex items-center justify-center text-royal font-bold font-heading text-sm lg:text-2xl mb-3 lg:mb-8 card-hover-step"
                   >
                     {service.number}
                   </motion.div>
@@ -165,7 +165,7 @@ export default function ServicesList() {
                     variants={fadeUp}
                     transition={{ delay: 0.1 }}
                     layout={false}
-                    className="font-heading text-2xl lg:text-4xl font-bold text-textPrimary tracking-tight mb-3 lg:mb-6"
+                    className="font-heading text-xl lg:text-4xl font-bold text-textPrimary tracking-tight mb-3 lg:mb-6"
                   >
                     {service.h2}
                   </motion.h2>
@@ -174,7 +174,7 @@ export default function ServicesList() {
                     variants={fadeUp}
                     transition={{ delay: 0.15 }}
                     layout={false}
-                    className="text-textSecondary text-sm lg:text-lg leading-relaxed mb-4 lg:mb-8 max-w-lg line-clamp-3 lg:line-clamp-none"
+                    className="text-textSecondary text-sm lg:text-lg leading-relaxed mb-3 lg:mb-8 max-w-lg line-clamp-3 lg:line-clamp-none"
                   >
                     {service.desc}
                   </motion.p>
@@ -194,7 +194,7 @@ export default function ServicesList() {
                       }
                     }}
                     layout={false}
-                    className="mt-6 lg:mt-8 space-y-2 lg:space-y-4"
+                    className="mt-4 lg:mt-8 space-y-2 lg:space-y-4 mb-4 lg:mb-8"
                   >
                     {service.benefits.map((benefit, i) => (
                       <motion.div
@@ -220,7 +220,7 @@ export default function ServicesList() {
                   </motion.div>
 
                   <motion.div
-                    className="mt-6 lg:mt-10"
+                    className="mt-4 lg:mt-10"
                     variants={fadeUp}
                     transition={{ delay: 0.5 }}
                     layout={false}
@@ -247,7 +247,7 @@ export default function ServicesList() {
                 <motion.div
                   variants={isOdd ? slideInLeft : slideInRight}
                   layout={false}
-                  className={`${visualBg} hidden lg:flex rounded-3xl overflow-hidden relative min-h-[420px] flex-col justify-between p-8 ${isOdd ? 'lg:w-1/2' : ''} lg:sticky lg:top-24 card-hover shadow-sm`}
+                  className={`${visualBg} hidden lg:flex h-0 lg:h-auto overflow-hidden lg:overflow-visible rounded-3xl relative min-h-[0] lg:min-h-[420px] flex-col justify-between p-8 ${isOdd ? 'lg:w-1/2' : ''} lg:sticky lg:top-24 card-hover shadow-sm`}
                 >
                   {/* Floating background icon */}
                   <motion.div
@@ -326,7 +326,7 @@ export default function ServicesList() {
                   ease: [0.25, 0.46, 0.45, 0.94]
                 }}
                 layout={false}
-                className="absolute bottom-0 left-0 right-0 h-px bg-gray-100"
+                className="absolute bottom-0 left-0 right-0 h-px bg-gray-100 hidden lg:block"
               />
             )}
           </motion.section>

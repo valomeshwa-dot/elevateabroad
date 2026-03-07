@@ -15,7 +15,7 @@ export default function AboutHero() {
   ];
 
   return (
-    <section className="bg-[#0A1F44] min-h-[65vh] flex items-center relative overflow-hidden">
+    <section className="bg-[#0A1F44] min-h-[auto] lg:min-h-screen flex items-center relative overflow-hidden">
       {/* Pixel Grid Background */}
       <PixelGrid
         dotColor="rgba(47, 107, 255, 0.1)"
@@ -126,7 +126,7 @@ export default function AboutHero() {
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
                   transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-                  className="bg-gradient-to-r from-[#2F6BFF] to-[#5B8CFF] text-white px-8 py-4 rounded-xl font-semibold hover:shadow-xl hover:shadow-[#2F6BFF]/30 transition-all cursor-pointer w-full sm:w-auto text-center text-sm lg:text-base"
+                  className="w-full sm:w-auto bg-gradient-to-r from-[#2F6BFF] to-[#5B8CFF] text-white px-8 py-4 rounded-xl font-semibold hover:shadow-xl hover:shadow-[#2F6BFF]/30 transition-all cursor-pointer text-center text-sm lg:text-base"
                 >
                   Book Free Consultation
                 </motion.a>
@@ -136,7 +136,7 @@ export default function AboutHero() {
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-                className="border-2 border-[#D4AF37]/50 text-[#D4AF37] px-8 py-4 rounded-xl font-semibold hover:bg-[#D4AF37]/10 transition-all cursor-pointer w-full sm:w-auto text-center text-sm lg:text-base"
+                className="w-full sm:w-auto border-2 border-[#D4AF37]/50 text-[#D4AF37] px-8 py-4 rounded-xl font-semibold hover:bg-[#D4AF37]/10 transition-all cursor-pointer text-center text-sm lg:text-base"
               >
                 Meet Our Team ↓
               </motion.a>
@@ -177,7 +177,7 @@ export default function AboutHero() {
                 variants={staggerContainer}
                 initial="hidden"
                 animate="visible"
-                className="space-y-2 lg:space-y-4 mb-6 lg:mb-8"
+                className="space-y-2 lg:space-y-4 mb-4 lg:mb-8"
               >
                 {milestones.map((milestone, idx) => (
                   <motion.div
@@ -217,7 +217,7 @@ export default function AboutHero() {
                 variants={staggerGrid}
                 initial="hidden"
                 animate="visible"
-                className="grid grid-cols-3 gap-4 lg:gap-8 border-t border-white/10 pt-6 mt-6 lg:mt-12"
+                className="grid grid-cols-3 gap-0 border-t border-white/10 pt-4 mt-4 lg:pt-8 lg:mt-12"
               >
                 {[
                   { target: 50, suffix: "+", label: "Counselors" },

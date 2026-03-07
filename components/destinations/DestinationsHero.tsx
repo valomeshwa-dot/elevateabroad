@@ -16,7 +16,7 @@ export default function DestinationsHero() {
   ];
 
   return (
-    <section className="bg-[#0A1F44] min-h-[65vh] flex items-center relative overflow-hidden">
+    <section className="bg-[#0A1F44] min-h-[auto] lg:min-h-[65vh] flex items-center relative overflow-hidden">
       {/* Pixel Grid Background */}
       <PixelGrid
         dotColor="rgba(47, 107, 255, 0.1)"
@@ -66,7 +66,7 @@ export default function DestinationsHero() {
         variants={staggerContainer}
         initial="hidden"
         animate="visible"
-        className="relative z-10 max-w-7xl mx-auto px-6 pt-20 pb-8 lg:pt-32 lg:pb-20 w-full"
+        className="relative z-10 max-w-7xl mx-auto px-6 pt-20 pb-6 lg:pt-32 lg:pb-20 w-full"
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 

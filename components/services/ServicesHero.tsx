@@ -151,7 +151,7 @@ export default function ServicesHero() {
 
         {/* Stats Row */}
         <motion.div
-          className="grid grid-cols-3 gap-2 lg:flex lg:gap-8 mt-10 lg:mt-14 justify-center items-stretch lg:items-center"
+          className="flex items-center justify-between gap-2 mt-6 lg:mt-8 lg:justify-center lg:gap-8"
           variants={staggerContainer}
           initial="hidden"
           animate="visible"
@@ -161,13 +161,13 @@ export default function ServicesHero() {
           <motion.div
             variants={scaleUp}
             layout={false}
-            className="bg-white/8 border border-white/15 rounded-xl lg:rounded-2xl p-3 lg:p-6 text-center min-w-0 lg:min-w-[160px] flex flex-col justify-center"
+            className="bg-white/8 border border-white/15 rounded-xl lg:rounded-2xl p-2.5 lg:p-6 text-center flex-1 flex flex-col justify-center"
           >
             <div className="text-gold font-heading font-bold text-xl lg:text-3xl">
               <AnimatedCounter target={5000} suffix="+" />
             </div>
-            <div className="w-6 h-px bg-gold/40 mx-auto mt-2"></div>
-            <div className="text-white/50 text-[10px] lg:text-sm uppercase tracking-wider mt-2">Students Helped</div>
+            <div className="w-5 lg:w-6 h-px bg-gold/40 mx-auto mt-1.5 lg:mt-2"></div>
+            <div className="text-white/50 text-[10px] lg:text-xs uppercase tracking-wide lg:tracking-wider mt-1.5 lg:mt-2 whitespace-nowrap">Students Helped</div>
           </motion.div>
 
           {/* Divider */}
@@ -183,13 +183,13 @@ export default function ServicesHero() {
           <motion.div
             variants={scaleUp}
             layout={false}
-            className="bg-white/8 border border-white/15 rounded-xl lg:rounded-2xl p-3 lg:p-6 text-center min-w-0 lg:min-w-[160px] flex flex-col justify-center"
+            className="bg-white/8 border border-white/15 rounded-xl lg:rounded-2xl p-2.5 lg:p-6 text-center flex-1 flex flex-col justify-center"
           >
             <div className="text-gold font-heading font-bold text-xl lg:text-3xl">
               <AnimatedCounter target={98} suffix="%" />
             </div>
-            <div className="w-6 h-px bg-gold/40 mx-auto mt-2"></div>
-            <div className="text-white/50 text-[10px] lg:text-sm uppercase tracking-wider mt-2">Visa Success</div>
+            <div className="w-5 lg:w-6 h-px bg-gold/40 mx-auto mt-1.5 lg:mt-2"></div>
+            <div className="text-white/50 text-[10px] lg:text-xs uppercase tracking-wide lg:tracking-wider mt-1.5 lg:mt-2 whitespace-nowrap">Visa Success</div>
           </motion.div>
 
           {/* Divider */}
@@ -205,13 +205,13 @@ export default function ServicesHero() {
           <motion.div
             variants={scaleUp}
             layout={false}
-            className="bg-white/8 border border-white/15 rounded-xl lg:rounded-2xl p-3 lg:p-6 text-center min-w-0 lg:min-w-[160px] flex flex-col justify-center"
+            className="bg-white/8 border border-white/15 rounded-xl lg:rounded-2xl p-2.5 lg:p-6 text-center flex-1 flex flex-col justify-center"
           >
             <div className="text-gold font-heading font-bold text-xl lg:text-3xl">
               <AnimatedCounter target={250} suffix="+" />
             </div>
-            <div className="w-6 h-px bg-gold/40 mx-auto mt-2"></div>
-            <div className="text-white/50 text-[10px] lg:text-sm uppercase tracking-wider mt-2">Partner Unis</div>
+            <div className="w-5 lg:w-6 h-px bg-gold/40 mx-auto mt-1.5 lg:mt-2"></div>
+            <div className="text-white/50 text-[10px] lg:text-xs uppercase tracking-wide lg:tracking-wider mt-1.5 lg:mt-2 whitespace-nowrap">Partner Unis</div>
           </motion.div>
         </motion.div>
       </motion.div>

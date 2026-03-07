@@ -89,12 +89,12 @@ export default function ProcessSection() {
               >
                 <Link href="/contact" className="absolute inset-0 z-10" />
                 <div
-                  className="w-10 h-10 lg:w-12 lg:h-12 rounded-full border-2 border-gold bg-white mx-auto flex items-center justify-center shadow-lg shadow-gold/20 step-number relative z-20 mb-2 lg:mb-4"
+                  className="w-9 h-9 lg:w-12 lg:h-12 rounded-full border-2 border-gold bg-white mx-auto flex items-center justify-center shadow-lg shadow-gold/20 step-number relative z-20 mb-2 lg:mb-4"
                 >
-                  <span className="text-gold font-bold text-base lg:text-xl font-heading">{index + 1}</span>
+                  <span className="text-gold font-bold text-sm lg:text-xl font-heading">{index + 1}</span>
                 </div>
-                <step.icon className="w-5 h-5 text-textSecondary mx-auto mt-4 card-icon relative z-20" />
-                <h3 className="font-heading font-bold text-textPrimary mt-3 text-sm lg:text-base group-hover:text-royal transition-colors duration-300 relative z-20">
+                <step.icon className="w-6 h-6 lg:w-8 lg:h-8 text-textSecondary mx-auto mb-1.5 lg:mb-3 card-icon relative z-20" />
+                <h3 className="font-heading font-bold text-textPrimary text-sm lg:text-base group-hover:text-royal transition-colors duration-300 relative z-20 mb-1 lg:mb-2">
                   {step.title}
                 </h3>
                 <p className="hidden lg:block text-textSecondary text-sm mt-2 max-w-[120px] lg:max-w-none mx-auto leading-relaxed relative z-20">
@@ -110,11 +110,11 @@ export default function ProcessSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="flex justify-center mt-12 lg:mt-16"
+          className="flex justify-center mt-6 lg:mt-12"
         >
           <Link
             href="/contact"
-            className="w-full lg:w-auto bg-gradient-to-r from-royal to-royalLight text-white px-8 py-4 rounded-xl font-semibold hover:shadow-lg hover:shadow-royal/30 active:scale-95 hover:scale-[1.02] transition-all text-center"
+            className="w-full lg:w-auto bg-gradient-to-r from-royal to-royalLight text-white px-8 py-3.5 rounded-xl font-semibold hover:shadow-lg hover:shadow-royal/30 active:scale-95 hover:scale-[1.02] transition-all text-center"
           >
             Start Your Journey
           </Link>

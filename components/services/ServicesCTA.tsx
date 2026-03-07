@@ -11,7 +11,7 @@ export default function ServicesCTA() {
       whileInView="visible"
       viewport={{ once: true, margin: '-60px' }}
       variants={staggerContainer}
-      className="bg-gradient-to-br from-navy via-[#0d2a5e] to-navy py-10 lg:py-24 relative overflow-hidden"
+      className="bg-gradient-to-br from-navy via-[#0d2a5e] to-navy py-8 lg:py-24 relative overflow-hidden"
     >
       {/* Glow Orbs - Pulse animate infinitely */}
       <motion.div
@@ -83,7 +83,7 @@ export default function ServicesCTA() {
         </motion.div>
 
         {/* Header */}
-        <h2 className="font-heading text-2xl lg:text-6xl font-bold tracking-tight mt-4">
+        <h2 className="font-heading text-xl lg:text-6xl font-bold tracking-tight mt-3 lg:mt-4">
           <motion.span
             variants={fadeUp}
             transition={{ delay: 0.1, duration: 0.6 }}
@@ -119,14 +119,14 @@ export default function ServicesCTA() {
           variants={fadeUp}
           transition={{ delay: 0.3 }}
           layout={false}
-          className="flex flex-col sm:flex-row justify-center gap-3 lg:gap-4 mt-8 lg:mt-10"
+          className="flex flex-col sm:flex-row justify-center gap-3 lg:gap-4 mt-6 lg:mt-10"
         >
           <Link href="/contact" passHref legacyBehavior>
             <motion.a
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.96 }}
               transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-              className="w-full sm:w-auto bg-gradient-to-r from-royal to-royalLight text-white px-8 py-3.5 lg:px-10 lg:py-4 rounded-xl font-semibold text-sm lg:text-base hover:shadow-2xl hover:shadow-royal/40 relative overflow-hidden transition-shadow inline-block cursor-pointer text-center"
+              className="w-full sm:w-auto bg-gradient-to-r from-royal to-royalLight text-white px-8 py-3 lg:px-10 lg:py-4 rounded-xl font-semibold text-sm lg:text-base hover:shadow-2xl hover:shadow-royal/40 relative overflow-hidden transition-shadow inline-block cursor-pointer text-center"
             >
               {/* Shimmer Effect */}
               <motion.div
@@ -147,18 +147,18 @@ export default function ServicesCTA() {
             <motion.a
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.96 }}
-              className="w-full sm:w-auto border-2 border-gold/60 text-gold px-8 py-3.5 lg:px-10 lg:py-4 rounded-xl font-semibold text-sm lg:text-base hover:bg-gold/10 transition-all inline-block cursor-pointer text-center"
+              className="w-full sm:w-auto border-2 border-gold/60 text-gold px-8 py-3 lg:px-10 lg:py-4 rounded-xl font-semibold text-sm lg:text-base hover:bg-gold/10 transition-all inline-block cursor-pointer text-center"
             >
               View Destinations
             </motion.a>
           </Link>
         </motion.div>
 
-        <div className="w-24 h-px bg-white/20 mx-auto mt-8 mb-6 lg:mt-10 lg:mb-8"></div>
+        <div className="w-16 lg:w-24 h-px bg-white/20 mx-auto mt-6 mb-5 lg:mt-10 lg:mb-8"></div>
 
         {/* Trust Cards */}
         <motion.div
-          className="flex flex-row justify-center gap-2 lg:gap-4 lg:flex-wrap"
+          className="flex flex-wrap justify-center gap-3 lg:gap-6 mt-5 lg:mt-8"
           variants={staggerContainer}
           transition={{ delay: 0.4 }}
         >
@@ -171,10 +171,10 @@ export default function ServicesCTA() {
               key={i}
               variants={scaleUp}
               layout={false}
-              className="bg-white/8 border border-white/15 rounded-xl lg:rounded-2xl px-3 py-2 lg:px-6 lg:py-4 flex items-center gap-2 lg:gap-2.5 card-hover"
+              className="bg-white/8 border border-white/15 rounded-xl lg:rounded-2xl px-2.5 py-1.5 lg:px-6 lg:py-4 flex items-center gap-2 lg:gap-2.5 card-hover"
             >
-              <CheckCircle2 className="w-4 h-4 lg:w-5 lg:h-5 text-gold" />
-              <span className="text-white/70 text-[10px] lg:text-sm font-medium">{text}</span>
+              <CheckCircle2 className="w-3.5 h-3.5 lg:w-5 lg:h-5 text-gold" />
+              <span className="text-white/70 text-[10px] lg:text-xs font-medium whitespace-nowrap">{text}</span>
             </motion.div>
           ))}
         </motion.div>

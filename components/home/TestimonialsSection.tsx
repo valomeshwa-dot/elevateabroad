@@ -30,12 +30,12 @@ export default function TestimonialsSection() {
 
   return (
     <motion.section
-      className="bg-bg py-10 lg:py-24 overflow-hidden"
+      className="bg-bg py-8 lg:py-24 overflow-hidden"
       layout={false}
     >
       <div className="max-w-7xl mx-auto px-4">
         <motion.div
-          className="text-center mb-6 lg:mb-16"
+          className="text-center mb-5 lg:mb-16"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-40px' }}
@@ -83,29 +83,28 @@ export default function TestimonialsSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.2 }}
                 layout={false}
-                className="text-gold/20 text-6xl lg:text-8xl font-serif leading-none mb-2 select-none card-icon relative z-20"
+                className="text-gold/20 text-6xl lg:text-8xl font-serif leading-none mb-1 lg:mb-2 select-none card-icon relative z-20"
               >
                 &quot;
               </motion.div>
 
-              <p className="text-textPrimary text-sm lg:text-base leading-relaxed italic font-medium flex-grow relative z-20 line-clamp-3 lg:line-clamp-none">
+              <p className="text-textPrimary text-sm lg:text-base leading-relaxed italic font-medium flex-grow relative z-20 line-clamp-4 lg:line-clamp-none">
                 {testimonial.quote}
               </p>
 
-              <div className="w-12 h-px bg-gold/40 my-6 relative z-20"></div>
+              <div className="w-12 h-px bg-gold/40 my-4 lg:my-6 relative z-20"></div>
 
-              <div className="flex items-center gap-4 relative z-20">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-royal to-royalLight flex items-center justify-center text-white font-bold text-sm shrink-0 group-hover:scale-105 transition-transform duration-300 card-icon">
+              <div className="flex items-center gap-4 relative z-20 mt-3 lg:mt-4">
+                <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-gradient-to-br from-royal to-royalLight flex items-center justify-center text-white font-bold text-sm shrink-0 group-hover:scale-105 transition-transform duration-300 card-icon">
                   {testimonial.initials}
                 </div>
                 <div>
                   <h3 className="font-bold text-textPrimary text-xs lg:text-sm">{testimonial.name}</h3>
-                  <p className="text-royal text-xs mt-0.5">{testimonial.university}</p>
-                  <p className="text-textSecondary text-xs">{testimonial.course}</p>
+                  <p className="text-royal text-[10px] lg:text-xs mt-0.5">{testimonial.university}</p>
                 </div>
               </div>
 
-              <div className="text-gold text-sm mt-4 tracking-widest flex gap-1 relative z-20">
+              <div className="text-gold text-xs lg:text-sm mt-3 lg:mt-4 tracking-widest flex gap-1 relative z-20">
                 {[...Array(5)].map((_, i) => (
                   <motion.span
                     key={i}

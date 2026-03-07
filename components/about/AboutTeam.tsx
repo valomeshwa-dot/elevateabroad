@@ -72,7 +72,7 @@ const team: TeamMember[] = [
 
 export default function AboutTeam() {
   return (
-    <section id="about-team" className="bg-[#F6F8FC] py-10 lg:py-24 overflow-hidden">
+    <section id="about-team" className="bg-[#F6F8FC] py-8 lg:py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* HEADER */}
@@ -82,7 +82,7 @@ export default function AboutTeam() {
           viewport={{ once: true, margin: '-60px' }}
           variants={staggerContainer}
           layout={false}
-          className="text-center mb-6 lg:mb-16"
+          className="text-center mb-5 lg:mb-16"
         >
           <motion.div variants={fadeUp} layout={false} className="flex items-center justify-center gap-3 mb-3">
             <motion.span
@@ -118,7 +118,7 @@ export default function AboutTeam() {
           viewport={{ once: true, margin: '-60px' }}
           variants={staggerGrid}
           layout={false}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-6"
         >
           {team.map((member, index) => (
             <motion.div
@@ -129,14 +129,14 @@ export default function AboutTeam() {
             >
 
               {/* CARD TOP BANNER */}
-              <div className={`h-20 lg:h-32 relative bg-gradient-to-br ${member.gradient} rounded-t-2xl lg:rounded-t-3xl`}>
+              <div className={`h-24 lg:h-32 relative bg-gradient-to-br ${member.gradient} rounded-t-2xl lg:rounded-t-3xl`}>
                 <motion.div
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={viewport}
                   transition={{ delay: 0.3, duration: 0.6 }}
                   layout={false}
-                  className="absolute right-4 bottom-0 lg:bottom-1 font-heading font-bold text-5xl lg:text-[100px] text-white/8 leading-none select-none"
+                  className="absolute right-4 bottom-0 lg:bottom-1 font-heading font-bold text-4xl lg:text-7xl text-white/8 leading-none select-none"
                 >
                   {member.initials}
                 </motion.div>
@@ -145,7 +145,7 @@ export default function AboutTeam() {
               </div>
 
               {/* Avatar wrapper */}
-              <div className="px-6 lg:px-8 -mt-7 lg:-mt-10 relative z-10">
+              <div className="px-6 lg:px-8 -mt-6 lg:-mt-10 relative z-10">
                 <motion.div
                   initial={{ opacity: 0, scale: 0.5, y: 10 }}
                   whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -157,14 +157,14 @@ export default function AboutTeam() {
                     damping: 20
                   }}
                   layout={false}
-                  className={`w-14 h-14 lg:w-20 lg:h-20 rounded-xl lg:rounded-2xl border-4 border-white bg-gradient-to-br ${member.gradient} flex items-center justify-center text-white font-bold text-base lg:text-2xl font-heading shadow-xl`}
+                  className={`w-12 h-12 lg:w-20 lg:h-20 rounded-xl lg:rounded-2xl border-4 border-white bg-gradient-to-br ${member.gradient} flex items-center justify-center text-white font-bold text-base lg:text-2xl font-heading shadow-xl`}
                 >
                   {member.initials}
                 </motion.div>
               </div>
 
               {/* CARD BODY */}
-              <div className="pt-4 px-6 lg:px-8 pb-6 lg:pb-8 flex flex-col flex-1">
+              <div className="p-4 pt-7 lg:p-6 lg:pt-10 flex flex-col flex-1">
                 <motion.div
                   initial={{ opacity: 0, y: 8 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -172,8 +172,8 @@ export default function AboutTeam() {
                   transition={{ delay: 0.25, duration: 0.4 }}
                   layout={false}
                 >
-                  <h3 className="font-heading font-bold text-[#0F172A] text-base lg:text-xl">{member.name}</h3>
-                  <div className="text-[#2F6BFF] text-xs lg:text-sm font-medium mt-0.5">{member.role}</div>
+                  <h3 className="font-heading font-bold text-[#0F172A] text-base lg:text-lg">{member.name}</h3>
+                  <div className="text-[#2F6BFF] text-xs lg:text-sm font-medium mt-0.5 mb-2 lg:mb-3">{member.role}</div>
                 </motion.div>
 
                 <motion.div
@@ -186,7 +186,7 @@ export default function AboutTeam() {
                     stiffness: 400
                   }}
                   layout={false}
-                  className="inline-flex items-center gap-1.5 lg:gap-2 bg-[#D4AF37]/10 border border-[#D4AF37]/20 text-[#D4AF37] text-[10px] lg:text-xs font-semibold px-2 py-1 lg:px-3 lg:py-2 rounded-lg lg:rounded-xl mt-2 lg:mt-3 mb-3 lg:mb-5 self-start"
+                  className="inline-flex items-center gap-1.5 lg:gap-2 bg-[#D4AF37]/10 border border-[#D4AF37]/20 text-[#D4AF37] text-[10px] lg:text-xs font-semibold px-2 py-1 lg:px-3 lg:py-2 rounded-lg lg:rounded-xl mb-2 lg:mb-3 self-start"
                 >
                   <GraduationCap className="w-3 lg:w-3.5 h-3 lg:h-3.5" />
                   Studied at {member.university}
@@ -198,7 +198,7 @@ export default function AboutTeam() {
                   whileInView="visible"
                   viewport={viewport}
                   layout={false}
-                  className="flex flex-wrap gap-1 lg:gap-2 mb-3 lg:mb-5"
+                  className="flex flex-wrap gap-1 mb-2 lg:mb-3"
                 >
                   {member.expertise.map((skill, i) => (
                     <motion.span
@@ -225,7 +225,7 @@ export default function AboutTeam() {
                   viewport={viewport}
                   transition={{ delay: 0.4, duration: 0.4 }}
                   layout={false}
-                  className="flex items-center justify-between pt-4 lg:pt-5 border-t border-gray-100 mt-auto"
+                  className="flex items-center justify-between pt-2 lg:pt-3 border-t border-gray-100 mt-2 lg:mt-3"
                 >
                   <div className="text-[#64748B] text-[10px] lg:text-xs">
                     {member.years} years experience

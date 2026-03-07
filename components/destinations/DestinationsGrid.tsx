@@ -17,7 +17,7 @@ const countries = [
     tags: ['Scholarship Available'],
     headerBg: 'bg-gradient-to-br from-blue-700 to-red-600',
     stats: {
-      universities: '4,000+',
+      universities: '4000+',
       ranking: 'World #1',
       visaRate: '85%',
       avgFee: '$25,000/yr'
@@ -200,7 +200,7 @@ export default function DestinationsGrid() {
   });
 
   return (
-    <section id="destinations-grid" className="bg-white py-8 lg:py-24 relative overflow-hidden">
+    <section id="destinations-grid" className="bg-white pt-6 pb-12 lg:py-24 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Section Header */}
@@ -210,7 +210,7 @@ export default function DestinationsGrid() {
           viewport={{ once: true, margin: '-60px' }}
           variants={staggerContainer}
           layout={false}
-          className="text-center mb-16"
+          className="text-center mb-5 lg:mb-16"
         >
           <motion.div variants={fadeUp} layout={false} className="flex items-center justify-center gap-3 mb-3">
             <motion.span

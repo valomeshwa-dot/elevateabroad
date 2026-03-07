@@ -39,7 +39,7 @@ export default function LeadCaptureSection() {
 
   return (
     <motion.section
-      className="relative bg-gradient-to-br from-navy via-[#1a3a6e] to-navy py-10 lg:py-24 overflow-hidden"
+      className="relative bg-gradient-to-br from-navy via-[#1a3a6e] to-navy py-8 lg:py-24 overflow-hidden"
       layout={false}
     >
       {/* Glow orb */}
@@ -66,6 +66,7 @@ export default function LeadCaptureSection() {
             whileInView="visible"
             viewport={{ once: true, margin: '-40px' }}
             layout={false}
+            className="mb-6 lg:mb-0"
           >
             <motion.div variants={staggerContainer} initial="hidden" animate="visible" layout={false}>
               <h2 className="font-heading text-2xl lg:text-4xl font-bold text-white tracking-tight leading-tight">
@@ -104,7 +105,7 @@ export default function LeadCaptureSection() {
             layout={false}
             transition={{ delay: 0.2 }}
           >
-            <div className="bg-white rounded-3xl p-5 lg:p-8 shadow-2xl border border-white/20">
+            <div className="bg-white rounded-3xl p-5 lg:p-8 shadow-2xl border border-white/20 overflow-hidden">
               <h3 className="text-lg lg:text-2xl font-bold text-textPrimary font-heading mb-4 lg:mb-6">
                 Book Your Free Consultation
               </h3>
@@ -112,21 +113,18 @@ export default function LeadCaptureSection() {
 
               {/* Tally Iframe optimized for mobile */}
               <iframe
-                data-tally-src="https://tally.so/embed/D41K0q?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-                loading="lazy"
+                src="https://tally.so/embed/D41K0q?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
                 width="100%"
-                height="520"
+                height="500"
                 frameBorder={0}
-                marginHeight={0}
-                marginWidth={0}
-                title="Consultation Booking Form"
-                className="w-full lg:h-[520px]"
                 style={{
-                  minHeight: '420px',
-                  height: '450px'
+                  border: 'none',
+                  minHeight: '460px',
+                  width: '100%',
+                  display: 'block',
                 }}
+                title="Book Free Consultation"
               />
-              <script async src="https://tally.so/widgets/embed.js"></script>
 
               <p className="text-gray-400 text-[10px] lg:text-xs text-center mt-4">
                 🔒 Your information is secure and never shared.

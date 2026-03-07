@@ -8,36 +8,42 @@ import { fadeUp, slideInLeft, slideInRight, staggerGrid, scaleUp, viewport } fro
 
 export default function ContactForm() {
   return (
-    <section className="bg-white py-8 lg:py-24 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-6 lg:gap-12">
+    <section className="bg-white py-6 lg:py-24 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12">
 
         <div className="bg-white rounded-2xl lg:rounded-3xl p-5 lg:p-8 border border-gray-100 shadow-sm">
           {/* Header */}
-          <h2 className="font-heading font-bold text-xl lg:text-2xl text-[#0F172A] mb-1.5 lg:mb-2">
+          <h2 className="font-heading font-bold text-xl lg:text-2xl text-[#0F172A] mb-1.5">
             Book Your Free Consultation
           </h2>
 
           {/* Gold bar */}
-          <div className="h-1 w-12 bg-[#D4AF37] rounded-full mb-4" />
+          <div className="h-0.5 w-10 bg-[#D4AF37] rounded-full mb-3" />
 
           {/* Subtitle */}
-          <p className="text-[#64748B] text-xs lg:text-sm mb-3 lg:mb-6">
+          <p className="text-[#64748B] text-xs lg:text-sm mb-4">
             Fill in your details and our expert counsellors will get back to you within 24 hours.
           </p>
 
-          {/* Tally Iframe */}
+          {/* Direct Tally Iframe */}
           <iframe
             src="https://tally.so/embed/D41K0q?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
             width="100%"
-            height="600"
+            height="550"
             frameBorder={0}
             style={{
               border: 'none',
-              minHeight: '550px',
+              minHeight: '500px',
               width: '100%',
+              display: 'block',
             }}
-            title="Consultation Form"
+            title="Consultation Booking Form"
           />
+
+          {/* Privacy note */}
+          <p className="text-[#94A3B8] text-[10px] lg:text-xs mt-2 flex items-center gap-1">
+            🔒 Your information is 100% secure.
+          </p>
         </div>
 
         {/* RIGHT COLUMN */}

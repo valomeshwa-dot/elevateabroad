@@ -324,33 +324,25 @@ export default function DestinationsCTA() {
           <motion.div
             variants={staggerContainer}
             transition={{ delayChildren: 0.4 }}
-            className="hidden lg:flex justify-center gap-4 mt-10 flex-wrap"
+            className="flex flex-col lg:flex-row justify-center gap-2 lg:gap-4 mt-8 lg:mt-10"
           >
             {[
-              "Free Consultation",
-              "Expert Counselors",
-              "No Hidden Fees"
+              { text: "Free Consultation", icon: CheckCircle2 },
+              { text: "Expert Counselors", icon: CheckCircle2 },
+              { text: "No Hidden Fees", icon: CheckCircle2 }
             ].map((trust, idx) => (
               <motion.div
-                key={trust}
+                key={trust.text}
                 variants={scaleUp}
                 layout={false}
-                className="bg-white/8 border border-white/15 rounded-2xl px-6 py-4 flex items-center gap-2.5 card-hover"
+                className="flex items-center gap-3 p-4 lg:p-6 rounded-xl lg:rounded-2xl border border-white/10 bg-white/5 lg:bg-white/8 lg:border-white/15 card-hover"
               >
-                <motion.div
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    delay: 0.5 + (idx * 0.1),
-                    type: 'spring',
-                    stiffness: 500
-                  }}
-                  layout={false}
-                >
-                  <CheckCircle2 className="w-5 h-5 text-[#D4AF37]" />
-                </motion.div>
-                <span className="text-white/70 text-sm font-medium">{trust}</span>
+                <div className="w-8 h-8 lg:w-10 lg:h-10 flex-shrink-0 rounded-lg bg-[#2F6BFF]/20 lg:bg-[#D4AF37]/15 flex items-center justify-center">
+                  <trust.icon className="w-4 h-4 lg:w-5 lg:h-5 text-[#2F6BFF] lg:text-[#D4AF37]" />
+                </div>
+                <p className="text-white text-sm lg:text-base font-medium lg:text-white/70">
+                  {trust.text}
+                </p>
               </motion.div>
             ))}
           </motion.div>
