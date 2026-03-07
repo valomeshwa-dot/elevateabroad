@@ -80,7 +80,7 @@ export default function ContactHero() {
               layout={false}
               className="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl text-white mb-6 leading-[1.05]"
             >
-              Let's Start Your{' '}
+              {"Let's Start Your"}{' '}
               <span className="text-[#D4AF37]">
                 Journey Together
               </span>
