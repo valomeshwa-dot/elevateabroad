@@ -513,11 +513,14 @@ export default function UniversitiesGrid() {
                             {country === 'All' ? (
                               <Globe2 className="w-6 h-6 text-[#64748B]" />
                             ) : (
-                              <div className={`w-6 h-6 rounded flex items-center justify-center text-white text-[10px] font-bold ${getCountryGradient(country)}`}>
-                                {getCountryCode(country)}
-                              </div>
+                              <img
+                                src={`https://flagcdn.com/w80/${country === 'UK' ? 'gb' : country === 'USA' ? 'us' : country === 'Canada' ? 'ca' : country === 'Australia' ? 'au' : country === 'Germany' ? 'de' : country === 'Ireland' ? 'ie' : 'us'}.png`}
+                                alt={country}
+                                className="w-6 h-4.5 object-cover rounded-sm flex-shrink-0"
+                                loading="lazy"
+                              />
                             )}
-                            <span>{country}</span>
+                            <span className="flex-1 text-left">{country}</span>
                           </div>
                           <span className="bg-[#F6F8FC] text-[#64748B] text-xs px-2 py-0.5 rounded-md font-medium">
                             {count}
@@ -690,9 +693,15 @@ export default function UniversitiesGrid() {
                       <div className="p-4 lg:p-6 flex flex-col flex-1">
 
                         <div className="flex items-center justify-between mb-3 lg:mb-5">
-                          <div className="flex items-center gap-1 lg:gap-1.5">
-                            <MapPin className="w-3 h-3 lg:w-3.5 lg:h-3.5 text-[#64748B]" />
-                            <span className="text-[#64748B] text-[10px] lg:text-xs">{university.city}</span>
+                          <div className="flex items-center gap-1.5 lg:gap-2">
+                            <MapPin className="w-3 h-3 lg:w-4 lg:h-4 text-[#64748B]" />
+                            <span className="text-[#64748B] text-[10px] lg:text-sm">{university.city}</span>
+                            <img
+                              src={`https://flagcdn.com/w80/${university.countryCode === 'UK' ? 'gb' : university.countryCode.toLowerCase()}.png`}
+                              alt={university.country}
+                              className="w-4 h-3 lg:w-5 lg:h-4 object-cover rounded-sm flex-shrink-0 opacity-80"
+                              loading="lazy"
+                            />
                           </div>
                           <div className="bg-[#F6F8FC] border border-gray-200 text-[#64748B] text-[10px] lg:text-xs px-2 py-0.5 lg:px-3 lg:py-1 rounded-lg font-medium">
                             {university.type}

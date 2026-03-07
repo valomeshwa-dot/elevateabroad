@@ -67,12 +67,12 @@ export default function UniversitiesHero() {
         variants={staggerContainer}
         initial="hidden"
         animate="visible"
-        className="relative z-10 max-w-7xl mx-auto px-6 pt-20 pb-6 lg:pt-32 lg:pb-20 w-full mb-0 lg:mb-16"
+        className="relative z-10 max-w-7xl mx-auto px-6 py-32 lg:py-40 w-full mb-0 lg:mb-16"
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
           {/* LEFT COLUMN */}
-          <div>
+          <div className="text-center flex flex-col items-center">
             <motion.div
               variants={fadeUp}
               layout={false}
@@ -80,14 +80,14 @@ export default function UniversitiesHero() {
             >
               <Link href="/" className="text-white/40 text-sm hover:text-white transition-all">Home</Link>
               <ChevronRight className="w-3 h-3 text-white/30" />
-              <span className="text-white/50 text-xs">Universities</span>
+              <span className="text-white/60 text-xs">Universities</span>
             </motion.div>
 
             <motion.div
               variants={fadeUp}
               transition={{ delay: 0.1 }}
               layout={false}
-              className="flex items-center gap-3 mb-5"
+              className="flex items-center gap-3 mb-6"
             >
               <motion.span
                 initial={{ width: 0 }}
@@ -106,7 +106,7 @@ export default function UniversitiesHero() {
               />
             </motion.div>
 
-            <h1 className="font-heading text-[2rem] lg:text-7xl font-bold text-white tracking-tight leading-tight lg:leading-[1.05] mb-6">
+            <h1 className="font-heading text-[2.5rem] lg:text-7xl font-bold text-white tracking-tight leading-tight lg:leading-[1.05] mb-6">
               <motion.span variants={fadeUp} transition={{ delay: 0.15 }} layout={false} className="block">
                 250+ World-Class
               </motion.span>
@@ -122,36 +122,23 @@ export default function UniversitiesHero() {
               variants={fadeUp}
               transition={{ delay: 0.35 }}
               layout={false}
-              className="text-white/60 text-sm lg:text-lg leading-relaxed max-w-lg mb-4 lg:mb-10 line-clamp-2 lg:line-clamp-none"
+              className="text-white/60 text-base lg:text-lg leading-relaxed max-w-2xl mb-10"
             >
               We have partnerships with leading universities across 15 countries. Search, filter and find the perfect university that matches your academic profile and career ambitions.
             </motion.p>
+
             <motion.div
               variants={fadeUp}
               transition={{ delay: 0.45 }}
               layout={false}
-              className="flex flex-col sm:flex-row gap-3"
+              className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center"
             >
-              <motion.div
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-                className="w-full sm:w-auto"
-              >
-                <Link href="/contact" className="bg-gradient-to-r from-[#2F6BFF] to-[#5B8CFF] text-white px-8 py-4 rounded-xl font-semibold hover:shadow-xl hover:shadow-[#2F6BFF]/40 transition-all inline-block w-full text-center text-sm lg:text-base">
-                  Book Consultation
-                </Link>
-              </motion.div>
-              <motion.div
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-                className="w-full sm:w-auto"
-              >
-                <a href="#universities-grid" className="border-2 border-[#D4AF37]/50 text-[#D4AF37] px-8 py-4 rounded-xl font-semibold hover:bg-[#D4AF37]/10 transition-all inline-block w-full text-center text-sm lg:text-base">
-                  Explore Universities ↓
-                </a>
-              </motion.div>
+              <Link href="/contact" className="bg-gradient-to-r from-[#2F6BFF] to-[#5B8CFF] text-white px-8 py-4 rounded-xl font-semibold hover:shadow-xl hover:shadow-[#2F6BFF]/40 transition-all text-sm lg:text-base text-center">
+                Book Consultation
+              </Link>
+              <a href="#universities-grid" className="border-2 border-[#D4AF37]/50 text-[#D4AF37] px-8 py-4 rounded-xl font-semibold hover:bg-[#D4AF37]/10 transition-all text-sm lg:text-base text-center">
+                Explore Universities ↓
+              </a>
             </motion.div>
 
             <motion.div
@@ -159,29 +146,38 @@ export default function UniversitiesHero() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.55 }}
               layout={false}
-              className="flex flex-wrap gap-2 mt-3 lg:mt-8"
+              className="flex flex-wrap justify-center gap-2 mt-10"
             >
-              <span className="text-white/40 text-xs mr-2 self-center">Quick filter:</span>
-              {['USA', 'UK', 'Canada', 'Australia', 'Germany'].map((country, idx) => (
-                <Link href={`/universities?country=${country}`} key={country} passHref legacyBehavior>
-                  <motion.a
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{
-                      delay: 0.55 + idx * 0.07,
-                      type: 'spring',
-                      stiffness: 400,
-                      damping: 17
-                    }}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    layout={false}
-                    className="bg-white/8 border border-white/15 text-white/60 text-xs px-3 py-1 rounded-full hover:bg-white/15 hover:text-white hover:border-[#D4AF37]/40 transition-all cursor-pointer inline-block whitespace-nowrap"
-                  >
-                    {country}
-                  </motion.a>
-                </Link>
-              ))}
+              <span className="text-white/40 text-xs w-full mb-2 uppercase tracking-widest font-bold">Quick filter:</span>
+              {['USA', 'UK', 'Canada', 'Australia', 'Germany'].map((country, idx) => {
+                const flagCode = country === 'USA' ? 'us' : country === 'UK' ? 'gb' : country === 'Canada' ? 'ca' : country === 'Australia' ? 'au' : country === 'Germany' ? 'de' : 'us';
+                return (
+                  <Link href={`/universities?country=${country}`} key={country} passHref legacyBehavior>
+                    <motion.a
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{
+                        delay: 0.55 + idx * 0.07,
+                        type: 'spring',
+                        stiffness: 400,
+                        damping: 17
+                      }}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      layout={false}
+                      className="bg-white/5 border border-white/10 text-white/60 text-xs px-4 py-2 rounded-full hover:bg-white/10 hover:text-white hover:border-[#D4AF37]/40 transition-all cursor-pointer inline-flex items-center gap-2 whitespace-nowrap"
+                    >
+                      <img
+                        src={`https://flagcdn.com/w80/${flagCode}.png`}
+                        alt={country}
+                        className="w-5 h-4 object-cover rounded-sm flex-shrink-0"
+                        loading="lazy"
+                      />
+                      <span>{country}</span>
+                    </motion.a>
+                  </Link>
+                );
+              })}
             </motion.div>
           </div>
 
@@ -258,7 +254,14 @@ export default function UniversitiesHero() {
                     layout={false}
                     className="flex items-center gap-3"
                   >
-                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center font-bold text-white text-xs bg-gradient-to-br ${region.gradient}`}>{region.code}</div>
+                    <div className="w-8 h-5 rounded overflow-hidden flex-shrink-0">
+                      <img
+                        src={`https://flagcdn.com/w80/${region.code === 'UK' ? 'gb' : region.code === 'US' ? 'us' : region.code.toLowerCase()}.png`}
+                        alt={region.name}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                    </div>
                     <div className="text-white/70 text-sm flex-1">{region.name}</div>
                     <div className="flex-1 bg-white/10 rounded-full h-1.5 overflow-hidden">
                       <motion.div

@@ -2,13 +2,12 @@
 import Link from 'next/link'
 import { ChevronRight } from 'lucide-react'
 import { motion } from 'framer-motion'
-import { fadeUp, staggerContainer, scaleUp } from '@/lib/animations'
-import AnimatedCounter from '@/components/ui/AnimatedCounter'
+import { fadeUp, staggerContainer } from '@/lib/animations'
 import PixelGrid from '@/components/ui/PixelGrid'
 
 export default function ServicesHero() {
   return (
-    <section className="bg-navy min-h-[auto] lg:min-h-[65vh] pt-20 pb-8 lg:pt-32 lg:pb-20 flex items-center relative overflow-hidden">
+    <section className="bg-[#0A1F44] relative overflow-hidden min-h-screen flex items-center">
       {/* Pixel Grid Background */}
       <PixelGrid
         dotColor="rgba(47, 107, 255, 0.1)"
@@ -56,165 +55,173 @@ export default function ServicesHero() {
         className="absolute bottom-0 right-20 w-64 h-64 bg-gold/10 rounded-full blur-[100px] pointer-events-none z-[2]"
       />
 
-      <motion.div
-        className="relative z-10 text-center max-w-4xl mx-auto px-4 py-12 lg:py-20"
-        variants={staggerContainer}
-        initial="hidden"
-        animate="visible"
-      >
-        {/* Breadcrumb Pill */}
-        <motion.div
-          variants={fadeUp}
-          transition={{ duration: 0.5 }}
-          layout={false}
-          className="flex items-center justify-center mb-6 lg:mb-8"
-        >
-          <div className="bg-white/8 border border-white/15 rounded-full px-4 py-2 inline-flex items-center gap-2">
-            <Link href="/" className="text-white/40 text-xs lg:text-sm hover:text-gold transition">Home</Link>
-            <ChevronRight className="w-4 h-4 text-white/30" />
-            <span className="text-white/60 text-xs lg:text-sm">Services</span>
-          </div>
-        </motion.div>
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10 w-full py-24 lg:py-32">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-        {/* Label Row */}
-        <motion.div
-          variants={fadeUp}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          layout={false}
-          className="flex items-center justify-center gap-3 mb-3 lg:mb-4"
-        >
-          <motion.span
-            initial={{ width: 0 }}
-            animate={{ width: 32 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            layout={false}
-            className="h-px bg-gold block"
-          />
-          <span className="text-gold text-[10px] lg:text-xs font-bold uppercase tracking-[0.2em]">OUR SERVICES</span>
-          <motion.span
-            initial={{ width: 0 }}
-            animate={{ width: 32 }}
+          {/* ── LEFT: Text Content ── */}
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
+            className="w-full"
+          >
+            {/* Breadcrumb Pill */}
+            <motion.div
+              variants={fadeUp}
+              layout={false}
+              className="flex items-center mb-6 lg:mb-8"
+            >
+              <div className="bg-white/8 border border-white/15 rounded-full px-4 py-2 inline-flex items-center gap-2">
+                <Link href="/" className="text-white/40 text-xs lg:text-sm hover:text-[#D4AF37] transition">Home</Link>
+                <ChevronRight className="w-4 h-4 text-white/30" />
+                <span className="text-white/60 text-xs lg:text-sm">Services</span>
+              </div>
+            </motion.div>
+
+            {/* Label Row */}
+            <motion.div
+              variants={fadeUp}
+              layout={false}
+              className="flex items-center gap-3 mb-5"
+            >
+              <div className="h-px w-8 bg-[#D4AF37]" />
+              <span className="text-[#D4AF37] text-sm font-semibold tracking-widest uppercase">Our Services</span>
+              <div className="h-px w-8 bg-[#D4AF37]" />
+            </motion.div>
+
+            {/* H1 */}
+            <motion.h1
+              variants={fadeUp}
+              layout={false}
+              className="font-heading font-bold text-4xl lg:text-5xl xl:text-6xl text-white leading-[1.1] mb-5"
+            >
+              Comprehensive Support
+              <span className="text-[#D4AF37] block">at Every Step</span>
+            </motion.h1>
+
+            {/* Subtitle */}
+            <motion.p
+              variants={fadeUp}
+              layout={false}
+              className="text-white/70 text-base lg:text-lg max-w-lg leading-relaxed mb-8"
+            >
+              From choosing the right university to landing your dream job abroad, we provide complete end-to-end guidance for your entire study abroad journey.
+            </motion.p>
+
+            {/* Buttons Row */}
+            <motion.div
+              variants={fadeUp}
+              layout={false}
+              className="flex items-center gap-4 flex-col sm:flex-row mb-10"
+            >
+              <Link
+                href="/contact"
+                className="bg-[#2F6BFF] text-white font-semibold px-8 py-4 rounded-2xl w-full sm:w-auto text-center hover:bg-[#5B8CFF] transition-all duration-200 shadow-lg shadow-[#2F6BFF]/25"
+              >
+                Book Free Consultation
+              </Link>
+              <Link
+                href="#services-list"
+                className="border border-white/30 text-white font-semibold px-8 py-4 rounded-2xl w-full sm:w-auto hover:bg-white/10 transition-all duration-200 flex items-center justify-center gap-2"
+              >
+                Explore Services ↓
+              </Link>
+            </motion.div>
+
+            {/* Stats Row */}
+            <motion.div
+              variants={fadeUp}
+              layout={false}
+              className="flex items-center gap-8 lg:gap-12 pt-8 border-t border-white/10 flex-wrap"
+            >
+              <div>
+                <div className="text-2xl lg:text-3xl font-bold text-[#D4AF37]">5,000+</div>
+                <div className="text-xs text-white/60 tracking-wider uppercase whitespace-nowrap">Students Helped</div>
+              </div>
+              <div>
+                <div className="text-2xl lg:text-3xl font-bold text-[#D4AF37]">98%</div>
+                <div className="text-xs text-white/60 tracking-wider uppercase whitespace-nowrap">Visa Success</div>
+              </div>
+              <div>
+                <div className="text-2xl lg:text-3xl font-bold text-[#D4AF37]">250+</div>
+                <div className="text-xs text-white/60 tracking-wider uppercase whitespace-nowrap">Partner Unis</div>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* ── RIGHT: Visual Card ── */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             layout={false}
-            className="h-px bg-gold block"
-          />
-        </motion.div>
+            className="hidden lg:block"
+          >
+            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 space-y-4 shadow-2xl">
+              {/* Card Header */}
+              <div className="flex items-center justify-between mb-6">
+                <div>
+                  <div className="text-white font-bold text-lg">Our Services</div>
+                  <div className="text-white/50 text-sm">End-to-end support for you</div>
+                </div>
+                <div className="bg-[#D4AF37]/20 border border-[#D4AF37]/30 rounded-xl px-3 py-1.5">
+                  <span className="text-[#D4AF37] text-xs font-bold">6 Services</span>
+                </div>
+              </div>
 
-        {/* Header Lines */}
-        <h1 className="font-heading text-[2rem] lg:text-7xl font-bold text-white tracking-tight leading-tight lg:leading-tight mt-4">
-          <motion.span
-            variants={fadeUp}
-            transition={{ delay: 0.15 }}
-            layout={false}
-            className="block"
-          >
-            Comprehensive Support
-          </motion.span>
-          <motion.span
-            variants={fadeUp}
-            transition={{ delay: 0.25 }}
-            layout={false}
-            className="text-gold block"
-          >
-            at Every Step
-          </motion.span>
-        </h1>
+              {/* Service List Items */}
+              {[
+                { icon: "🎯", name: "Career Counseling", desc: "Find your perfect path", color: "bg-blue-500/20", students: "1,200+ students" },
+                { icon: "🎓", name: "University Selection", desc: "250+ partner universities", color: "bg-purple-500/20", students: "2,500+ students" },
+                { icon: "📋", name: "Application Assistance", desc: "100% error-free submissions", color: "bg-green-500/20", students: "3,000+ students" },
+                { icon: "🛂", name: "Visa Support", desc: "98% approval rate", color: "bg-orange-500/20", students: "4,000+ students" },
+                { icon: "🏆", name: "Scholarship Guidance", desc: "₹50Cr+ scholarships secured", color: "bg-yellow-500/20", students: "800+ students" },
+                { icon: "✍️", name: "SOP & Essay Writing", desc: "Personalised for each uni", color: "bg-pink-500/20", students: "1,500+ students" },
+              ].map((service, i) => (
+                <motion.div
+                  key={service.name}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, delay: 0.4 + i * 0.08 }}
+                  layout={false}
+                  whileHover={{ x: 6 }}
+                  className="flex items-center gap-4 p-3.5 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-[#D4AF37]/30 transition-all duration-200 cursor-pointer group"
+                >
+                  {/* Icon Box */}
+                  <div className={`w-10 h-10 rounded-xl ${service.color} flex items-center justify-center flex-shrink-0 text-lg`}>
+                    {service.icon}
+                  </div>
 
-        <motion.p
-          variants={fadeUp}
-          transition={{ delay: 0.3 }}
-          layout={false}
-          className="text-white/60 text-sm lg:text-lg mt-5 lg:mt-6 max-w-xl mx-auto leading-relaxed line-clamp-2 lg:line-clamp-none"
-        >
-          From choosing the right university to landing your dream job abroad, we provide complete end-to-end guidance for your entire study abroad journey.
-        </motion.p>
+                  {/* Text Content */}
+                  <div className="flex-1 min-w-0">
+                    <div className="text-white font-semibold text-sm group-hover:text-[#D4AF37] transition-colors">
+                      {service.name}
+                    </div>
+                    <div className="text-white/50 text-xs truncate">
+                      {service.desc}
+                    </div>
+                  </div>
 
-        <motion.div
-          variants={fadeUp}
-          transition={{ delay: 0.45 }}
-          layout={false}
-          className="flex flex-col sm:flex-row gap-3 mt-8 lg:mt-10 justify-center"
-        >
-          <Link
-            href="/contact"
-            className="w-full sm:w-auto bg-white text-navy px-6 py-3 lg:px-8 lg:py-4 rounded-xl font-semibold text-sm lg:text-base hover:shadow-xl hover:shadow-white/20 active:scale-95 hover:scale-[1.03] transition-all text-center"
-          >
-            Book Free Consultation
-          </Link>
-          <a
-            href="#services-list"
-            className="w-full sm:w-auto border-2 border-white/20 text-white px-6 py-3 lg:px-8 lg:py-4 rounded-xl font-semibold text-sm lg:text-base hover:bg-white/10 active:scale-95 hover:scale-[1.03] transition-all flex items-center gap-2 justify-center text-center"
-          >
-            Explore Services
-          </a>
-        </motion.div>
+                  {/* Student Volume Badge */}
+                  <div className="text-white/40 text-xs whitespace-nowrap">
+                    {service.students}
+                  </div>
+                </motion.div>
+              ))}
 
-        {/* Stats Row */}
-        <motion.div
-          className="flex items-center justify-between gap-2 mt-6 lg:mt-8 lg:justify-center lg:gap-8"
-          variants={staggerContainer}
-          initial="hidden"
-          animate="visible"
-          transition={{ delay: 0.4 }}
-        >
-          {/* Stat 1 */}
-          <motion.div
-            variants={scaleUp}
-            layout={false}
-            className="bg-white/8 border border-white/15 rounded-xl lg:rounded-2xl p-2.5 lg:p-6 text-center flex-1 flex flex-col justify-center"
-          >
-            <div className="text-gold font-heading font-bold text-xl lg:text-3xl">
-              <AnimatedCounter target={5000} suffix="+" />
+              {/* Action Button */}
+              <div className="pt-2">
+                <Link
+                  href="/contact"
+                  className="block w-full bg-[#D4AF37] text-[#0A1F44] font-bold py-3.5 rounded-2xl text-center text-sm hover:bg-[#F0C842] transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                >
+                  Start Your Journey Today →
+                </Link>
+              </div>
             </div>
-            <div className="w-5 lg:w-6 h-px bg-gold/40 mx-auto mt-1.5 lg:mt-2"></div>
-            <div className="text-white/50 text-[10px] lg:text-xs uppercase tracking-wide lg:tracking-wider mt-1.5 lg:mt-2 whitespace-nowrap">Students Helped</div>
           </motion.div>
-
-          {/* Divider */}
-          <motion.div
-            initial={{ height: 0 }}
-            animate={{ height: 40 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-            layout={false}
-            className="hidden lg:block w-px bg-white/10"
-          />
-
-          {/* Stat 2 */}
-          <motion.div
-            variants={scaleUp}
-            layout={false}
-            className="bg-white/8 border border-white/15 rounded-xl lg:rounded-2xl p-2.5 lg:p-6 text-center flex-1 flex flex-col justify-center"
-          >
-            <div className="text-gold font-heading font-bold text-xl lg:text-3xl">
-              <AnimatedCounter target={98} suffix="%" />
-            </div>
-            <div className="w-5 lg:w-6 h-px bg-gold/40 mx-auto mt-1.5 lg:mt-2"></div>
-            <div className="text-white/50 text-[10px] lg:text-xs uppercase tracking-wide lg:tracking-wider mt-1.5 lg:mt-2 whitespace-nowrap">Visa Success</div>
-          </motion.div>
-
-          {/* Divider */}
-          <motion.div
-            initial={{ height: 0 }}
-            animate={{ height: 40 }}
-            transition={{ duration: 0.5, delay: 0.7 }}
-            layout={false}
-            className="hidden lg:block w-px bg-white/10"
-          />
-
-          {/* Stat 3 */}
-          <motion.div
-            variants={scaleUp}
-            layout={false}
-            className="bg-white/8 border border-white/15 rounded-xl lg:rounded-2xl p-2.5 lg:p-6 text-center flex-1 flex flex-col justify-center"
-          >
-            <div className="text-gold font-heading font-bold text-xl lg:text-3xl">
-              <AnimatedCounter target={250} suffix="+" />
-            </div>
-            <div className="w-5 lg:w-6 h-px bg-gold/40 mx-auto mt-1.5 lg:mt-2"></div>
-            <div className="text-white/50 text-[10px] lg:text-xs uppercase tracking-wide lg:tracking-wider mt-1.5 lg:mt-2 whitespace-nowrap">Partner Unis</div>
-          </motion.div>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </section>
   )
 }

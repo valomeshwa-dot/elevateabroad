@@ -66,12 +66,12 @@ export default function AboutHero() {
         variants={staggerContainer}
         initial="hidden"
         animate="visible"
-        className="relative z-10 max-w-7xl mx-auto px-6 pt-20 pb-8 lg:pt-32 lg:pb-20 w-full"
+        className="relative z-10 max-w-7xl mx-auto px-6 py-32 lg:py-40 w-full"
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
           {/* LEFT COLUMN */}
-          <div>
+          <div className="text-center lg:text-left flex flex-col items-center lg:items-start">
             <motion.div
               variants={fadeUp}
               transition={{ delay: 0 }}
@@ -98,9 +98,15 @@ export default function AboutHero() {
               <span className="text-[#D4AF37] text-xs font-bold uppercase tracking-[0.2em]">
                 OUR STORY
               </span>
+              <motion.span
+                initial={{ width: 0 }}
+                animate={{ width: 32 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="h-px bg-[#D4AF37] block lg:hidden"
+              />
             </motion.div>
 
-            <h1 className="font-heading text-[2rem] lg:text-7xl font-bold text-white tracking-tight leading-tight lg:leading-[1.05] mb-6">
+            <h1 className="font-heading text-[2.5rem] lg:text-7xl font-bold text-white tracking-tight leading-tight lg:leading-[1.05] mb-6">
               <motion.span variants={fadeUp} transition={{ delay: 0.15 }} layout={false} className="block">Helping Students</motion.span>
               <motion.span variants={fadeUp} transition={{ delay: 0.22 }} layout={false} className="block">Reach Their</motion.span>
               <motion.span variants={fadeUp} transition={{ delay: 0.3 }} layout={false} className="text-[#D4AF37] block">Full Potential</motion.span>
@@ -110,7 +116,7 @@ export default function AboutHero() {
               variants={fadeUp}
               transition={{ delay: 0.35 }}
               layout={false}
-              className="text-white/60 text-sm lg:text-lg max-w-lg leading-relaxed mb-4 lg:mb-10 line-clamp-2 lg:line-clamp-none"
+              className="text-white/60 text-base lg:text-lg max-w-xl leading-relaxed mb-10"
             >
               Founded in 2015 by passionate education experts, ElevateAbroad has grown into one of the most trusted study abroad consultancies, helping over 5,000 students achieve their international university dreams.
             </motion.p>
@@ -119,7 +125,7 @@ export default function AboutHero() {
               variants={fadeUp}
               transition={{ delay: 0.45 }}
               layout={false}
-              className="flex flex-col sm:flex-row gap-3"
+              className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center lg:justify-start"
             >
               <Link href="/contact" passHref legacyBehavior>
                 <motion.a
