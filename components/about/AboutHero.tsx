@@ -66,7 +66,7 @@ export default function AboutHero() {
         variants={staggerContainer}
         initial="hidden"
         animate="visible"
-        className="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-20 w-full"
+        className="relative z-10 max-w-7xl mx-auto px-6 pt-20 pb-8 lg:pt-32 lg:pb-20 w-full"
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
@@ -100,7 +100,7 @@ export default function AboutHero() {
               </span>
             </motion.div>
 
-            <h1 className="font-heading text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.05] mb-6">
+            <h1 className="font-heading text-[2rem] lg:text-7xl font-bold text-white tracking-tight leading-tight lg:leading-[1.05] mb-6">
               <motion.span variants={fadeUp} transition={{ delay: 0.15 }} layout={false} className="block">Helping Students</motion.span>
               <motion.span variants={fadeUp} transition={{ delay: 0.22 }} layout={false} className="block">Reach Their</motion.span>
               <motion.span variants={fadeUp} transition={{ delay: 0.3 }} layout={false} className="text-[#D4AF37] block">Full Potential</motion.span>
@@ -110,7 +110,7 @@ export default function AboutHero() {
               variants={fadeUp}
               transition={{ delay: 0.35 }}
               layout={false}
-              className="text-white/60 text-lg max-w-lg leading-relaxed mb-10"
+              className="text-white/60 text-sm lg:text-lg max-w-lg leading-relaxed mb-4 lg:mb-10 line-clamp-2 lg:line-clamp-none"
             >
               Founded in 2015 by passionate education experts, ElevateAbroad has grown into one of the most trusted study abroad consultancies, helping over 5,000 students achieve their international university dreams.
             </motion.p>
@@ -119,14 +119,14 @@ export default function AboutHero() {
               variants={fadeUp}
               transition={{ delay: 0.45 }}
               layout={false}
-              className="flex flex-wrap gap-4"
+              className="flex flex-col sm:flex-row gap-3"
             >
               <Link href="/contact" passHref legacyBehavior>
                 <motion.a
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
                   transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-                  className="bg-gradient-to-r from-[#2F6BFF] to-[#5B8CFF] text-white px-8 py-4 rounded-xl font-semibold hover:shadow-xl hover:shadow-[#2F6BFF]/30 transition-all cursor-pointer"
+                  className="bg-gradient-to-r from-[#2F6BFF] to-[#5B8CFF] text-white px-8 py-4 rounded-xl font-semibold hover:shadow-xl hover:shadow-[#2F6BFF]/30 transition-all cursor-pointer w-full sm:w-auto text-center text-sm lg:text-base"
                 >
                   Book Free Consultation
                 </motion.a>
@@ -136,7 +136,7 @@ export default function AboutHero() {
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-                className="border-2 border-[#D4AF37]/50 text-[#D4AF37] px-8 py-4 rounded-xl font-semibold hover:bg-[#D4AF37]/10 transition-all cursor-pointer"
+                className="border-2 border-[#D4AF37]/50 text-[#D4AF37] px-8 py-4 rounded-xl font-semibold hover:bg-[#D4AF37]/10 transition-all cursor-pointer w-full sm:w-auto text-center text-sm lg:text-base"
               >
                 Meet Our Team ↓
               </motion.a>
@@ -154,7 +154,7 @@ export default function AboutHero() {
                 ease: [0.25, 0.46, 0.45, 0.94]
               }}
               layout={false}
-              className="bg-white/8 border border-white/15 rounded-3xl p-8 backdrop-blur card-hover shadow-xl"
+              className="bg-white/8 border border-white/15 rounded-3xl p-6 lg:p-8 backdrop-blur card-hover shadow-xl"
             >
 
               <motion.div
@@ -162,7 +162,7 @@ export default function AboutHero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.4 }}
                 layout={false}
-                className="flex items-center gap-4 mb-8"
+                className="hidden lg:flex items-center gap-4 mb-8"
               >
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#2F6BFF] to-[#5B8CFF] flex items-center justify-center">
                   <Globe2 className="w-8 h-8 text-white" />
@@ -177,7 +177,7 @@ export default function AboutHero() {
                 variants={staggerContainer}
                 initial="hidden"
                 animate="visible"
-                className="space-y-4 mb-8"
+                className="space-y-2 lg:space-y-4 mb-6 lg:mb-8"
               >
                 {milestones.map((milestone, idx) => (
                   <motion.div
@@ -190,7 +190,7 @@ export default function AboutHero() {
                       ease: 'easeOut'
                     }}
                     layout={false}
-                    className="flex items-start gap-4"
+                    className="flex items-start gap-2 lg:gap-4"
                   >
                     <motion.div
                       initial={{ opacity: 0, scale: 0.5 }}
@@ -201,13 +201,13 @@ export default function AboutHero() {
                         stiffness: 500
                       }}
                       layout={false}
-                      className="bg-[#D4AF37]/20 border border-[#D4AF37]/30 text-[#D4AF37] text-xs font-bold px-3 py-1.5 rounded-lg w-16 text-center flex-shrink-0"
+                      className="bg-[#D4AF37]/20 border border-[#D4AF37]/30 text-[#D4AF37] text-[10px] lg:text-xs font-bold px-2 py-0.5 lg:px-3 lg:py-1.5 rounded-lg w-14 lg:w-16 text-center flex-shrink-0"
                     >
                       {milestone.year}
                     </motion.div>
                     <div>
-                      <div className="text-white font-semibold text-sm">{milestone.title}</div>
-                      <div className="text-white/50 text-xs mt-0.5">{milestone.desc}</div>
+                      <div className="text-white font-semibold text-xs lg:text-sm">{milestone.title}</div>
+                      <div className="text-white/50 text-[10px] lg:text-xs mt-0.5">{milestone.desc}</div>
                     </div>
                   </motion.div>
                 ))}
@@ -217,7 +217,7 @@ export default function AboutHero() {
                 variants={staggerGrid}
                 initial="hidden"
                 animate="visible"
-                className="grid grid-cols-3 gap-4 border-t border-white/10 pt-6"
+                className="grid grid-cols-3 gap-4 lg:gap-8 border-t border-white/10 pt-6 mt-6 lg:mt-12"
               >
                 {[
                   { target: 50, suffix: "+", label: "Counselors" },
@@ -235,10 +235,10 @@ export default function AboutHero() {
                     layout={false}
                     className="text-center"
                   >
-                    <div className="font-heading font-bold text-[#D4AF37] text-2xl">
+                    <div className="font-heading font-bold text-[#D4AF37] text-2xl lg:text-4xl">
                       <AnimatedCounter target={stat.target} suffix={stat.suffix} />
                     </div>
-                    <div className="text-white/40 text-xs mt-1 uppercase tracking-wide">{stat.label}</div>
+                    <div className="text-white/40 text-[10px] lg:text-xs mt-1 uppercase tracking-wide">{stat.label}</div>
                   </motion.div>
                 ))}
               </motion.div>

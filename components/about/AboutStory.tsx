@@ -32,8 +32,8 @@ export default function AboutStory() {
   ];
 
   return (
-    <section className="bg-white py-24 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+    <section className="bg-white py-10 lg:py-24 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-20 items-start">
 
         {/* LEFT COLUMN */}
         <motion.div
@@ -57,16 +57,16 @@ export default function AboutStory() {
               </span>
             </motion.div>
 
-            <h2 className="font-heading text-5xl font-bold text-[#0F172A] tracking-tight mt-3 mb-6">
+            <h2 className="font-heading text-2xl lg:text-5xl font-bold text-[#0F172A] tracking-tight mt-3 mb-3 lg:mb-6">
               <motion.span variants={fadeUp} transition={{ delay: 0.1 }} layout={false} className="block">Democratizing Access to</motion.span>
               <motion.span variants={fadeUp} transition={{ delay: 0.18 }} layout={false} className="text-[#2F6BFF] block">World-Class Education</motion.span>
             </h2>
 
-            <motion.p variants={fadeUp} transition={{ delay: 0.25 }} layout={false} className="text-[#64748B] text-base leading-relaxed mb-5">
+            <motion.p variants={fadeUp} transition={{ delay: 0.25 }} layout={false} className="text-[#64748B] text-sm lg:text-base leading-relaxed mb-5">
               ElevateAbroad was founded with a single mission — to make quality international education accessible to every deserving student regardless of their background or location.
             </motion.p>
 
-            <motion.p variants={fadeUp} transition={{ delay: 0.3 }} layout={false} className="text-[#64748B] text-base leading-relaxed mb-8">
+            <motion.p variants={fadeUp} transition={{ delay: 0.3 }} layout={false} className="hidden lg:block text-[#64748B] text-base leading-relaxed mb-8">
               We believe that the right guidance at the right time can completely transform a student&apos;s life. Our team of 50+ expert counselors have themselves studied abroad and understand your journey firsthand.
             </motion.p>
 
@@ -76,7 +76,7 @@ export default function AboutStory() {
               viewport={viewport}
               transition={{ delay: 0.35, duration: 0.6 }}
               layout={false}
-              className="bg-[#0A1F44] rounded-2xl p-8 relative overflow-hidden"
+              className="bg-[#0A1F44] rounded-2xl p-5 lg:p-8 mb-4 lg:mb-8 relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#2F6BFF]/20 rounded-full blur-[60px] pointer-events-none"></div>
 
@@ -90,7 +90,7 @@ export default function AboutStory() {
                   stiffness: 300
                 }}
                 layout={false}
-                className="text-[#D4AF37] text-5xl font-serif leading-none mb-4 block relative z-10"
+                className="text-[#D4AF37] text-2xl lg:text-5xl font-serif leading-none mb-4 block relative z-10"
               >
                 &quot;
               </motion.span>
@@ -101,7 +101,7 @@ export default function AboutStory() {
                 viewport={viewport}
                 transition={{ delay: 0.6, duration: 0.6 }}
                 layout={false}
-                className="text-white/80 text-base italic leading-relaxed relative z-10"
+                className="text-white/80 text-sm lg:text-base italic leading-relaxed line-clamp-3 lg:line-clamp-none relative z-10"
               >
                 Our mission is to be the bridge between ambitious students and world-class universities, making the dream of studying abroad a reality for every deserving student.
               </motion.p>
@@ -128,24 +128,24 @@ export default function AboutStory() {
           viewport={viewport}
           layout={false}
         >
-          <motion.h3 variants={fadeUp} transition={{ delay: 0.1 }} layout={false} className="font-heading text-2xl font-bold text-[#0F172A] mb-6">
+          <motion.h3 variants={fadeUp} transition={{ delay: 0.1 }} layout={false} className="font-heading text-lg lg:text-2xl font-bold text-[#0F172A] mt-4 lg:mt-0 mb-3 lg:mb-6">
             Our Core Values
           </motion.h3>
 
-          <motion.div variants={staggerContainer} transition={{ delay: 0.2 }} initial="hidden" whileInView="visible" viewport={viewport} layout={false} className="grid grid-cols-1 gap-4">
+          <motion.div variants={staggerContainer} transition={{ delay: 0.2 }} initial="hidden" whileInView="visible" viewport={viewport} layout={false} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-2 lg:gap-4">
             {coreValues.map((value) => (
               <motion.div
                 key={value.title}
                 variants={scaleUp}
                 layout={false}
-                className="bg-[#F6F8FC] rounded-2xl p-6 border border-gray-100 transition-all duration-300 flex items-start gap-5 card-hover"
+                className="bg-[#F6F8FC] rounded-xl lg:rounded-2xl p-3 lg:p-6 border border-gray-100 transition-all duration-300 flex items-start gap-3 lg:gap-5 card-hover"
               >
-                <div className={`w-14 h-14 rounded-2xl flex-shrink-0 flex items-center justify-center card-icon ${value.colorClass}`}>
+                <div className={`w-8 h-8 lg:w-14 lg:h-14 rounded-xl lg:rounded-2xl flex-shrink-0 flex items-center justify-center card-icon ${value.colorClass}`}>
                   {value.icon}
                 </div>
                 <div>
-                  <h4 className="font-heading font-bold text-[#0F172A] text-base">{value.title}</h4>
-                  <p className="text-[#64748B] text-sm mt-1.5 leading-relaxed">
+                  <h4 className="font-heading font-bold text-[#0F172A] text-sm lg:text-base">{value.title}</h4>
+                  <p className="text-[#64748B] text-xs lg:text-sm mt-1 lg:mt-1.5 leading-relaxed line-clamp-2 lg:line-clamp-none">
                     {value.desc}
                   </p>
                 </div>

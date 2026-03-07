@@ -200,7 +200,7 @@ export default function DestinationsGrid() {
   });
 
   return (
-    <section id="destinations-grid" className="bg-white py-24 relative overflow-hidden">
+    <section id="destinations-grid" className="bg-white py-8 lg:py-24 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Section Header */}
@@ -256,7 +256,7 @@ export default function DestinationsGrid() {
           viewport={{ once: true }}
           transition={{ delay: 0.3, duration: 0.5 }}
           layout={false}
-          className="flex justify-center mb-16"
+          className="flex justify-center mb-6 lg:mb-16"
         >
           <div className="bg-[#F6F8FC] rounded-2xl p-2 inline-flex flex-wrap gap-2 border border-gray-200">
             {filters.map(filter => (
@@ -266,7 +266,7 @@ export default function DestinationsGrid() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 transition={{ duration: 0.15 }}
-                className={`px-6 py-2.5 rounded-xl text-sm transition-all ${activeFilter === filter
+                className={`px-3 py-1.5 lg:px-6 lg:py-2.5 rounded-xl text-xs lg:text-sm transition-all ${activeFilter === filter
                   ? 'bg-[#2F6BFF] text-white shadow-lg shadow-[#2F6BFF]/25 font-semibold active'
                   : 'bg-transparent text-[#64748B] hover:bg-white hover:text-[#0F172A] hover:shadow-sm font-medium'
                   }`}
@@ -292,21 +292,21 @@ export default function DestinationsGrid() {
                   delay: index * 0.06,
                   ease: 'easeOut'
                 }}
-                className="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden card-hover"
+                className="bg-white rounded-2xl lg:rounded-3xl border border-gray-100 shadow-sm overflow-hidden card-hover mb-6 lg:mb-16"
               >
                 {/* CARD TOP BANNER */}
-                <div className={`h-48 relative overflow-hidden ${country.headerBg}`}>
-                  <div className="absolute right-4 bottom-2 font-heading font-bold text-[120px] text-white/8 leading-none select-none">
+                <div className={`h-28 lg:h-48 relative overflow-hidden ${country.headerBg}`}>
+                  <div className="absolute right-4 bottom-2 font-heading font-bold text-[60px] lg:text-[120px] text-white/8 leading-none select-none">
                     {country.code}
                   </div>
 
                   <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black/30 to-transparent"></div>
 
-                  <div className="absolute top-4 left-6 w-14 h-14 rounded-xl bg-white/20 backdrop-blur border border-white/30 flex items-center justify-center font-heading font-bold text-white text-xl">
+                  <div className="absolute top-4 left-6 w-10 h-10 lg:w-14 lg:h-14 rounded-xl bg-white/20 backdrop-blur border border-white/30 flex items-center justify-center font-heading font-bold text-white text-base lg:text-xl">
                     {country.code}
                   </div>
 
-                  <div className="absolute bottom-4 left-6 font-heading text-2xl font-bold text-white">
+                  <div className="absolute bottom-4 left-6 font-heading text-xl lg:text-2xl font-bold text-white">
                     {country.name}
                   </div>
 
@@ -318,7 +318,7 @@ export default function DestinationsGrid() {
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 0.3 + tagIndex * 0.1 }}
                         layout={false}
-                        className="bg-white/20 backdrop-blur border border-white/30 text-white text-xs font-semibold px-3 py-1 rounded-full"
+                        className="hidden lg:block bg-white/20 backdrop-blur border border-white/30 text-white text-xs font-semibold px-3 py-1 rounded-full"
                       >
                         {tag}
                       </motion.span>
@@ -327,42 +327,42 @@ export default function DestinationsGrid() {
                 </div>
 
                 {/* CARD BODY */}
-                <div className="p-8">
+                <div className="p-4 lg:p-8">
 
                   {/* Stats row */}
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-0 py-5 border-t-2 border-t-[#2F6BFF]/20 border-b border-gray-100 mb-6 font-heading">
-                    <div className="text-center py-5 px-4 border-r border-b border-gray-100 md:border-b-0">
-                      <div className="font-bold text-[#0F172A] text-xl">
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-0 py-3 lg:py-5 border-t-2 border-t-[#2F6BFF]/20 border-b border-gray-100 mb-4 lg:mb-6 font-heading">
+                    <div className="text-center py-3 px-3 lg:py-5 lg:px-4 border-r border-b border-gray-100 md:border-b-0">
+                      <div className="font-bold text-[#0F172A] text-lg lg:text-xl">
                         <AnimatedCounter
                           target={parseInt(country.stats.universities)}
                           suffix="+"
                           duration={1500}
                         />
                       </div>
-                      <div className="text-[#64748B] text-xs mt-1.5 uppercase tracking-wide">Universities</div>
+                      <div className="text-[#64748B] text-[10px] lg:text-xs mt-1.5 uppercase tracking-wide">Universities</div>
                     </div>
-                    <div className="text-center py-5 px-4 border-b border-gray-100 md:border-b-0 md:border-r">
-                      <div className="font-bold text-[#0F172A] text-xl">{country.stats.ranking}</div>
-                      <div className="text-[#64748B] text-xs mt-1.5 uppercase tracking-wide">Ranking</div>
+                    <div className="text-center py-3 px-3 lg:py-5 lg:px-4 border-b border-gray-100 md:border-b-0 md:border-r">
+                      <div className="font-bold text-[#0F172A] text-lg lg:text-xl">{country.stats.ranking}</div>
+                      <div className="text-[#64748B] text-[10px] lg:text-xs mt-1.5 uppercase tracking-wide">Ranking</div>
                     </div>
-                    <div className="text-center py-5 px-4 border-r border-gray-100">
-                      <div className="font-bold text-[#0F172A] text-xl">
+                    <div className="text-center py-3 px-3 lg:py-5 lg:px-4 border-r border-gray-100">
+                      <div className="font-bold text-[#0F172A] text-lg lg:text-xl">
                         <AnimatedCounter
                           target={parseInt(country.stats.visaRate)}
                           suffix="%"
                           duration={1500}
                         />
                       </div>
-                      <div className="text-[#64748B] text-xs mt-1.5 uppercase tracking-wide">Visa Rate</div>
+                      <div className="text-[#64748B] text-[10px] lg:text-xs mt-1.5 uppercase tracking-wide">Visa Rate</div>
                     </div>
-                    <div className="text-center py-5 px-4">
-                      <div className="font-bold text-[#0F172A] text-xl">{country.stats.avgFee}</div>
-                      <div className="text-[#64748B] text-xs mt-1.5 uppercase tracking-wide">Avg. Fees</div>
+                    <div className="text-center py-3 px-3 lg:py-5 lg:px-4">
+                      <div className="font-bold text-[#0F172A] text-lg lg:text-xl">{country.stats.avgFee}</div>
+                      <div className="text-[#64748B] text-[10px] lg:text-xs mt-1.5 uppercase tracking-wide">Avg. Fees</div>
                     </div>
                   </div>
 
                   {/* Two column body */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                  <div className="hidden lg:grid grid-cols-1 md:grid-cols-2 gap-10">
                     {/* LEFT — Top Universities */}
                     <div>
                       <div className="text-xs font-bold text-[#64748B] uppercase tracking-wide mb-4">Top Universities</div>
@@ -386,6 +386,13 @@ export default function DestinationsGrid() {
                     </div>
                   </div>
 
+                  {/* Mobile Compact Universities */}
+                  <div className="lg:hidden py-3 border-t border-white/10">
+                    <p className="text-[#64748B] text-xs">
+                      Top: {country.universities.slice(0, 3).join(' · ')}
+                    </p>
+                  </div>
+
                   {/* Scholarship banner */}
                   <motion.div
                     initial={{ opacity: 0, x: -10 }}
@@ -393,7 +400,7 @@ export default function DestinationsGrid() {
                     viewport={{ once: true }}
                     transition={{ delay: 0.2, duration: 0.4 }}
                     layout={false}
-                    className="mt-6 bg-gradient-to-r from-[#D4AF37]/10 to-[#D4AF37]/5 border border-[#D4AF37]/25 rounded-xl px-5 py-4 flex items-center gap-3"
+                    className="hidden lg:flex mt-6 bg-gradient-to-r from-[#D4AF37]/10 to-[#D4AF37]/5 border border-[#D4AF37]/25 rounded-xl px-5 py-4 flex items-center gap-3"
                   >
                     <div className="w-8 h-8 rounded-lg bg-[#D4AF37]/20 flex items-center justify-center">
                       <GraduationCap className="w-4 h-4 text-[#D4AF37]" />
@@ -405,19 +412,19 @@ export default function DestinationsGrid() {
                   </motion.div>
 
                   {/* CTA row */}
-                  <div className="mt-6 pt-5 border-t border-gray-100 flex items-center justify-between">
+                  <div className="mt-4 lg:mt-6 pt-3 lg:pt-5 border-t border-gray-100 flex items-center justify-between px-0 lg:px-0">
                     <div className="flex items-center gap-2">
                       <MapPin className="w-4 h-4 text-[#64748B]" />
-                      <span className="text-[#64748B] text-sm">{country.name}</span>
+                      <span className="text-[#64748B] text-xs lg:text-sm">{country.name}</span>
                     </div>
                     <Link href="/contact" passHref legacyBehavior>
                       <motion.a
                         whileHover={{ scale: 1.04 }}
                         whileTap={{ scale: 0.96 }}
                         transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-                        className="bg-gradient-to-r from-[#2F6BFF] to-[#5B8CFF] text-white px-6 py-2.5 rounded-xl text-sm font-semibold hover:shadow-lg hover:shadow-[#2F6BFF]/30 transition-all inline-flex items-center gap-2 cursor-pointer"
+                        className="bg-gradient-to-r from-[#2F6BFF] to-[#5B8CFF] text-white px-4 py-2 lg:px-6 lg:py-2.5 rounded-xl text-xs lg:text-sm font-semibold hover:shadow-lg hover:shadow-[#2F6BFF]/30 transition-all inline-flex items-center gap-2 cursor-pointer"
                       >
-                        Apply for {country.name}
+                        Apply <span className="hidden sm:inline">for {country.name}</span>
                         <ArrowRight className="w-4 h-4" />
                       </motion.a>
                     </Link>

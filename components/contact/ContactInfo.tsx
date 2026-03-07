@@ -37,7 +37,7 @@ export default function ContactInfo() {
   ];
 
   return (
-    <section className="bg-[#F6F8FC] py-24 overflow-hidden">
+    <section className="bg-[#F6F8FC] py-8 lg:py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* SECTION A — Info Cards */}
@@ -47,10 +47,10 @@ export default function ContactInfo() {
           viewport={{ once: true, margin: '-60px' }}
           variants={staggerContainer}
           layout={false}
-          className="mb-32"
+          className="mb-12 lg:mb-32"
         >
           {/* HEADER */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-6 lg:mb-16">
             <motion.div variants={fadeUp} layout={false} className="flex items-center justify-center gap-3 mb-3">
               <motion.span
                 initial={{ width: 0 }}
@@ -70,10 +70,10 @@ export default function ContactInfo() {
                 className="h-px bg-[#D4AF37] block"
               />
             </motion.div>
-            <motion.h2 variants={fadeUp} transition={{ delay: 0.1 }} layout={false} className="font-heading text-4xl font-bold text-[#0F172A] tracking-tight mt-3">
+            <motion.h2 variants={fadeUp} transition={{ delay: 0.1 }} layout={false} className="font-heading text-2xl lg:text-4xl font-bold text-[#0F172A] tracking-tight mt-3">
               Visit Us In Person
             </motion.h2>
-            <motion.p variants={fadeUp} transition={{ delay: 0.2 }} layout={false} className="text-[#64748B] mt-4 max-w-xl mx-auto">
+            <motion.p variants={fadeUp} transition={{ delay: 0.2 }} layout={false} className="hidden lg:block text-[#64748B] mt-4 max-w-xl mx-auto text-sm lg:text-base">
               We have multiple branches across India. Find the one closest to you and drop by for a chat.
             </motion.p>
           </div>
@@ -85,14 +85,14 @@ export default function ContactInfo() {
             whileInView="visible"
             viewport={viewport}
             layout={false}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-8"
           >
             {offices.map((office, idx) => (
               <motion.div
                 key={idx}
                 variants={scaleUp}
                 layout={false}
-                className="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm transition-all duration-300 card-hover relative overflow-hidden flex flex-col"
+                className="bg-white rounded-2xl lg:rounded-3xl p-5 lg:p-8 border border-gray-100 shadow-sm transition-all duration-300 card-hover relative overflow-hidden flex flex-col"
               >
                 {office.isHQ && (
                   <motion.div
@@ -105,7 +105,7 @@ export default function ContactInfo() {
                       stiffness: 400
                     }}
                     layout={false}
-                    className="absolute top-0 right-0 bg-[#D4AF37] text-white text-[10px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-bl-xl z-10"
+                    className="absolute top-0 right-0 bg-[#D4AF37] text-white text-[10px] lg:text-xs font-bold uppercase tracking-widest px-2 lg:px-4 py-1 lg:py-1.5 rounded-bl-xl z-10"
                   >
                     Headquarters
                   </motion.div>
@@ -122,9 +122,9 @@ export default function ContactInfo() {
                     damping: 15
                   }}
                   layout={false}
-                  className="w-14 h-14 rounded-2xl bg-[#2F6BFF]/10 flex items-center justify-center mb-6 card-icon"
+                  className="w-10 h-10 lg:w-14 lg:h-14 rounded-xl lg:rounded-2xl bg-[#2F6BFF]/10 flex items-center justify-center mb-3 lg:mb-6 card-icon"
                 >
-                  <MapPin className="text-[#2F6BFF] w-6 h-6" />
+                  <MapPin className="text-[#2F6BFF] w-5 h-5 lg:w-6 lg:h-6" />
                 </motion.div>
 
                 <motion.h3
@@ -136,7 +136,7 @@ export default function ContactInfo() {
                     duration: 0.4
                   }}
                   layout={false}
-                  className="font-heading font-bold text-[#0F172A] text-xl mb-2"
+                  className="font-heading font-bold text-[#0F172A] text-base lg:text-xl mb-1 lg:mb-2"
                 >
                   {office.city}
                 </motion.h3>
@@ -149,15 +149,15 @@ export default function ContactInfo() {
                     duration: 0.4
                   }}
                   layout={false}
-                  className="text-[#64748B] text-sm leading-relaxed mb-6 flex-1"
+                  className="text-[#64748B] text-xs lg:text-sm leading-relaxed mb-4 lg:mb-6 flex-1"
                 >
                   {office.address}
                 </motion.p>
 
-                <div className="space-y-3 pt-6 border-t border-gray-100">
+                <div className="space-y-2 lg:space-y-3 pt-4 lg:pt-6 border-t border-gray-100">
                   <div className="flex items-center gap-3">
-                    <Phone className="w-4 h-4 text-[#64748B]" />
-                    <span className="text-[#0F172A] text-sm font-semibold">{office.phone}</span>
+                    <Phone className="w-3.5 lg:w-4 h-3.5 lg:h-4 text-[#64748B]" />
+                    <span className="text-[#0F172A] text-xs lg:text-sm font-semibold">{office.phone}</span>
                   </div>
                   <motion.a
                     href="https://maps.google.com"
@@ -165,7 +165,7 @@ export default function ContactInfo() {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.04 }}
                     whileTap={{ scale: 0.96 }}
-                    className="w-full flex items-center justify-center gap-2 bg-[#F6F8FC] text-[#2F6BFF] py-3 rounded-xl text-sm font-semibold hover:bg-[#2F6BFF] hover:text-white transition-all"
+                    className="w-full flex items-center justify-center gap-2 bg-[#F6F8FC] text-[#2F6BFF] py-2 lg:py-3 rounded-xl text-xs lg:text-sm font-semibold hover:bg-[#2F6BFF] hover:text-white transition-all"
                   >
                     <Navigation className="w-4 h-4" />
                     Get Directions
@@ -177,7 +177,7 @@ export default function ContactInfo() {
         </motion.div>
 
         {/* SECTION B — Map + Details */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center">
 
           {/* LEFT — Map Placeholder */}
           <motion.div
@@ -186,7 +186,7 @@ export default function ContactInfo() {
             whileInView="visible"
             viewport={{ once: true, margin: '-60px' }}
             layout={false}
-            className="bg-[#0A1F44] rounded-[40px] p-12 relative overflow-hidden aspect-video lg:aspect-auto lg:h-[500px] flex flex-col items-center justify-center text-center group"
+            className="bg-[#0A1F44] rounded-2xl lg:rounded-[40px] p-6 lg:p-12 relative overflow-hidden h-64 lg:h-[500px] flex flex-col items-center justify-center text-center group"
           >
             {/* Glow orb inside card */}
             <motion.div
@@ -212,9 +212,9 @@ export default function ContactInfo() {
                 ease: 'easeInOut'
               }}
               layout={false}
-              className="w-20 h-20 rounded-3xl bg-[#D4AF37]/20 border border-[#D4AF37]/30 flex items-center justify-center mb-8 relative z-10"
+              className="w-12 h-12 lg:w-20 lg:h-20 rounded-2xl bg-[#D4AF37]/20 border border-[#D4AF37]/30 flex items-center justify-center mb-4 lg:mb-8 relative z-10"
             >
-              <MapPin className="w-10 h-10 text-[#D4AF37]" />
+              <MapPin className="w-6 h-6 lg:w-10 lg:h-10 text-[#D4AF37]" />
             </motion.div>
 
             <motion.h3
@@ -223,7 +223,7 @@ export default function ContactInfo() {
               viewport={viewport}
               transition={{ delay: 0.2, duration: 0.4 }}
               layout={false}
-              className="text-white font-heading font-bold text-3xl mb-4 relative z-10"
+              className="text-white font-heading font-bold text-xl lg:text-3xl mb-2 lg:mb-4 relative z-10"
             >
               Our Office Location
             </motion.h3>
@@ -234,7 +234,7 @@ export default function ContactInfo() {
               viewport={viewport}
               transition={{ delay: 0.3, duration: 0.4 }}
               layout={false}
-              className="text-white/60 text-lg max-w-sm mb-10 relative z-10"
+              className="text-white/60 text-sm lg:text-lg max-w-sm mb-6 lg:mb-10 relative z-10"
             >
               123 Education Hub, Linking Road, Bandra West, Mumbai, India.
             </motion.p>
@@ -250,7 +250,7 @@ export default function ContactInfo() {
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.96 }}
               layout={false}
-              className="bg-[#D4AF37] text-[#0A1F44] px-8 py-4 rounded-2xl font-bold text-base hover:bg-[#D4AF37]/90 transition-all shadow-xl shadow-[#D4AF37]/20 relative z-10 block"
+              className="bg-[#D4AF37] text-[#0A1F44] px-6 lg:px-8 py-3 lg:py-4 rounded-xl lg:rounded-2xl font-bold text-sm lg:text-base hover:bg-[#D4AF37]/90 transition-all shadow-xl shadow-[#D4AF37]/20 relative z-10 block"
             >
               View on Google Maps
             </motion.a>
@@ -263,12 +263,13 @@ export default function ContactInfo() {
             whileInView="visible"
             viewport={{ once: true, margin: '-60px' }}
             layout={false}
+            className="mt-4 lg:mt-0"
           >
-            <motion.h3 variants={fadeUp} transition={{ delay: 0.1 }} layout={false} className="font-heading text-3xl font-bold text-[#0F172A] mb-8">
+            <motion.h3 variants={fadeUp} transition={{ delay: 0.1 }} layout={false} className="font-heading text-xl lg:text-3xl font-bold text-[#0F172A] mb-4 lg:mb-8">
               Visit Our Office
             </motion.h3>
 
-            <div className="space-y-6 mb-10">
+            <div className="space-y-4 lg:space-y-6 mb-6 lg:mb-10">
               {details.map((item, idx) => {
                 const isPhone = item.label === 'Primary Phone';
                 const isEmail = item.label === 'Support Email';
@@ -285,14 +286,14 @@ export default function ContactInfo() {
                       ease: 'easeOut'
                     }}
                     layout={false}
-                    className="flex items-start gap-4 group"
+                    className="flex items-start gap-3 lg:gap-4 group"
                   >
-                    <div className="w-12 h-12 rounded-2xl bg-white border border-gray-100 shadow-sm flex-shrink-0 flex items-center justify-center text-[#2F6BFF] transition-all card-icon group-hover:bg-[#2F6BFF] group-hover:text-white">
-                      {item.icon}
+                    <div className="w-9 h-9 lg:w-12 lg:h-12 rounded-xl lg:rounded-2xl bg-white border border-gray-100 shadow-sm flex-shrink-0 flex items-center justify-center text-[#2F6BFF] transition-all card-icon group-hover:bg-[#2F6BFF] group-hover:text-white">
+                      <div className="scale-75 lg:scale-100">{item.icon}</div>
                     </div>
                     <div>
-                      <div className="text-[#64748B] text-xs font-bold uppercase tracking-widest">{item.label}</div>
-                      <div className="text-[#0F172A] font-semibold mt-0.5">{item.val}</div>
+                      <div className="text-[#64748B] text-[10px] lg:text-xs font-bold uppercase tracking-widest">{item.label}</div>
+                      <div className="text-[#0F172A] text-sm lg:text-base font-semibold mt-0.5">{item.val}</div>
                     </div>
                   </motion.div>
                 );
@@ -323,16 +324,16 @@ export default function ContactInfo() {
               viewport={viewport}
               transition={{ delay: 0.5, duration: 0.5 }}
               layout={false}
-              className="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm card-hover"
+              className="bg-white rounded-2xl lg:rounded-3xl p-5 lg:p-8 border border-gray-100 shadow-sm card-hover"
             >
-              <h4 className="font-heading font-bold text-[#0F172A] text-lg mb-2">Subscribe to our newsletter</h4>
-              <p className="text-[#64748B] text-sm mb-6">Stay updated with latest student news and country guides.</p>
+              <h4 className="font-heading font-bold text-[#0F172A] text-base lg:text-lg mb-1 lg:mb-2">Subscribe to our newsletter</h4>
+              <p className="hidden lg:block text-[#64748B] text-sm mb-6">Stay updated with latest student news and country guides.</p>
 
               <div className="flex gap-2">
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="flex-1 bg-[#F6F8FC] border border-gray-100 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2F6BFF] transition-all"
+                  className="flex-1 bg-[#F6F8FC] border border-gray-100 rounded-xl px-4 py-2 lg:py-3 text-sm focus:outline-none focus:border-[#2F6BFF] transition-all"
                 />
                 <motion.button
                   whileHover={{ scale: 1.04 }}
@@ -342,7 +343,7 @@ export default function ContactInfo() {
                     stiffness: 400,
                     damping: 17
                   }}
-                  className="bg-[#2F6BFF] text-white p-3 rounded-xl hover:bg-[#2F6BFF]/90 transition-all"
+                  className="bg-[#2F6BFF] text-white p-2 lg:p-3 rounded-xl hover:bg-[#2F6BFF]/90 transition-all"
                 >
                   <Send className="w-5 h-5" />
                 </motion.button>

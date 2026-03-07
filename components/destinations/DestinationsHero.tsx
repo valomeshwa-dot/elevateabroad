@@ -66,7 +66,7 @@ export default function DestinationsHero() {
         variants={staggerContainer}
         initial="hidden"
         animate="visible"
-        className="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-20 w-full"
+        className="relative z-10 max-w-7xl mx-auto px-6 pt-20 pb-8 lg:pt-32 lg:pb-20 w-full"
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
@@ -105,7 +105,7 @@ export default function DestinationsHero() {
               />
             </motion.div>
 
-            <h1 className="font-heading text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.05] mb-6">
+            <h1 className="font-heading text-[2rem] lg:text-7xl font-bold text-white tracking-tight leading-tight lg:leading-[1.05] mb-6">
               <motion.span variants={fadeUp} transition={{ delay: 0.15 }} layout={false} className="block">
                 Explore the World&apos;s
               </motion.span>
@@ -121,7 +121,7 @@ export default function DestinationsHero() {
               variants={fadeUp}
               transition={{ delay: 0.35 }}
               layout={false}
-              className="text-white/60 text-lg leading-relaxed max-w-lg mb-10"
+              className="text-white/60 text-sm lg:text-lg leading-relaxed max-w-lg mb-4 lg:mb-10 line-clamp-3 lg:line-clamp-none"
             >
               Discover world-class education opportunities in the most sought-after countries for international students. Find your perfect destination and take the first step.
             </motion.p>
@@ -130,14 +130,15 @@ export default function DestinationsHero() {
               variants={fadeUp}
               transition={{ delay: 0.45 }}
               layout={false}
-              className="flex gap-4 flex-wrap"
+              className="flex flex-col sm:flex-row gap-3"
             >
               <motion.div
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+                className="w-full sm:w-auto"
               >
-                <Link href="/contact" className="bg-gradient-to-r from-[#2F6BFF] to-[#5B8CFF] text-white px-8 py-4 rounded-xl font-semibold hover:shadow-xl hover:shadow-[#2F6BFF]/40 transition-all inline-block w-full text-center">
+                <Link href="/contact" className="bg-gradient-to-r from-[#2F6BFF] to-[#5B8CFF] text-white px-8 py-4 rounded-xl font-semibold hover:shadow-xl hover:shadow-[#2F6BFF]/40 transition-all inline-block w-full text-center text-sm lg:text-base">
                   Get Free Counseling
                 </Link>
               </motion.div>
@@ -145,8 +146,9 @@ export default function DestinationsHero() {
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+                className="w-full sm:w-auto"
               >
-                <a href="#destinations-grid" className="border-2 border-[#D4AF37]/50 text-[#D4AF37] px-8 py-4 rounded-xl font-semibold hover:bg-[#D4AF37]/10 transition-all inline-block w-full text-center">
+                <a href="#destinations-grid" className="border-2 border-[#D4AF37]/50 text-[#D4AF37] px-8 py-4 rounded-xl font-semibold hover:bg-[#D4AF37]/10 transition-all inline-block w-full text-center text-sm lg:text-base">
                   View All Countries ↓
                 </a>
               </motion.div>
@@ -158,6 +160,7 @@ export default function DestinationsHero() {
             initial="hidden"
             animate="visible"
             variants={staggerGrid}
+            className="hidden lg:block"
             style={{ '--stagger-delay': '0.4s' } as any}
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-[400px] overflow-y-auto">
@@ -203,7 +206,7 @@ export default function DestinationsHero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.5 }}
-          className="border-t border-white/10 mt-16 pt-8 flex flex-wrap gap-8 justify-center"
+          className="hidden lg:flex border-t border-white/10 mt-16 pt-8 flex-wrap gap-8 justify-center"
         >
           <div className="flex items-center gap-2.5">
             <div className="w-8 h-8 rounded-lg bg-white/8 border border-white/12 flex items-center justify-center">

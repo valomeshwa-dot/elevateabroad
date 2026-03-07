@@ -67,7 +67,7 @@ export default function UniversitiesHero() {
         variants={staggerContainer}
         initial="hidden"
         animate="visible"
-        className="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-20 w-full"
+        className="relative z-10 max-w-7xl mx-auto px-6 pt-20 pb-8 lg:pt-32 lg:pb-20 w-full"
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
@@ -106,7 +106,7 @@ export default function UniversitiesHero() {
               />
             </motion.div>
 
-            <h1 className="font-heading text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.05] mb-6">
+            <h1 className="font-heading text-[2rem] lg:text-7xl font-bold text-white tracking-tight leading-tight lg:leading-[1.05] mb-6">
               <motion.span variants={fadeUp} transition={{ delay: 0.15 }} layout={false} className="block">
                 250+ World-Class
               </motion.span>
@@ -122,7 +122,7 @@ export default function UniversitiesHero() {
               variants={fadeUp}
               transition={{ delay: 0.35 }}
               layout={false}
-              className="text-white/60 text-lg leading-relaxed max-w-lg mb-10"
+              className="text-white/60 text-sm lg:text-lg leading-relaxed max-w-lg mb-4 lg:mb-10 line-clamp-2 lg:line-clamp-none"
             >
               We have partnerships with leading universities across 15 countries. Search, filter and find the perfect university that matches your academic profile and career ambitions.
             </motion.p>
@@ -130,14 +130,15 @@ export default function UniversitiesHero() {
               variants={fadeUp}
               transition={{ delay: 0.45 }}
               layout={false}
-              className="flex gap-4 flex-wrap"
+              className="flex flex-col sm:flex-row gap-3"
             >
               <motion.div
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+                className="w-full sm:w-auto"
               >
-                <Link href="/contact" className="bg-gradient-to-r from-[#2F6BFF] to-[#5B8CFF] text-white px-8 py-4 rounded-xl font-semibold hover:shadow-xl hover:shadow-[#2F6BFF]/40 transition-all inline-block w-full text-center">
+                <Link href="/contact" className="bg-gradient-to-r from-[#2F6BFF] to-[#5B8CFF] text-white px-8 py-4 rounded-xl font-semibold hover:shadow-xl hover:shadow-[#2F6BFF]/40 transition-all inline-block w-full text-center text-sm lg:text-base">
                   Book Consultation
                 </Link>
               </motion.div>
@@ -145,8 +146,9 @@ export default function UniversitiesHero() {
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+                className="w-full sm:w-auto"
               >
-                <a href="#universities-grid" className="border-2 border-[#D4AF37]/50 text-[#D4AF37] px-8 py-4 rounded-xl font-semibold hover:bg-[#D4AF37]/10 transition-all inline-block w-full text-center">
+                <a href="#universities-grid" className="border-2 border-[#D4AF37]/50 text-[#D4AF37] px-8 py-4 rounded-xl font-semibold hover:bg-[#D4AF37]/10 transition-all inline-block w-full text-center text-sm lg:text-base">
                   Explore Universities ↓
                 </a>
               </motion.div>
@@ -174,7 +176,7 @@ export default function UniversitiesHero() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     layout={false}
-                    className="bg-white/8 border border-white/15 text-white/60 text-xs px-4 py-2 rounded-full hover:bg-white/15 hover:text-white hover:border-[#D4AF37]/40 transition-all cursor-pointer inline-block"
+                    className="bg-white/8 border border-white/15 text-white/60 text-xs px-3 py-1 rounded-full hover:bg-white/15 hover:text-white hover:border-[#D4AF37]/40 transition-all cursor-pointer inline-block"
                   >
                     {country}
                   </motion.a>
@@ -184,7 +186,7 @@ export default function UniversitiesHero() {
           </div>
 
           {/* RIGHT COLUMN */}
-          <div>
+          <div className="hidden lg:block">
             <motion.div
               initial={{ opacity: 0, x: 60, scale: 0.95 }}
               animate={{ opacity: 1, x: 0, scale: 1 }}

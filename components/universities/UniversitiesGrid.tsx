@@ -353,6 +353,7 @@ export default function UniversitiesGrid() {
   const [sortBy, setSortBy] = useState('ranking')
   const [featuredOnly, setFeaturedOnly] = useState(false)
   const [top25Only, setTop25Only] = useState(false)
+  const [showFilters, setShowFilters] = useState(false)
 
   const filteredUniversities = universities
     .filter(uni => activeCountry === 'All' || uni.country === activeCountry)
@@ -403,7 +404,7 @@ export default function UniversitiesGrid() {
   }
 
   return (
-    <section id="universities-grid" className="bg-[#F6F8FC] py-24">
+    <section id="universities-grid" className="bg-[#F6F8FC] py-8 lg:py-24">
 
       {/* TOP BAR */}
       <motion.div
@@ -411,30 +412,30 @@ export default function UniversitiesGrid() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.5 }}
         layout={false}
-        className="bg-white border-b border-gray-200 py-4 sticky top-[72px] z-40"
+        className="bg-white border-b border-gray-200 py-2 lg:py-4 sticky top-[72px] z-40"
       >
-        <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row gap-4 items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 lg:px-6 flex flex-col lg:flex-row gap-4 items-center justify-between">
 
           {/* Search */}
           <div className="relative flex-1 max-w-md w-full">
-            <Search className="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-[#64748B]" />
+            <Search className="w-4 h-4 lg:w-5 lg:h-5 absolute left-3 lg:left-4 top-1/2 -translate-y-1/2 text-[#64748B]" />
             <input
               type="text"
               placeholder="Search universities by name..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full border border-gray-200 rounded-xl pl-12 pr-4 py-3 text-sm focus:outline-none focus:border-[#2F6BFF] focus:ring-2 focus:ring-[#2F6BFF]/20 transition-all duration-200 focus:scale-[1.01]"
+              className="w-full border border-gray-200 rounded-xl pl-10 lg:pl-12 pr-4 py-2 lg:py-3 text-sm lg:text-base focus:outline-none focus:border-[#2F6BFF] focus:ring-2 focus:ring-[#2F6BFF]/20 transition-all duration-200 focus:scale-[1.01]"
             />
           </div>
 
           {/* Sort */}
           <div className="flex items-center gap-2 w-full lg:w-auto">
-            <SlidersHorizontal className="w-4 h-4 text-[#64748B]" />
-            <span className="text-[#64748B] text-sm whitespace-nowrap">Sort by:</span>
+            <SlidersHorizontal className="w-3 h-3 lg:w-4 lg:h-4 text-[#64748B]" />
+            <span className="text-[#64748B] text-xs lg:text-sm whitespace-nowrap">Sort by:</span>
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="border border-gray-200 rounded-xl px-4 py-3 text-sm text-[#0F172A] focus:outline-none focus:border-[#2F6BFF] w-full lg:w-auto"
+              className="border border-gray-200 rounded-xl px-3 lg:px-4 py-2 lg:py-3 text-sm text-[#0F172A] focus:outline-none focus:border-[#2F6BFF] w-full lg:w-auto"
             >
               <option value="ranking">World Ranking</option>
               <option value="name">University Name</option>
@@ -446,12 +447,28 @@ export default function UniversitiesGrid() {
       </motion.div>
 
       {/* MAIN CONTENT */}
-      <div className="max-w-7xl mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+      <div className="max-w-7xl mx-auto px-6 py-6 lg:py-12">
+        <div className="flex flex-col lg:flex-row gap-4 lg:gap-8">
 
           {/* LEFT SIDEBAR */}
-          <div className="lg:col-span-1">
-            <div className="sticky top-32">
+          <div className="w-full lg:w-64 lg:flex-shrink-0">
+            {/* Mobile Filter Toggle Button */}
+            <div className="lg:hidden mb-4">
+              <button
+                onClick={() => setShowFilters(!showFilters)}
+                className="w-full flex items-center justify-between bg-[#0F2554] border border-white/10 rounded-xl px-4 py-3 text-white text-sm font-semibold"
+              >
+                <span className="flex items-center gap-2">
+                  <SlidersHorizontal className="w-4 h-4" />
+                  Filter Universities
+                </span>
+                <span className="text-white/50 text-xs">
+                  {showFilters ? '▲ Hide' : '▼ Show'}
+                </span>
+              </button>
+            </div>
+
+            <div className={`lg:block ${showFilters ? 'block' : 'hidden'} sticky top-32`}>
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -593,7 +610,7 @@ export default function UniversitiesGrid() {
           </div>
 
           {/* RIGHT — University cards grid */}
-          <div className="lg:col-span-3">
+          <div className="flex-1">
 
             <motion.div
               key={filteredUniversities.length}
@@ -601,18 +618,18 @@ export default function UniversitiesGrid() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3 }}
               layout={false}
-              className="flex items-center justify-between mb-6"
+              className="flex items-center justify-between mb-3 lg:mb-6"
             >
-              <div className="text-[#0F172A] font-semibold">
+              <div className="text-[#0F172A] text-base lg:text-xl font-semibold">
                 {filteredUniversities.length} Universities Found
               </div>
-              <div className="text-[#64748B] text-sm">
+              <div className="text-[#64748B] text-xs lg:text-sm">
                 Sorted by {sortBy === 'ranking' ? 'World Ranking' : sortBy === 'name' ? 'University Name' : 'Acceptance Rate'}
               </div>
             </motion.div>
 
             {filteredUniversities.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
                 <AnimatePresence mode="popLayout">
                   {filteredUniversities.map((university, index) => (
                     <motion.div
@@ -626,28 +643,28 @@ export default function UniversitiesGrid() {
                         delay: index * 0.04,
                         ease: 'easeOut'
                       }}
-                      className="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden card-hover flex flex-col"
+                      className="bg-white rounded-2xl lg:rounded-3xl border border-gray-100 shadow-sm overflow-hidden card-hover flex flex-col"
                     >
                       {/* CARD TOP */}
-                      <div className={`h-28 relative bg-gradient-to-br ${university.gradient}`}>
+                      <div className={`h-20 lg:h-32 relative bg-gradient-to-br ${university.gradient}`}>
                         <motion.span
                           initial={{ opacity: 0 }}
                           whileInView={{ opacity: 1 }}
                           viewport={{ once: true }}
                           transition={{ delay: 0.3, duration: 0.5 }}
                           layout={false}
-                          className="absolute right-3 bottom-1 font-heading font-bold text-[100px] text-white/8 leading-none select-none"
+                          className="absolute right-3 bottom-0 lg:bottom-1 font-heading font-bold text-5xl lg:text-[100px] text-white/8 leading-none select-none"
                         >
                           {university.initials}
                         </motion.span>
 
-                        <div className="absolute inset-0 p-5 flex items-start justify-between">
-                          <div className="bg-white/20 backdrop-blur border border-white/30 rounded-xl px-3 py-2 font-heading font-bold text-white text-sm">
+                        <div className="absolute inset-0 p-3 lg:p-5 flex items-start justify-between">
+                          <div className="bg-white/20 backdrop-blur border border-white/30 rounded-lg lg:rounded-xl px-2 py-0.5 lg:px-3 lg:py-2 font-heading font-bold text-white text-xs lg:text-sm">
                             {university.initials}
                           </div>
 
-                          <div className="flex flex-col items-end gap-2">
-                            <div className="bg-white/20 backdrop-blur border border-white/30 text-white text-xs font-bold px-3 py-1 rounded-full text-center min-w-[60px]">
+                          <div className="flex flex-col items-end gap-1 lg:gap-2">
+                            <div className="bg-white/20 backdrop-blur border border-white/30 text-white text-[10px] lg:text-xs font-bold px-1.5 py-0.5 lg:px-3 lg:py-1 rounded-full text-center min-w-[50px] lg:min-w-[60px]">
                               {university.ranking}
                             </div>
                             {university.featured && (
@@ -656,7 +673,7 @@ export default function UniversitiesGrid() {
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ delay: 0.3, type: 'spring', stiffness: 500 }}
                                 layout={false}
-                                className="bg-[#D4AF37]/30 border border-[#D4AF37]/50 text-[#D4AF37] text-[10px] font-bold px-2.5 py-1 rounded-full uppercase"
+                                className="bg-[#D4AF37]/30 border border-[#D4AF37]/50 text-[#D4AF37] text-[8px] lg:text-[10px] font-bold px-1.5 py-0.5 lg:px-2.5 lg:py-1 rounded-full uppercase"
                               >
                                 ⭐ Featured
                               </motion.div>
@@ -664,46 +681,46 @@ export default function UniversitiesGrid() {
                           </div>
                         </div>
 
-                        <div className="absolute bottom-4 left-5 font-heading font-bold text-white text-lg leading-tight max-w-[70%]">
+                        <div className="absolute bottom-2 lg:bottom-4 left-3 lg:left-5 font-heading font-bold text-white text-base lg:text-2xl leading-tight max-w-[85%]">
                           {university.name}
                         </div>
                       </div>
 
                       {/* CARD BODY */}
-                      <div className="p-6 flex flex-col flex-1">
+                      <div className="p-4 lg:p-6 flex flex-col flex-1">
 
-                        <div className="flex items-center justify-between mb-5">
-                          <div className="flex items-center gap-1.5">
-                            <MapPin className="w-3.5 h-3.5 text-[#64748B]" />
-                            <span className="text-[#64748B] text-xs">{university.city}</span>
+                        <div className="flex items-center justify-between mb-3 lg:mb-5">
+                          <div className="flex items-center gap-1 lg:gap-1.5">
+                            <MapPin className="w-3 h-3 lg:w-3.5 lg:h-3.5 text-[#64748B]" />
+                            <span className="text-[#64748B] text-[10px] lg:text-xs">{university.city}</span>
                           </div>
-                          <div className="bg-[#F6F8FC] border border-gray-200 text-[#64748B] text-xs px-3 py-1 rounded-lg font-medium">
+                          <div className="bg-[#F6F8FC] border border-gray-200 text-[#64748B] text-[10px] lg:text-xs px-2 py-0.5 lg:px-3 lg:py-1 rounded-lg font-medium">
                             {university.type}
                           </div>
                         </div>
 
-                        <div className="grid grid-cols-3 gap-3 mb-5">
-                          <div className="bg-[#F6F8FC] rounded-xl p-3 text-center">
-                            <div className="font-heading font-bold text-[#0F172A] text-sm">
+                        <div className="grid grid-cols-3 gap-2 lg:gap-3 mb-3 lg:mb-4 pb-3 lg:pb-4 border-b border-gray-50 lg:border-none">
+                          <div className="bg-[#F6F8FC] rounded-xl p-2 lg:p-3 text-center">
+                            <div className="font-heading font-bold text-[#0F172A] text-xs lg:text-sm">
                               <AnimatedCounter target={parseInt(university.students.replace(/,/g, ''))} suffix="+" />
                             </div>
-                            <div className="text-[#64748B] text-[10px] mt-0.5 uppercase tracking-wide">Students</div>
+                            <div className="text-[#64748B] text-[8px] lg:text-[10px] mt-0.5 uppercase tracking-wide">Students</div>
                           </div>
-                          <div className="bg-[#F6F8FC] rounded-xl p-3 text-center">
-                            <div className="font-heading font-bold text-[#0F172A] text-sm">
+                          <div className="bg-[#F6F8FC] rounded-xl p-2 lg:p-3 text-center">
+                            <div className="font-heading font-bold text-[#0F172A] text-xs lg:text-sm">
                               <AnimatedCounter target={parseFloat(university.acceptance)} suffix="%" />
                             </div>
-                            <div className="text-[#64748B] text-[10px] mt-0.5 uppercase tracking-wide">Acceptance</div>
+                            <div className="text-[#64748B] text-[8px] lg:text-[10px] mt-0.5 uppercase tracking-wide">Acceptance</div>
                           </div>
-                          <div className="bg-[#F6F8FC] rounded-xl p-3 text-center">
-                            <div className="font-heading font-bold text-[#0F172A] text-sm">{university.established}</div>
-                            <div className="text-[#64748B] text-[10px] mt-0.5 uppercase tracking-wide">Est.</div>
+                          <div className="bg-[#F6F8FC] rounded-xl p-2 lg:p-3 text-center">
+                            <div className="font-heading font-bold text-[#0F172A] text-xs lg:text-sm">{university.established}</div>
+                            <div className="text-[#64748B] text-[8px] lg:text-[10px] mt-0.5 uppercase tracking-wide">Est.</div>
                           </div>
                         </div>
 
-                        <div className="mb-5">
-                          <div className="text-[10px] font-bold text-[#64748B] uppercase tracking-wide mb-2">Popular Courses</div>
-                          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }} layout={false} className="flex flex-wrap gap-1.5">
+                        <div className="mb-3 lg:mb-5">
+                          <div className="text-[10px] lg:text-[10px] font-bold text-[#64748B] uppercase tracking-wide mb-1.5 lg:mb-2">Popular Courses</div>
+                          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }} layout={false} className="flex flex-wrap gap-1 lg:gap-1.5">
                             {university.courses.map((course, tagIndex) => (
                               <motion.span
                                 key={course}
@@ -712,7 +729,7 @@ export default function UniversitiesGrid() {
                                 viewport={{ once: true }}
                                 transition={{ delay: tagIndex * 0.06, type: 'spring', stiffness: 400 }}
                                 layout={false}
-                                className="bg-[#2F6BFF]/8 text-[#2F6BFF] border border-[#2F6BFF]/15 text-[11px] px-3 py-1 rounded-lg font-medium"
+                                className={`${tagIndex >= 3 ? 'hidden lg:inline-flex' : ''} bg-[#2F6BFF]/8 text-[#2F6BFF] border border-[#2F6BFF]/15 text-[10px] lg:text-[11px] px-2 py-0.5 lg:px-3 lg:py-1 rounded-lg font-medium`}
                               >
                                 {course}
                               </motion.span>
@@ -720,9 +737,9 @@ export default function UniversitiesGrid() {
                           </motion.div>
                         </div>
 
-                        <div className="flex flex-wrap gap-1.5 mb-5 mt-auto">
-                          {university.tags.map(tag => (
-                            <span key={tag} className="bg-[#D4AF37]/8 text-[#D4AF37]/80 border border-[#D4AF37]/15 text-[10px] px-2.5 py-1 rounded-md font-semibold uppercase tracking-wide">
+                        <div className="flex flex-wrap gap-1 lg:gap-1.5 mb-3 lg:mb-5 mt-auto">
+                          {university.tags.map((tag, tagIndex) => (
+                            <span key={tag} className={`${tagIndex >= 3 ? 'hidden lg:inline-flex' : ''} bg-[#D4AF37]/8 text-[#D4AF37]/80 border border-[#D4AF37]/15 text-[8px] lg:text-[10px] px-2 py-0.5 lg:px-2.5 lg:py-1 rounded-md font-semibold uppercase tracking-wide`}>
                               {tag}
                             </span>
                           ))}
@@ -733,10 +750,10 @@ export default function UniversitiesGrid() {
                             whileHover={{ scale: 1.03 }}
                             whileTap={{ scale: 0.97 }}
                             transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-                            className="w-full bg-gradient-to-r from-[#2F6BFF] to-[#5B8CFF] text-white py-3 rounded-xl font-semibold text-sm hover:shadow-lg hover:shadow-[#2F6BFF]/30 transition-all flex items-center justify-center gap-2 cursor-pointer"
+                            className="w-full bg-gradient-to-r from-[#2F6BFF] to-[#5B8CFF] text-white py-2 lg:py-3 rounded-xl font-semibold text-sm lg:text-base hover:shadow-lg hover:shadow-[#2F6BFF]/30 transition-all flex items-center justify-center gap-1.5 lg:gap-2 cursor-pointer"
                           >
                             <GraduationCap className="w-4 h-4" />
-                            Apply to This University
+                            Apply <span className="hidden sm:inline">to This University</span>
                           </motion.a>
                         </Link>
 
@@ -768,7 +785,7 @@ export default function UniversitiesGrid() {
               viewport={{ once: true, margin: '-60px' }}
               variants={staggerContainer}
               layout={false}
-              className="bg-[#0A1F44] rounded-3xl p-12 mt-12 relative overflow-hidden"
+              className="bg-[#0A1F44] rounded-3xl p-6 lg:p-12 mt-12 relative overflow-hidden"
             >
               <motion.div
                 animate={{
@@ -783,14 +800,14 @@ export default function UniversitiesGrid() {
                 className="absolute top-0 right-0 w-64 h-64 bg-[#2F6BFF]/20 rounded-full blur-[80px] pointer-events-none"
               />
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center relative z-10">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-12 items-center relative z-10">
                 <motion.div variants={slideInLeft} layout={false}>
-                  <motion.h2 variants={fadeUp} transition={{ delay: 0.1 }} layout={false} className="font-heading text-3xl font-bold text-white">Can&apos;t Find Your University?</motion.h2>
-                  <motion.p variants={fadeUp} transition={{ delay: 0.2 }} layout={false} className="text-white/60 text-base mt-3">
+                  <motion.h2 variants={fadeUp} transition={{ delay: 0.1 }} layout={false} className="font-heading text-xl lg:text-3xl font-bold text-white">Can&apos;t Find Your University?</motion.h2>
+                  <motion.p variants={fadeUp} transition={{ delay: 0.2 }} layout={false} className="hidden lg:block text-white/60 text-base mt-3">
                     We work with 250+ universities worldwide. Contact our counselors and we will find the perfect match for your profile.
                   </motion.p>
 
-                  <div className="flex gap-8 mt-6">
+                  <div className="flex gap-4 lg:gap-8 mt-6">
                     <motion.div
                       initial={{ opacity: 0, y: 10 }}
                       whileInView={{ opacity: 1, y: 0 }}
@@ -802,10 +819,10 @@ export default function UniversitiesGrid() {
                         <Building2 className="text-[#D4AF37] w-4 h-4" />
                       </div>
                       <div>
-                        <div className="text-white font-bold text-lg">
+                        <div className="text-white font-bold text-base lg:text-lg">
                           <AnimatedCounter target={250} suffix="+" />
                         </div>
-                        <div className="text-white/50 text-xs">Partner Universities</div>
+                        <div className="text-white/50 text-[10px] lg:text-xs">Partners</div>
                       </div>
                     </motion.div>
                     <motion.div
@@ -819,22 +836,22 @@ export default function UniversitiesGrid() {
                         <Globe2 className="text-[#D4AF37] w-4 h-4" />
                       </div>
                       <div>
-                        <div className="text-white font-bold text-lg">
+                        <div className="text-white font-bold text-base lg:text-lg">
                           <AnimatedCounter target={15} suffix="+" />
                         </div>
-                        <div className="text-white/50 text-xs">Countries</div>
+                        <div className="text-white/50 text-[10px] lg:text-xs">Countries</div>
                       </div>
                     </motion.div>
                   </div>
                 </motion.div>
 
-                <motion.div variants={slideInRight} layout={false} className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-end">
+                <motion.div variants={slideInRight} layout={false} className="flex flex-col sm:flex-row gap-3 lg:gap-4 justify-center lg:justify-end mt-4 lg:mt-0">
                   <Link href="/contact" passHref legacyBehavior>
                     <motion.a
                       whileHover={{ scale: 1.04 }}
                       whileTap={{ scale: 0.96 }}
                       transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-                      className="bg-gradient-to-r from-[#2F6BFF] to-[#5B8CFF] text-white px-8 py-4 rounded-xl font-semibold hover:shadow-xl hover:shadow-[#2F6BFF]/40 transition-all inline-block text-center cursor-pointer"
+                      className="bg-gradient-to-r from-[#2F6BFF] to-[#5B8CFF] text-white px-8 py-3 lg:py-4 rounded-xl font-semibold hover:shadow-xl hover:shadow-[#2F6BFF]/40 transition-all inline-block text-center cursor-pointer w-full sm:w-auto"
                     >
                       Talk to a Counselor
                     </motion.a>
@@ -844,7 +861,7 @@ export default function UniversitiesGrid() {
                       whileHover={{ scale: 1.04 }}
                       whileTap={{ scale: 0.96 }}
                       transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-                      className="border-2 border-[#D4AF37]/50 text-[#D4AF37] px-8 py-4 rounded-xl font-semibold hover:bg-[#D4AF37]/10 transition-all inline-block text-center cursor-pointer"
+                      className="border-2 border-[#D4AF37]/50 text-[#D4AF37] px-8 py-3 lg:py-4 rounded-xl font-semibold hover:bg-[#D4AF37]/10 transition-all inline-block text-center cursor-pointer w-full sm:w-auto"
                     >
                       View Destinations
                     </motion.a>

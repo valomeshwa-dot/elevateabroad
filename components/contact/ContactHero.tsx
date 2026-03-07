@@ -82,9 +82,9 @@ export default function ContactHero() {
         variants={staggerContainer}
         initial="hidden"
         animate="visible"
-        className="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-20 w-full"
+        className="relative z-10 max-w-7xl mx-auto px-6 pt-20 pb-8 lg:pt-32 lg:pb-20 w-full"
       >
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-16 items-center">
 
           {/* LEFT COLUMN */}
           <div>
@@ -116,7 +116,7 @@ export default function ContactHero() {
               </span>
             </motion.div>
 
-            <h1 className="font-heading text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.05] mb-6">
+            <h1 className="font-heading text-[2rem] lg:text-7xl font-bold text-white tracking-tight leading-tight lg:leading-[1.05] mb-6">
               <motion.span variants={fadeUp} transition={{ delay: 0.15 }} layout={false} className="block">Let&apos;s Start Your</motion.span>
               <span className="text-[#D4AF37] block">
                 <motion.span
@@ -142,7 +142,7 @@ export default function ContactHero() {
               variants={fadeUp}
               transition={{ delay: 0.35 }}
               layout={false}
-              className="text-white/60 text-lg max-w-lg leading-relaxed"
+              className="text-white/60 text-sm lg:text-lg max-w-lg leading-relaxed mb-4 lg:mb-8 line-clamp-2 lg:line-clamp-none"
             >
               Book a free consultation or reach out to our team. We are here to answer every question about your study abroad journey.
             </motion.p>
@@ -151,7 +151,7 @@ export default function ContactHero() {
               initial="hidden"
               animate="visible"
               variants={staggerContainer}
-              className="flex flex-wrap gap-3 mt-10"
+              className="flex flex-col lg:flex-row gap-2 lg:gap-4 mt-6 lg:mt-10"
             >
               {contactPills.map((pill, idx) => (
                 <motion.div
@@ -167,12 +167,12 @@ export default function ContactHero() {
                   whileHover={{ scale: 1.04, x: 4 }}
                   whileTap={{ scale: 0.97 }}
                   layout={false}
-                  className="bg-white/8 border border-white/15 rounded-2xl px-5 py-3 flex items-center gap-3 transition-colors hover:bg-white/12 hover:border-white/20 cursor-pointer"
+                  className="bg-white/8 border border-white/15 rounded-xl lg:rounded-2xl px-3 py-2 lg:px-5 lg:py-3 flex items-center gap-3 transition-colors hover:bg-white/12 hover:border-white/20 cursor-pointer w-full lg:w-auto"
                 >
-                  <div className="w-8 h-8 rounded-lg bg-[#D4AF37]/15 flex items-center justify-center card-icon">
-                    <span className="text-[#D4AF37]">{pill.icon}</span>
+                  <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-lg bg-[#D4AF37]/15 flex items-center justify-center card-icon">
+                    <span className="text-[#D4AF37] scale-90 lg:scale-100">{pill.icon}</span>
                   </div>
-                  <span className="text-white/70 text-sm font-medium">{pill.label}</span>
+                  <span className="text-white/70 text-sm lg:text-base font-medium">{pill.label}</span>
                 </motion.div>
               ))}
             </motion.div>
@@ -183,7 +183,7 @@ export default function ContactHero() {
             initial="hidden"
             animate="visible"
             variants={staggerContainer}
-            className="space-y-4"
+            className="hidden lg:block space-y-4"
           >
             {reasonCards.map((card, idx) => (
               <motion.div

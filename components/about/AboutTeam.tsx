@@ -72,7 +72,7 @@ const team: TeamMember[] = [
 
 export default function AboutTeam() {
   return (
-    <section id="about-team" className="bg-[#F6F8FC] py-24 overflow-hidden">
+    <section id="about-team" className="bg-[#F6F8FC] py-10 lg:py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* HEADER */}
@@ -82,7 +82,7 @@ export default function AboutTeam() {
           viewport={{ once: true, margin: '-60px' }}
           variants={staggerContainer}
           layout={false}
-          className="text-center mb-16"
+          className="text-center mb-6 lg:mb-16"
         >
           <motion.div variants={fadeUp} layout={false} className="flex items-center justify-center gap-3 mb-3">
             <motion.span
@@ -103,10 +103,10 @@ export default function AboutTeam() {
               className="h-px bg-[#D4AF37] block"
             />
           </motion.div>
-          <motion.h2 variants={fadeUp} transition={{ delay: 0.1 }} layout={false} className="font-heading text-5xl font-bold text-[#0F172A] tracking-tight mt-3">
+          <motion.h2 variants={fadeUp} transition={{ delay: 0.1 }} layout={false} className="font-heading text-2xl lg:text-5xl font-bold text-[#0F172A] tracking-tight mt-3">
             Meet Our Expert Counselors
           </motion.h2>
-          <motion.p variants={fadeUp} transition={{ delay: 0.2 }} layout={false} className="text-[#64748B] mt-4 max-w-xl mx-auto">
+          <motion.p variants={fadeUp} transition={{ delay: 0.2 }} layout={false} className="text-[#64748B] mt-4 max-w-xl mx-auto text-sm lg:text-base">
             Our counselors have personally studied abroad and bring real firsthand experience to guide every student on their journey.
           </motion.p>
         </motion.div>
@@ -118,34 +118,34 @@ export default function AboutTeam() {
           viewport={{ once: true, margin: '-60px' }}
           variants={staggerGrid}
           layout={false}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8"
         >
           {team.map((member, index) => (
             <motion.div
               key={index}
               variants={scaleUp}
               layout={false}
-              className="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm transition-all duration-300 card-hover flex flex-col"
+              className="bg-white rounded-2xl lg:rounded-3xl overflow-hidden border border-gray-100 shadow-sm transition-all duration-300 card-hover flex flex-col"
             >
 
               {/* CARD TOP BANNER */}
-              <div className={`h-32 relative bg-gradient-to-br ${member.gradient} rounded-t-3xl`}>
+              <div className={`h-20 lg:h-32 relative bg-gradient-to-br ${member.gradient} rounded-t-2xl lg:rounded-t-3xl`}>
                 <motion.div
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={viewport}
                   transition={{ delay: 0.3, duration: 0.6 }}
                   layout={false}
-                  className="absolute right-4 bottom-0 font-heading font-bold text-[100px] text-white/8 leading-none select-none"
+                  className="absolute right-4 bottom-0 lg:bottom-1 font-heading font-bold text-5xl lg:text-[100px] text-white/8 leading-none select-none"
                 >
                   {member.initials}
                 </motion.div>
 
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/20 p-4 h-16"></div>
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/20 p-4 h-12 lg:h-16"></div>
               </div>
 
               {/* Avatar wrapper */}
-              <div className="px-8 -mt-10 relative z-10">
+              <div className="px-6 lg:px-8 -mt-7 lg:-mt-10 relative z-10">
                 <motion.div
                   initial={{ opacity: 0, scale: 0.5, y: 10 }}
                   whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -157,14 +157,14 @@ export default function AboutTeam() {
                     damping: 20
                   }}
                   layout={false}
-                  className={`w-20 h-20 rounded-2xl border-4 border-white bg-gradient-to-br ${member.gradient} flex items-center justify-center text-white font-bold text-2xl font-heading shadow-xl`}
+                  className={`w-14 h-14 lg:w-20 lg:h-20 rounded-xl lg:rounded-2xl border-4 border-white bg-gradient-to-br ${member.gradient} flex items-center justify-center text-white font-bold text-base lg:text-2xl font-heading shadow-xl`}
                 >
                   {member.initials}
                 </motion.div>
               </div>
 
               {/* CARD BODY */}
-              <div className="pt-4 px-8 pb-8 flex flex-col flex-1">
+              <div className="pt-4 px-6 lg:px-8 pb-6 lg:pb-8 flex flex-col flex-1">
                 <motion.div
                   initial={{ opacity: 0, y: 8 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -172,8 +172,8 @@ export default function AboutTeam() {
                   transition={{ delay: 0.25, duration: 0.4 }}
                   layout={false}
                 >
-                  <h3 className="font-heading font-bold text-[#0F172A] text-xl">{member.name}</h3>
-                  <div className="text-[#2F6BFF] text-sm font-medium mt-1">{member.role}</div>
+                  <h3 className="font-heading font-bold text-[#0F172A] text-base lg:text-xl">{member.name}</h3>
+                  <div className="text-[#2F6BFF] text-xs lg:text-sm font-medium mt-0.5">{member.role}</div>
                 </motion.div>
 
                 <motion.div
@@ -186,9 +186,9 @@ export default function AboutTeam() {
                     stiffness: 400
                   }}
                   layout={false}
-                  className="inline-flex items-center gap-2 bg-[#D4AF37]/10 border border-[#D4AF37]/20 text-[#D4AF37] text-xs font-semibold px-3 py-2 rounded-xl mt-3 mb-5 self-start"
+                  className="inline-flex items-center gap-1.5 lg:gap-2 bg-[#D4AF37]/10 border border-[#D4AF37]/20 text-[#D4AF37] text-[10px] lg:text-xs font-semibold px-2 py-1 lg:px-3 lg:py-2 rounded-lg lg:rounded-xl mt-2 lg:mt-3 mb-3 lg:mb-5 self-start"
                 >
-                  <GraduationCap className="w-3.5 h-3.5" />
+                  <GraduationCap className="w-3 lg:w-3.5 h-3 lg:h-3.5" />
                   Studied at {member.university}
                 </motion.div>
 
@@ -198,7 +198,7 @@ export default function AboutTeam() {
                   whileInView="visible"
                   viewport={viewport}
                   layout={false}
-                  className="flex flex-wrap gap-2 mb-5"
+                  className="flex flex-wrap gap-1 lg:gap-2 mb-3 lg:mb-5"
                 >
                   {member.expertise.map((skill, i) => (
                     <motion.span
@@ -212,7 +212,7 @@ export default function AboutTeam() {
                         stiffness: 400
                       }}
                       layout={false}
-                      className="bg-[#F6F8FC] text-[#64748B] border border-gray-200 text-xs px-3 py-1.5 rounded-lg font-medium"
+                      className={`${i >= 2 ? 'hidden lg:inline-flex' : ''} bg-[#F6F8FC] text-[#64748B] border border-gray-200 text-[10px] lg:text-xs px-1.5 py-0.5 lg:px-3 lg:py-1.5 rounded-md lg:rounded-lg font-medium`}
                     >
                       {skill}
                     </motion.span>
@@ -225,9 +225,9 @@ export default function AboutTeam() {
                   viewport={viewport}
                   transition={{ delay: 0.4, duration: 0.4 }}
                   layout={false}
-                  className="flex items-center justify-between pt-5 border-t border-gray-100 mt-auto"
+                  className="flex items-center justify-between pt-4 lg:pt-5 border-t border-gray-100 mt-auto"
                 >
-                  <div className="text-[#64748B] text-xs">
+                  <div className="text-[#64748B] text-[10px] lg:text-xs">
                     {member.years} years experience
                   </div>
                   <a
@@ -239,9 +239,9 @@ export default function AboutTeam() {
                       whileHover={{ scale: 1.15, rotate: -5 }}
                       whileTap={{ scale: 0.9 }}
                       transition={{ duration: 0.2 }}
-                      className="w-8 h-8 rounded-lg bg-[#2F6BFF]/10 flex items-center justify-center cursor-pointer group card-icon"
+                      className="w-7 h-7 lg:w-8 lg:h-8 rounded-lg bg-[#2F6BFF]/10 flex items-center justify-center cursor-pointer group card-icon"
                     >
-                      <Linkedin className="w-4 h-4 text-[#2F6BFF] group-hover:text-white transition-all" />
+                      <Linkedin className="w-3.5 h-3.5 lg:w-4 lg:h-4 text-[#2F6BFF] group-hover:text-white transition-all" />
                     </motion.div>
                   </a>
                 </motion.div>

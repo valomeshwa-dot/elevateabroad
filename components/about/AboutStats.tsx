@@ -65,7 +65,7 @@ export default function AboutStats() {
         whileInView="visible"
         viewport={{ once: true, margin: '-60px' }}
         variants={staggerContainer}
-        className="bg-[#0A1F44] py-24 relative overflow-hidden"
+        className="bg-[#0A1F44] py-10 lg:py-24 relative overflow-hidden"
       >
 
         {/* Glow orbs */}
@@ -100,7 +100,7 @@ export default function AboutStats() {
         <div className="max-w-7xl mx-auto px-6 relative z-10">
 
           {/* HEADER */}
-          <div className="text-center mb-16 relative z-10">
+          <div className="text-center mb-6 lg:mb-16 relative z-10">
             <motion.div variants={fadeUp} layout={false} className="flex items-center justify-center gap-3 mb-3">
               <motion.span
                 initial={{ width: 0 }}
@@ -120,7 +120,7 @@ export default function AboutStats() {
                 className="h-px bg-[#D4AF37] block"
               />
             </motion.div>
-            <motion.h2 variants={fadeUp} transition={{ delay: 0.1 }} layout={false} className="font-heading text-5xl font-bold text-white tracking-tight mt-3">
+            <motion.h2 variants={fadeUp} transition={{ delay: 0.1 }} layout={false} className="font-heading text-2xl lg:text-5xl font-bold text-white tracking-tight mt-3">
               Our Track Record
               <motion.span
                 initial={{ opacity: 0, y: 8 }}
@@ -140,14 +140,14 @@ export default function AboutStats() {
             whileInView="visible"
             viewport={viewport}
             layout={false}
-            className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16 relative z-10"
+            className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-6 mb-6 lg:mb-16 relative z-10"
           >
             {stats.map((stat, idx) => (
               <motion.div
                 key={stat.label}
                 variants={scaleUp}
                 layout={false}
-                className="bg-white/6 border border-white/12 rounded-3xl p-10 text-center transition-all card-hover"
+                className="bg-white/6 border border-white/12 rounded-2xl lg:rounded-3xl p-4 lg:p-10 text-center transition-all card-hover"
               >
                 <motion.div
                   initial={{ scale: 0, rotate: -180 }}
@@ -160,26 +160,28 @@ export default function AboutStats() {
                     damping: 20
                   }}
                   layout={false}
-                  className="w-12 h-12 rounded-2xl mx-auto bg-[#D4AF37]/15 border border-[#D4AF37]/20 flex items-center justify-center card-icon"
+                  className="w-10 h-10 lg:w-16 lg:h-16 rounded-xl lg:rounded-2xl mx-auto bg-[#D4AF37]/15 border border-[#D4AF37]/20 flex items-center justify-center card-icon"
                 >
-                  <div className="text-[#D4AF37]">{stat.icon}</div>
+                  <div className="text-[#D4AF37] scale-75 lg:scale-100">{stat.icon}</div>
                 </motion.div>
-                <div className="font-heading font-bold text-white text-5xl mt-5">
+                <div className="font-heading font-bold text-white text-2xl lg:text-5xl mt-3 lg:mt-5">
                   <AnimatedCounter target={stat.target} suffix={stat.suffix} duration={stat.duration} />
                 </div>
-                <motion.div
-                  initial={{ width: 0 }}
-                  whileInView={{ width: 40 }}
-                  viewport={viewport}
-                  transition={{
-                    delay: 0.4 + idx * 0.1,
-                    duration: 0.6,
-                    ease: 'easeOut'
-                  }}
-                  layout={false}
-                  className="h-1 bg-[#D4AF37] rounded-full mx-auto mt-4"
-                />
-                <div className="text-white/50 text-sm uppercase tracking-widest mt-3">{stat.label}</div>
+                <div className="w-6 lg:w-10 mx-auto mt-1.5 lg:mt-4">
+                  <motion.div
+                    initial={{ width: 0 }}
+                    whileInView={{ width: "100%" }}
+                    viewport={viewport}
+                    transition={{
+                      delay: 0.4 + idx * 0.1,
+                      duration: 0.6,
+                      ease: 'easeOut'
+                    }}
+                    layout={false}
+                    className="h-0.5 lg:h-1 bg-[#D4AF37] rounded-full"
+                  />
+                </div>
+                <div className="text-white/50 text-[10px] lg:text-sm uppercase tracking-wider lg:tracking-widest mt-2 lg:mt-3">{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>
@@ -188,7 +190,7 @@ export default function AboutStats() {
       </motion.div>
 
       {/* SECTION B — Awards */}
-      <div className="bg-white py-20 overflow-hidden">
+      <div className="bg-white py-10 lg:py-20 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
 
           {/* HEADER */}
@@ -198,7 +200,7 @@ export default function AboutStats() {
             whileInView="visible"
             viewport={viewport}
             layout={false}
-            className="text-center mb-12"
+            className="text-center mb-6 lg:mb-16"
           >
             <motion.div variants={fadeUp} layout={false} className="flex items-center justify-center gap-3 mb-3">
               <motion.span
@@ -219,7 +221,7 @@ export default function AboutStats() {
                 className="h-px bg-[#D4AF37] block"
               />
             </motion.div>
-            <motion.h2 variants={fadeUp} transition={{ delay: 0.1 }} layout={false} className="font-heading text-4xl font-bold text-[#0F172A] tracking-tight mt-3">
+            <motion.h2 variants={fadeUp} transition={{ delay: 0.1 }} layout={false} className="font-heading text-2xl lg:text-4xl font-bold text-[#0F172A] tracking-tight mt-3">
               Awards & Achievements
             </motion.h2>
           </motion.div>
@@ -231,14 +233,14 @@ export default function AboutStats() {
             whileInView="visible"
             viewport={viewport}
             layout={false}
-            className="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto"
+            className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-6 max-w-5xl mx-auto"
           >
             {awards.map((award, idx) => (
               <motion.div
                 key={award.title}
                 variants={scaleUp}
                 layout={false}
-                className="bg-[#F6F8FC] rounded-3xl p-8 text-center border border-gray-100 transition-all duration-300 card-hover card-hover-gold"
+                className="bg-[#F6F8FC] rounded-2xl lg:rounded-3xl p-4 lg:p-8 text-center border border-gray-100 transition-all duration-300 card-hover card-hover-gold"
               >
                 <motion.div
                   initial={{ scale: 0, y: 10 }}
@@ -251,9 +253,9 @@ export default function AboutStats() {
                     damping: 15
                   }}
                   layout={false}
-                  className="w-16 h-16 rounded-2xl mx-auto bg-[#D4AF37]/10 border border-[#D4AF37]/20 flex items-center justify-center card-icon"
+                  className="w-10 h-10 lg:w-16 lg:h-16 rounded-xl lg:rounded-2xl mx-auto bg-[#D4AF37]/10 border border-[#D4AF37]/20 flex items-center justify-center card-icon"
                 >
-                  <div className="text-[#D4AF37]">{award.icon}</div>
+                  <div className="text-[#D4AF37] scale-75 lg:scale-100">{award.icon}</div>
                 </motion.div>
                 <motion.div
                   initial={{ opacity: 0, scale: 0.5 }}
@@ -265,7 +267,7 @@ export default function AboutStats() {
                     stiffness: 500
                   }}
                   layout={false}
-                  className="bg-[#0A1F44] text-white text-xs font-bold px-3 py-1 rounded-full mx-auto mt-4 inline-block"
+                  className="bg-[#0A1F44] text-white text-[10px] lg:text-xs font-bold px-2 lg:px-3 py-0.5 lg:py-1 rounded-full mx-auto mt-2 lg:mt-4 inline-block"
                 >
                   {award.year}
                 </motion.div>
@@ -278,7 +280,7 @@ export default function AboutStats() {
                     duration: 0.4
                   }}
                   layout={false}
-                  className="font-heading font-bold text-[#0F172A] text-sm mt-4 leading-tight"
+                  className="font-heading font-bold text-[#0F172A] text-xs lg:text-sm mt-3 lg:mt-4 leading-tight"
                 >
                   {award.title}
                 </motion.p>
@@ -293,23 +295,23 @@ export default function AboutStats() {
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
             layout={false}
-            className="bg-gradient-to-r from-[#2F6BFF] to-[#5B8CFF] rounded-3xl p-10 mt-16 max-w-5xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8"
+            className="bg-gradient-to-r from-[#2F6BFF] to-[#5B8CFF] rounded-2xl lg:rounded-3xl p-6 lg:p-10 mt-8 lg:mt-16 max-w-5xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-8"
           >
-            <motion.div variants={slideInLeft} layout={false}>
-              <motion.h3 variants={fadeUp} transition={{ delay: 0.1 }} layout={false} className="font-heading text-2xl font-bold text-white">
+            <motion.div variants={slideInLeft} layout={false} className="text-center lg:text-left">
+              <motion.h3 variants={fadeUp} transition={{ delay: 0.1 }} layout={false} className="font-heading text-xl lg:text-3xl font-bold text-white">
                 Ready to join our success story?
               </motion.h3>
-              <motion.p variants={fadeUp} transition={{ delay: 0.2 }} layout={false} className="text-white/70 text-base mt-2">
+              <motion.p variants={fadeUp} transition={{ delay: 0.2 }} layout={false} className="hidden lg:block text-white/70 text-base mt-2">
                 Book a free consultation with our experts today.
               </motion.p>
             </motion.div>
-            <motion.div variants={slideInRight} layout={false}>
+            <motion.div variants={slideInRight} layout={false} className="w-full lg:w-auto">
               <Link href="/contact" passHref legacyBehavior>
                 <motion.a
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.96 }}
                   transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-                  className="bg-white text-[#2F6BFF] px-8 py-4 rounded-xl font-bold hover:shadow-xl hover:bg-[#F6F8FC] transition-all inline-block whitespace-nowrap cursor-pointer"
+                  className="bg-white text-[#2F6BFF] px-8 py-3 lg:py-4 rounded-xl font-bold hover:shadow-xl hover:bg-[#F6F8FC] transition-all inline-block whitespace-nowrap cursor-pointer w-full text-center lg:text-left"
                 >
                   Book Free Consultation →
                 </motion.a>
