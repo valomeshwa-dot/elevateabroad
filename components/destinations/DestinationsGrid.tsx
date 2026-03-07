@@ -11,6 +11,7 @@ const countries = [
   {
     id: 'usa',
     code: 'US',
+    flagCode: 'us',
     name: 'United States',
     region: 'Americas',
     gradient: 'from-blue-700 to-red-600',
@@ -40,6 +41,7 @@ const countries = [
   {
     id: 'uk',
     code: 'UK',
+    flagCode: 'gb',
     name: 'United Kingdom',
     region: 'Europe',
     gradient: 'from-blue-800 to-indigo-600',
@@ -69,6 +71,7 @@ const countries = [
   {
     id: 'canada',
     code: 'CA',
+    flagCode: 'ca',
     name: 'Canada',
     region: 'Americas',
     gradient: 'from-red-700 to-red-500',
@@ -98,6 +101,7 @@ const countries = [
   {
     id: 'australia',
     code: 'AU',
+    flagCode: 'au',
     name: 'Australia',
     region: 'Asia Pacific',
     gradient: 'from-yellow-600 to-orange-500',
@@ -127,6 +131,7 @@ const countries = [
   {
     id: 'germany',
     code: 'DE',
+    flagCode: 'de',
     name: 'Germany',
     region: 'Europe',
     gradient: 'from-gray-800 to-gray-600',
@@ -156,6 +161,7 @@ const countries = [
   {
     id: 'ireland',
     code: 'IE',
+    flagCode: 'ie',
     name: 'Ireland',
     region: 'Europe',
     gradient: 'from-green-700 to-emerald-500',
@@ -302,8 +308,13 @@ export default function DestinationsGrid() {
 
                   <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black/30 to-transparent"></div>
 
-                  <div className="absolute top-4 left-6 w-10 h-10 lg:w-14 lg:h-14 rounded-xl bg-white/20 backdrop-blur border border-white/30 flex items-center justify-center font-heading font-bold text-white text-base lg:text-xl">
-                    {country.code}
+                  <div className="absolute top-4 left-6 w-10 h-8 lg:w-12 lg:h-9 rounded-lg overflow-hidden shadow-md flex-shrink-0">
+                    <img
+                      src={`https://flagcdn.com/w80/${country.flagCode}.png`}
+                      alt={`${country.name} flag`}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
                   </div>
 
                   <div className="absolute bottom-4 left-6 font-heading text-xl lg:text-2xl font-bold text-white">

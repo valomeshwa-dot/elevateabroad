@@ -7,12 +7,12 @@ import PixelGrid from '@/components/ui/PixelGrid'
 
 export default function DestinationsHero() {
   const cards = [
-    { code: "US", name: "United States", detail: "4,000+ Universities", gradient: "bg-gradient-to-br from-blue-700 to-red-600" },
-    { code: "UK", name: "United Kingdom", detail: "150+ Universities", gradient: "bg-gradient-to-br from-blue-800 to-blue-600" },
-    { code: "CA", name: "Canada", detail: "100+ Universities", gradient: "bg-gradient-to-br from-red-700 to-red-500" },
-    { code: "AU", name: "Australia", detail: "43+ Universities", gradient: "bg-gradient-to-br from-yellow-600 to-orange-500" },
-    { code: "DE", name: "Germany", detail: "400+ Universities", gradient: "bg-gradient-to-br from-gray-700 to-gray-500" },
-    { code: "IE", name: "Ireland", detail: "30+ Universities", gradient: "bg-gradient-to-br from-green-700 to-green-500" }
+    { flag: "us", name: "United States", detail: "4,000+ Universities" },
+    { flag: "gb", name: "United Kingdom", detail: "150+ Universities" },
+    { flag: "ca", name: "Canada", detail: "100+ Universities" },
+    { flag: "au", name: "Australia", detail: "43+ Universities" },
+    { flag: "de", name: "Germany", detail: "400+ Universities" },
+    { flag: "ie", name: "Ireland", detail: "30+ Universities" }
   ];
 
   return (
@@ -176,8 +176,13 @@ export default function DestinationsHero() {
                     whileTap={{ scale: 0.97 }}
                     className="bg-white/8 border border-white/12 rounded-2xl p-4 flex items-center gap-4 hover:bg-white/15 hover:border-[#D4AF37]/40 transition-all duration-200 cursor-pointer group card-hover text-left"
                   >
-                    <div className={`country-badge w-14 h-14 rounded-xl flex-shrink-0 flex items-center justify-center font-heading font-bold text-white text-base ${card.gradient} transition-transform duration-300 group-hover:scale-110`}>
-                      {card.code}
+                    <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-xl overflow-hidden flex-shrink-0 shadow-md group-hover:scale-110 transition-transform duration-300">
+                      <img
+                        src={`https://flagcdn.com/w80/${card.flag}.png`}
+                        alt={card.name}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
                     </div>
                     <div>
                       <h3 className="text-white font-semibold text-sm">{card.name}</h3>
